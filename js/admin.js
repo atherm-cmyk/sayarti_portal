@@ -917,6 +917,7 @@
   /* ===== Customer 360° Detail Page ===== */
   function customerDetailPage(urlId) {
     const id = urlId || sessionStorage.getItem('sayarti_view_customer');
+    if (!id) { location.hash = '#/customers'; return ''; }
     const customers = getCustomers();
     // Also check portal-registered users
     const registered = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
