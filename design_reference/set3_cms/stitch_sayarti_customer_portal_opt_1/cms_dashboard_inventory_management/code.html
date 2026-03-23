@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#e3e2e2",
+                        "outline": "#936e6a",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00619e",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "on-primary-fixed": "#410002",
+                        "primary-container": "#eb0a1e",
+                        "surface-tint": "#c00014",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "secondary-container": "#e3e2e2",
+                        "primary": "#bd0014",
+                        "surface-variant": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "inverse-primary": "#ffb4ab",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#93000d",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed-dim": "#ffb4ab",
+                        "on-surface-variant": "#5e3f3b",
+                        "on-tertiary-container": "#fffeff",
+                        "surface-container": "#eeeeee",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#e9bcb7",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#646464",
+                        "on-primary-container": "#fffeff",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary": "#5e5e5e",
+                        "tertiary-container": "#007ac6",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed": "#d0e4ff",
+                        "background": "#f9f9f9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-70 z-50 bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 flex flex-col p-6 space-y-2 font-manrope text-sm font-medium">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div>
+<h1 class="text-lg font-extrabold tracking-tighter text-red-600 leading-none">Sayarti CMS</h1>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mt-1">Precision Curator</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="insert_chart">insert_chart</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-900 dark:text-white bg-zinc-200/50 dark:bg-zinc-800/50 rounded-md transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="view_carousel">view_carousel</span>
+<span>Banners</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-md font-bold tracking-tight shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 mb-8">
+<span class="material-symbols-outlined text-sm">add</span>
+            New Product
+        </button>
+<div class="pt-6 border-t border-zinc-200 dark:border-zinc-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 hover:text-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 hover:text-red-600 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-70 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-280px)] z-40 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-md shadow-sm dark:shadow-none h-16 flex justify-between items-center px-8 font-manrope antialiased tracking-tight">
+<div class="flex items-center gap-6 w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">search</span>
+<input class="w-full bg-zinc-100 dark:bg-zinc-900 border-none rounded-md py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Search inventory by SKU or name..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<button class="p-2 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-zinc-200 dark:bg-zinc-800 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden xl:block">
+<p class="text-xs font-bold text-zinc-900 dark:text-zinc-50">Admin User</p>
+<p class="text-[10px] text-zinc-500">System Administrator</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="Admin User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLrB6fXt5dPjJ64kCEqdROvv-Xbw9VpMmOLV4YkT0K1a6gMhA3-1Q4VFaHLBOS8vED9wGVMQ51YXgmzw6cdUDdIXuwFBfgoG-BJzEN2envBaBqWua-JGlQCJJbOXbjKRODQ8lt3ga7XnPNRVdXQpDF08aVPgro0TtVFrpd4GxsKXvX1abmWZCiJy1GbaIbxT0faK4xoQsD0sVAzxHa-62Xtuse-sksDZtJB-YtWpMLkMgM21VKSbmiQez8zS9Q_s8ScWp7GajoSAE"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-24 px-8 pb-12">
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-32 group hover:bg-surface-container-lowest transition-all">
+<div class="flex justify-between items-start relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-secondary uppercase">Total SKUs</span>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary transition-colors">category</span>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">1,482</h2>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl">inventory_2</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-32 group hover:bg-surface-container-lowest transition-all">
+<div class="flex justify-between items-start relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-secondary uppercase">Low Stock Items</span>
+<span class="material-symbols-outlined text-amber-500">warning</span>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">24</h2>
+<p class="text-[10px] text-amber-600 font-semibold">Requires Attention</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">priority_high</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-32 group hover:bg-surface-container-lowest transition-all">
+<div class="flex justify-between items-start relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-secondary uppercase">Out of Stock</span>
+<span class="material-symbols-outlined text-red-600">error</span>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">07</h2>
+<p class="text-[10px] text-red-600 font-semibold">Critical Action Needed</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">block</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-32 group hover:bg-surface-container-lowest transition-all lg:flex hidden">
+<div class="flex justify-between items-start relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-secondary uppercase">Inventory Value</span>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">KWD 12.4K</h2>
+<p class="text-[10px] text-secondary font-semibold">Accessories &amp; Merch</p>
+</div>
+</div>
+</div>
+<!-- Inventory Controls Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<h3 class="text-2xl font-extrabold tracking-tight text-on-surface">Detailed Inventory</h3>
+<p class="text-sm text-secondary">Manage and monitor stock levels across all regional warehouses.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-surface-container-low rounded-md p-1">
+<button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white shadow-sm text-on-surface">All</button>
+<button class="px-4 py-1.5 text-xs font-bold text-secondary hover:text-on-surface transition-colors">Accessory</button>
+<button class="px-4 py-1.5 text-xs font-bold text-secondary hover:text-on-surface transition-colors">Merchandise</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-low border-none text-on-surface text-xs font-bold rounded-md hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        Status
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white text-xs font-bold rounded-md hover:bg-black transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export CSV
+                    </button>
+</div>
+</div>
+<!-- Inventory Data Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container">
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">SKU</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Product Name</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Category</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Current Stock</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Reorder Point</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase">Location</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-secondary uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Item 1: In Stock -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-secondary font-semibold">SY-ACC-1029</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Black luxury car key fob cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMXBfyBDvO3A_dju2q7QGJ-wiKTo8bkEsofoVMXvKfh0USJgyqefVdlxRdlp6ypQoqvItKRa7DGFTiBL8rkJNZh4L-W7w0a3lG_GxPx_-dZxSJUI_yZFdTaTv51YrDKIVadwFfljGQccfBZA1F6XIjJntumowEkio8IWNbSRoJzg8pU_zpSgMBxe23yy9idto_cd9tXFUdsvSzUQtcupUAioobrYowSDk1QgIm5mqegQrMO4Gy9C__nZYC-Z66HOHQjaiNHWI5HKs"/>
+</div>
+<span class="text-sm font-bold text-on-surface">Leather Key Fob Cover</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-bold px-2 py-1 bg-secondary-container text-on-secondary-container">ACCESSORY</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<input class="w-16 bg-surface-container-high border-none rounded py-1 px-2 text-xs font-bold text-center focus:ring-1 focus:ring-primary" type="number" value="142"/>
+<span class="text-[10px] text-secondary font-medium">units</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary font-medium">25</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">In Stock</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-secondary">Shuwaikh WH-A</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+</td>
+</tr>
+<!-- Item 2: Low Stock -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-secondary font-semibold">SY-MER-4421</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="White branded polo shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-s9KxehEIjH1SojlQe_jTZH2XkUXgSBC-_EIL6ucIJ6uvvCz2xtjeCWzLZNkLyfIg6EFht8PPf2X3viWbCXFKPr-0uhTJAlh2iDqLsQM-2nJo8yHdZJc4DqLKFguwNgOY_3gXMGL2WZOqmOcXdlPTEOkofYqhrrP8eSMYWPAzH3IT_jwexXs9uHlqL1dIDE1UJVi0vd4_V-aMMQgoWNZWmIe4hhGunYUALUmk2B89wDAmFwNOv6vHvQwHwabW3pp5rS81ei77ow8"/>
+</div>
+<span class="text-sm font-bold text-on-surface">AlSayer Racing Polo (M)</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant">MERCHANDISE</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<input class="w-16 bg-white border border-amber-300 rounded py-1 px-2 text-xs font-bold text-center focus:ring-1 focus:ring-amber-500" type="number" value="12"/>
+<span class="text-[10px] text-amber-600 font-bold">!</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary font-medium">15</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="text-[10px] font-bold text-amber-600 uppercase">Low Stock</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-secondary">Ahmadi Hub</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+</td>
+</tr>
+<!-- Item 3: Out of Stock -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group bg-red-50/20">
+<td class="px-6 py-5 font-mono text-xs text-secondary font-semibold">SY-ACC-9902</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="High performance car air filter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5QB3oSL_m1cRkXYS-gzThflwt57wddnl_eMbH8NtggTMirloJFIUodzipxjrJxf4VtDIAb3ipi9HxhdQUSo2okKTjSqMvCBnp8q7breOgZY8-F3MT8ZmLPXYb15tlgIuhirtUteD5C5h-MukSPfKOE7BN4mZKa-YEc9J-zUT32WjZ6kAGM3a5T-bxjD2gf83xJZEhiq9-TSyl51I-Zr8Vupmq6aaknCa06kp7WFqxUTXL_L59OlcX7ogpAL9IftdKOnbl-GpVE1I"/>
+</div>
+<span class="text-sm font-bold text-on-surface">Performance Air Filter</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-bold px-2 py-1 bg-secondary-container text-on-secondary-container">ACCESSORY</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<input class="w-16 bg-red-100 border border-red-200 text-red-700 rounded py-1 px-2 text-xs font-bold text-center focus:ring-1 focus:ring-red-600" type="number" value="0"/>
+<span class="text-[10px] text-red-600 font-bold">X</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary font-medium">10</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-red-600"></span>
+<span class="text-[10px] font-bold text-red-600 uppercase">Out of Stock</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-secondary">Main Warehouse</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+</td>
+</tr>
+<!-- Item 4: Regular Item -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-secondary font-semibold">SY-MER-1182</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Stainless steel branded water bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtfIoekV_0hN_cFKB5kssw41V7GdBVVQ1sZJ10SMxhxhBSIfXFk4wtRJguZbLlAnewn3J_xMwZvkyE5l4TKLD4X_e_lDWyFCieyEZsOwjzJ05UFPvtfAW0N2CRCBJLOTCdqyJp-Sx83gxVzyUCgzaJQ6NduwNmy-gneOMnZqPXdV8mh8qyOxHkyxTkYojWtau1BmNA4p8LhNbYfc4j5IXK_zVu_2iQMBGnNEMFTgZH2WVhYfutTf35ClEP3BYM5sqmJRiBeLVvQ7s"/>
+</div>
+<span class="text-sm font-bold text-on-surface">Insulated Travel Mug</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant">MERCHANDISE</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<input class="w-16 bg-surface-container-high border-none rounded py-1 px-2 text-xs font-bold text-center focus:ring-1 focus:ring-primary" type="number" value="84"/>
+<span class="text-[10px] text-secondary font-medium">units</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary font-medium">20</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">In Stock</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-secondary">Fahaheel Showroom</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low flex justify-between items-center">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest">Showing 4 of 1,482 Products</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white text-secondary hover:text-on-surface shadow-sm transition-all active:scale-90">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white shadow-md font-bold text-[10px]">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white text-secondary hover:text-on-surface shadow-sm transition-all active:scale-90 text-[10px] font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white text-secondary hover:text-on-surface shadow-sm transition-all active:scale-90 text-[10px] font-bold">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white text-secondary hover:text-on-surface shadow-sm transition-all active:scale-90">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Detailed Stats Asymmetric Grid -->
+<div class="grid grid-cols-12 gap-6 mt-10">
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-lg p-6">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-sm font-extrabold tracking-tight uppercase text-secondary">Warehouse Distribution</h4>
+<span class="material-symbols-outlined text-zinc-400">info</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-32 truncate">Shuwaikh WH-A</span>
+<div class="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="text-[10px] font-mono font-bold w-12 text-right">85%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-32 truncate">Ahmadi Hub</span>
+<div class="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[42%]"></div>
+</div>
+<span class="text-[10px] font-mono font-bold w-12 text-right">42%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-32 truncate">Main Warehouse</span>
+<div class="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+<span class="text-[10px] font-mono font-bold w-12 text-right">98%</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-lg p-6 text-white flex flex-col justify-between">
+<div>
+<h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 mb-2">Replenishment Engine</h4>
+<p class="text-lg font-medium leading-tight">7 Urgent restock orders generated today.</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-white text-zinc-900 text-xs font-extrabold py-3 rounded-md hover:bg-zinc-100 transition-colors">
+                            Review Purchase Orders
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB for quick stock take -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</button>
+</body></html>

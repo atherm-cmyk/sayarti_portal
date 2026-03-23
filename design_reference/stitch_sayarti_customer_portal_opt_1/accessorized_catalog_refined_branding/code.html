@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#fcf9f8",
+              "tertiary": "#00619e",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "on-tertiary-fixed": "#001d35",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#5e3f3b",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#d0e4ff",
+              "tertiary-container": "#007ac6",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-primary": "#ffffff",
+              "surface-container": "#f0eded",
+              "primary-container": "#eb0a1e",
+              "surface-container-highest": "#e5e2e1",
+              "surface-container-high": "#eae7e7",
+              "inverse-on-surface": "#f3f0ef",
+              "surface-dim": "#dcd9d9",
+              "secondary": "#5d5e60",
+              "on-secondary-container": "#626365",
+              "outline": "#936e6a",
+              "inverse-surface": "#313030",
+              "on-primary-fixed": "#410002",
+              "on-primary-fixed-variant": "#93000d",
+              "on-surface": "#1c1b1b",
+              "on-primary-container": "#fffeff",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed": "#ffdad6",
+              "outline-variant": "#e9bcb7",
+              "on-tertiary-container": "#fffeff",
+              "on-tertiary-fixed-variant": "#00497a",
+              "tertiary-fixed-dim": "#9ccaff",
+              "background": "#fcf9f8",
+              "secondary-container": "#e0dfe1",
+              "primary": "#bd0014",
+              "on-secondary-fixed-variant": "#464749",
+              "surface-variant": "#e5e2e1",
+              "surface-bright": "#fcf9f8",
+              "inverse-primary": "#ffb4ab",
+              "surface-tint": "#c00014",
+              "secondary-fixed": "#e3e2e4",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#1a1c1d"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-shadow-premium {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-primary border-b-2 border-primary pb-1 hover:opacity-80 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary transition-colors duration-200" href="#" style="">Locations</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 h-[1px]"></div>
+</nav>
+<main class="flex-grow">
+<!-- Hero Section / Breadcrumb -->
+<section class="bg-surface-container-low px-8 py-12">
+<div class="max-w-screen-2xl mx-auto">
+<span class="font-label text-xs uppercase tracking-widest text-primary font-bold">Catalog</span>
+<h1 class="font-headline text-5xl font-extrabold tracking-tight mt-2 text-on-background">ACCESSORIZED <span style="color: #EB0A1E; font-size: 0.6em; display: inline-block; margin-left: 0.5rem;">REFLECTS YOU</span></h1>
+<p class="mt-4 text-zinc-600 max-w-2xl text-lg">Elevate your Toyota with premium cosmetic trims, signature styling kits, and precision-engineered wheels designed for the bold.</p>
+</div>
+</section>
+<!-- Filters & Category Chips -->
+<section class="px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-wrap gap-3 items-center">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label text-sm font-bold shadow-sm transition-transform active:scale-95">All Accessories</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label text-sm font-bold hover:bg-surface-container-highest transition-colors">Exterior Trims</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label text-sm font-bold hover:bg-surface-container-highest transition-colors">Special Wheels</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label text-sm font-bold hover:bg-surface-container-highest transition-colors">Styling Kits</button>
+<div class="ml-auto flex items-center gap-2 text-zinc-500 font-label text-sm">
+<span>Sort by:</span>
+<button class="flex items-center gap-1 font-bold text-on-background">Newest <span class="material-symbols-outlined text-sm">expand_more</span></button>
+</div>
+</div>
+</section>
+<!-- Product Bento Grid -->
+<section class="px-8 pb-24 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Featured Product -->
+<div class="md:col-span-8 group relative bg-surface-container-lowest overflow-hidden">
+<div class="absolute top-6 left-6 z-10 flex flex-col gap-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 text-xs font-bold uppercase tracking-tighter">New Arrival</span>
+</div>
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of black luxury alloy wheels on a modern SUV" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMwaXGluacnzC3Oh9V9ztV5X-bGPWBMiCZgdxHpJ7kGygKMPM95xhsyr9XW6OToEGos86c3C6oPTjqW6xrJmWQi05S4yFJzUz-SBCBet1uIPZU-1RiwKGvRoB6H8wAm9S7ciZDFNq7G9CE25dgS3yDJ0KweYjBJo2ajb96nW6ON4XOcetxZ-66Acpn4xy4tjyuJsjjDr425LgoltT35Iqh7vl3b3Th4sxbiDT0k06v1wOHP1sUSRbaKVNr3RKB9MiU5ag79UhAQdc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-8 text-white w-full flex justify-between items-end">
+<div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">Midnight Edition Styling Kit</h3>
+<p class="text-white/80 mt-1 max-w-md">Precision crafted aerodynamic package with gloss black finishes for Land Cruiser.</p>
+</div>
+<div class="text-right">
+<span class="block text-sm font-label opacity-70">Price</span>
+<span class="text-2xl font-bold font-headline">1,450.000 KWD</span>
+<button class="mt-4 flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all hover:pr-8">
+                                Add to Quote <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Product -->
+<div class="md:col-span-4 group bg-surface-container-low flex flex-col overflow-hidden">
+<div class="p-6 relative">
+<span class="absolute top-6 left-6 z-10 bg-on-background text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Premium Pick</span>
+<div class="aspect-square bg-white mb-6">
+<img class="w-full h-full object-contain p-8 group-hover:rotate-12 transition-transform duration-500" data-alt="21 inch matte black forged aluminium wheel rim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxpeH-PTGaTK4wKJotzC6t7ERQC1p9kxP0ugGS-UgDHz-KVIEl5wHapvNNAC3j1Kp1tgD6B3JOt-KDInfUFoWnWZW8bIGbVAeyJJGca03wZrBUA9T9lOKPEciARQ2OuzUf5qc8R-WgqoQ4JXjqWxiQa1bgL5P4gql_OZlvH5399-Hs5fzR6rUM9JhPVNV26aQ9Zt9X74p7wlLoUWvEZbmgB0PiOBNHPRofNZJbkvqSudeFAu1nSOajuzElaa_nypTMkdYudIfyiOE"/>
+</div>
+<h4 class="font-headline text-xl font-bold text-on-background">21" TRD Forged Alloy Wheels</h4>
+<p class="text-zinc-500 text-sm mt-2">Set of 4 wheels. Lightweight performance meets rugged durability.</p>
+<div class="mt-8 flex justify-between items-center">
+<span class="text-xl font-bold font-headline">840.000 KWD</span>
+<button class="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Grid Item 3 -->
+<div class="md:col-span-4 group bg-surface-container-low overflow-hidden">
+<div class="relative aspect-[4/3]">
+<span class="absolute top-4 left-4 z-10 bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold uppercase">New</span>
+<img class="w-full h-full object-cover" data-alt="Chrome door handle and mirror covers for luxury sedan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCstvfEc7T2UDmZ39cmzs7kFnVBU9FYg98EP9vMnMGgBcBQJmkD-GSL1gbpGMbZMoXwMNHM7DG17wkGTXewCJPd2zJTDw1M0yuVBacSCii9MuZExw4xngHo4lEbO7dnsxlAcWgvrF8io6wMX5slYchgAUOaBnxi2tjrupculrbdT59_BNBxPEwJMeUGzuYfxa6uq4DMPLd2Ob76VD3w9VHIgxDI3hDjya7vYzz3fpuS2E0gezhxCYpOP98H2Qt5jMZdbpYAbm2kP_0"/>
+</div>
+<div class="p-6">
+<h4 class="font-headline text-lg font-bold">Signature Chrome Accents</h4>
+<p class="text-zinc-500 text-sm mt-1">Full set of window and mirror trim overlays.</p>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-lg font-bold font-headline">125.000 KWD</span>
+<span class="material-symbols-outlined text-zinc-300">shopping_bag</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 4 -->
+<div class="md:col-span-4 group bg-surface-container-low overflow-hidden">
+<div class="relative aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="Front lip spoiler for sport compact car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvV38qoeHY5JVcGTYKPHa0JjrcgdpxLvbJNI2zsg2rtEDcnXSwsw7RJlmaWiC7YJPJNz3WnwJS6z-F9Ng50A3kkty8RmrJDxQmGAt9y6dnN_vkJmYQNEsJZzjODhhy8PIAex1APzTIg_usIl2ETqsyZ-HXKxmZ-15KrNnkHSE9QfS5GdsmHgBl2yS445bcHj69QDlXdyvBVeas_qLAQIsKQibLZGSEEVnAiUaDlp0oU0t-bd600kheXizm5Yn9I6yyd08B7jGnxdU"/>
+</div>
+<div class="p-6">
+<h4 class="font-headline text-lg font-bold">Aero Front Lip Spoiler</h4>
+<p class="text-zinc-500 text-sm mt-1">Aggressive front-end styling for Camry Sport.</p>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-lg font-bold font-headline">210.000 KWD</span>
+<span class="material-symbols-outlined text-zinc-300">shopping_bag</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 5 -->
+<div class="md:col-span-4 group bg-surface-container-low overflow-hidden">
+<div class="relative aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="LED illuminated door sill with car brand logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOOWc9zvicEcp7jXocpBTVARmidSWcgZmYw-HgrxK3dIozNY0W8mBTqTac7ogxdmU_JKpUB1Comd8ar_AxpYtohapaIp-8s5EgaJbK3SiAC5L6lIO-smlB2mPHuk3S8WYgjkZo4odl_fdoaN5YwugMUQiNDjqr8FzsS2B1q9tAKsz_G-fHyDgBLfCJPICHMwWGorOXQMXI_2wIAtAT_UIhoVOhB17OD4eGiS0Rhr6Xr7sfMSAKO8_yT4SKn_y7pfIk_9t8nxQ5WAc"/>
+</div>
+<div class="p-6">
+<h4 class="font-headline text-lg font-bold">Illuminated Scuff Plates</h4>
+<p class="text-zinc-500 text-sm mt-1">Soft LED entry lighting with vehicle branding.</p>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-lg font-bold font-headline">85.000 KWD</span>
+<span class="material-symbols-outlined text-zinc-300">shopping_bag</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 6 - Wide Technical Card -->
+<div class="md:col-span-12 bg-surface-container-highest p-12 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
+<div class="md:w-1/2">
+<h3 class="font-headline text-4xl font-extrabold tracking-tight">Customized for Perfection</h3>
+<p class="mt-6 text-zinc-600 text-lg leading-relaxed">Our styling kits are engineered to the exact dimensions of your Toyota. No modifications, no compromises. Experience the perfect fit and finish that only genuine accessories can provide.</p>
+<div class="mt-10 flex gap-8">
+<div>
+<span class="block text-2xl font-bold text-primary">100%</span>
+<span class="text-xs uppercase tracking-widest text-zinc-500 font-bold">OEM Guaranteed</span>
+</div>
+<div>
+<span class="block text-2xl font-bold text-primary">2 Year</span>
+<span class="text-xs uppercase tracking-widest text-zinc-500 font-bold">Warranty Included</span>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<img class="opacity-40 grayscale mix-blend-multiply" data-alt="Blueprint style technical drawing of a vehicle chassis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI3tCP5agqy8ZiBw_SU8R2_ERIosZRURAIbEZj8yUP2Fa-Ppa-M6rq9nAy2_a2qKtL332M44Qjp2jCssRuWTTqN-b0vN5KpwXxYnwy0DL3SRV-kHUbvNggAStHIkkFFXEkjtVTaZTyCjWSb45YzjTorBG72yNk26qWBNX6dFtRKAykkSzQVbtcHul4u3wm-8rf9HvOlVsTwRTxsPvT2_ZJb3OCfPvqALNJujfNA9sofpL4ABW4CSf1ljEn0DA-clzfafIQCYqpiKU"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="bg-primary text-on-primary px-8 py-4 font-bold shadow-xl transition-transform active:scale-95">Book Professional Fitting</button>
+</div>
+</div>
+</div>
+</div>
+</section><!-- Pagination -->
+<div class="mt-16 mb-24 flex items-center justify-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 text-zinc-400 hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 font-bold text-sm">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 font-bold text-sm">3</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 text-zinc-400 hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white py-12 px-8 border-t border-zinc-100">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div class="flex flex-col gap-6 max-w-sm">
+<div class="flex items-center justify-start">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</div>
+<p class="font-body text-sm text-zinc-600 leading-relaxed">Enhance every drive with Genuine Toyota Accessories from Sayarti by AlSayer. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-zinc-400 font-manrope text-[11px] font-semibold tracking-wide uppercase">© 2026 Sayarti By AlSayer. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest">Navigation</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li><a class="hover:text-primary transition-colors" href="#">Sayarti Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest">Legal</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Use</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest">Social Media</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-[18px]">camera</span> Instagram</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-[18px]">smart_display</span> YouTube</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-[18px]">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe pt-2 bg-surface dark:bg-zinc-900 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-zinc-100 dark:border-zinc-800 z-50">
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-4 py-2 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest mt-1">Protected</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-4 py-2 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">terrain</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest mt-1">Off-Grid</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-4 py-2 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest mt-1">Connected</span>
+</div>
+<div class="flex flex-col items-center justify-center text-red-600 dark:text-red-500 bg-red-50 dark:bg-red-900/20 rounded-xl px-4 py-2 Active: scale-95 transition-all">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest mt-1">Accessorized</span>
+</div>
+</div>
+</body></html>

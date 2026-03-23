@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sayarti Admin - Products Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f3f3",
+              "tertiary-fixed-dim": "#9ccaff",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e2e2e2",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eeeeee",
+              "on-secondary-fixed": "#1b1c1c",
+              "outline-variant": "#e9bcb7",
+              "on-background": "#1a1c1c",
+              "on-secondary-fixed-variant": "#464747",
+              "secondary-fixed": "#e3e2e2",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-secondary-container": "#646464",
+              "surface-variant": "#e2e2e2",
+              "surface-container-high": "#e8e8e8",
+              "surface-bright": "#f9f9f9",
+              "on-surface-variant": "#5e3f3b",
+              "surface-dim": "#dadada",
+              "on-tertiary-fixed-variant": "#00497a",
+              "outline": "#936e6a",
+              "background": "#f9f9f9",
+              "on-primary-container": "#fffeff",
+              "tertiary": "#00619e",
+              "inverse-surface": "#2f3131",
+              "inverse-primary": "#ffb4ab",
+              "secondary": "#5e5e5e",
+              "on-primary-fixed": "#410002",
+              "surface": "#f9f9f9",
+              "secondary-fixed-dim": "#c7c6c6",
+              "on-primary-fixed-variant": "#93000d",
+              "inverse-on-surface": "#f1f1f1",
+              "tertiary-fixed": "#d0e4ff",
+              "primary": "#bd0014",
+              "tertiary-container": "#007ac6",
+              "surface-tint": "#c00014",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001d35",
+              "primary-fixed": "#ffdad6",
+              "primary-container": "#eb0a1e",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffeff",
+              "on-surface": "#1a1c1c",
+              "secondary-container": "#e3e2e2"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 bg-gray-100 dark:bg-gray-950 flex flex-col h-full py-6 px-4 z-50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-red-600 uppercase">Sayarti CMS</h1>
+<p class="text-[10px] text-secondary font-bold tracking-widest uppercase mt-1">Accessories &amp; Merchandise</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Analytics -->
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Analytics</span>
+</a>
+<!-- Products - ACTIVE -->
+<a class="flex items-center gap-3 bg-white dark:bg-gray-900 text-red-600 dark:text-red-500 rounded-md px-4 py-3 font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span>Products</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<!-- Banners -->
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="view_carousel">view_carousel</span>
+<span>Banners</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings_applications">settings_applications</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-gray-200 dark:border-gray-800 space-y-1">
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all rounded-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-40 bg-white/85 dark:bg-gray-900/85 backdrop-blur-md">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-md py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search products, SKUs, or models..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<button class="text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-gray-200">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-background">Admin User</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Store Manager</p>
+</div>
+<img class="w-8 h-8 rounded-full object-cover border border-gray-200" data-alt="Admin profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrm7AopcE6PY1Mt8T60mSuFHHAMjlXjuFvokx_ZuEHUtndvw99tkJAyv0xzAn6QrbP9BPD-FbEihueojQbZ1GoiweDhCMXmBBOV14Rcz4DcolW3-lD1u-oIeIv39GLkvZGeSMTb3OBN5OAOwm9IRx4prOnk_F23LS1WgmaREa_4JXvgXuK8UZ0C4IXxLMU6UVIbjPWv4MPe8jYJGjrJFTQkiz70X3mQSF5ORFWlspAhjQbv7y2fAPDFoQ3stAX4OIYk5fIhWaQKKw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen p-8">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-background">Products Management</h2>
+<p class="text-secondary mt-1">Manage your automotive accessories and lifestyle merchandise catalog.</p>
+</div>
+<button class="bg-primary-gradient text-white px-6 py-3 rounded-md font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add New Product
+            </button>
+</section>
+<!-- Stats Grid (Tonal Elevation) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Total Items</p>
+<h3 class="text-2xl font-black">1,284</h3>
+<div class="flex items-center gap-1 text-green-600 text-[10px] font-bold mt-2">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span>12% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Accessories</p>
+<h3 class="text-2xl font-black">842</h3>
+<p class="text-secondary text-[10px] font-medium mt-2">65% of catalog</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container border-b-2 border-primary">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Low Stock Alerts</p>
+<h3 class="text-2xl font-black text-primary">14</h3>
+<p class="text-secondary text-[10px] font-medium mt-2">Requires attention</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Active Offers</p>
+<h3 class="text-2xl font-black text-tertiary">38</h3>
+<p class="text-secondary text-[10px] font-medium mt-2">KWD 4.2k potential lift</p>
+</div>
+</section>
+<!-- Filters & Table Wrapper -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(26,28,28,0.04)] overflow-hidden">
+<!-- Filters Bar -->
+<div class="p-6 flex flex-wrap items-center gap-4 bg-white border-b border-surface-container">
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Category</label>
+<select class="bg-surface-container-high border-none rounded-md text-sm py-1.5 px-3 focus:ring-2 focus:ring-primary/20">
+<option>All Categories</option>
+<option>Accessories</option>
+<option>Merchandise</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Model</label>
+<select class="bg-surface-container-high border-none rounded-md text-sm py-1.5 px-3 focus:ring-2 focus:ring-primary/20">
+<option>All Models</option>
+<option>Land Cruiser</option>
+<option>Prado</option>
+<option>Camry</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Status</label>
+<select class="bg-surface-container-high border-none rounded-md text-sm py-1.5 px-3 focus:ring-2 focus:ring-primary/20">
+<option>Stock Status</option>
+<option>In Stock</option>
+<option>Low Stock</option>
+<option>Out of Stock</option>
+</select>
+</div>
+<div class="ml-auto">
+<button class="text-secondary hover:text-on-background flex items-center gap-1 text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        Clear All
+                    </button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Product Details</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Type</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Vehicle Compatibility</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Price (KWD)</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Stock Level</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest">Discounts</th>
+<th class="px-6 py-4 text-[10px] font-black text-secondary uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="High-quality off-road vehicle floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6wh9GH7EFPFEQbKEU7OsirtqQKO1mmzuCOaPQOdRzwTt4MF65FTnaa3AuYtIBwv8OBpUR6z3BAY5qaryFVhncCFsBWDV-StW70pj8G5UrGrknJCoosqiwBA3swJEL8ANDCNn0ciGbsRSEKTLEyKdF3xK0YR0rBHSjRUcUGYXwUfHZEeHhg7B6A32WKJ7eRMfGbuJ9B9EZlzTGHl6O81HcCuiHln7lIqnoAosdl640bf849dPNuge_Qv2LT9e3g8zubLSci-hirHU"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-background">All-Weather Floor Mats</p>
+<p class="text-[10px] text-secondary font-medium">SKU: ACC-LC300-01</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Accessory</span>
+<p class="text-[10px] text-secondary mt-1">Interior Protection</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs font-semibold">Land Cruiser 300</p>
+<p class="text-[10px] text-secondary">2022 - 2024 Models</p>
+</td>
+<td class="px-6 py-5 text-sm font-black">45.000</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-green-500 h-full w-[85%]"></div>
+</div>
+<span class="text-xs font-bold">142</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-tighter text-secondary bg-surface-container px-3 py-1.5 rounded hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+                                    Add Offer
+                                </button>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Premium leather automotive keychain merchandise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEieE7_qUw3DpxijsRNlm3t9PmddFxI477LYDiQkG87q8pLX3l-JKxBccHvYp9Xzydx4nP46gyLujSGVfBV0OMaknHKN09S4z_WX4wsM3-pTMfGpzJoG1bq4ld41kWDn_Xl2J47hB9RN333fhu31hLaUlYDdbfqTNsXUSp5WtOh6t23f-MacX9pimuWTj1oO0qhsDY__ci4Vy4aaPkNDoZWa0H2Ay4w1Z1qjLTZqZRcFrz8SuoHyzvA1tNL3rBqxo50LArZCfI6FE"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-background">Leather Signature Keyring</p>
+<p class="text-[10px] text-secondary font-medium">SKU: MER-LGO-04</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Merchandise</span>
+<p class="text-[10px] text-secondary mt-1">Lifestyle</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs font-semibold">Universal</p>
+<p class="text-[10px] text-secondary">All Models</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-black text-primary">12.500</p>
+<p class="text-[10px] text-secondary line-through">15.000</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-orange-600">
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-[15%]"></div>
+</div>
+<span class="text-xs font-bold">8</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded">15% OFF</span>
+<button class="text-primary hover:underline text-[10px] font-bold">Remove</button>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Rugged mountain bicycle rack for SUVs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQh__nZ7K3Ut4l8QIlaFM1Atv1W6iQD7pf3ZryoE7jsFJIu-V7sZG8prwthTsz86DAY0AznNhnz-Ioot7T3yMrfauloxvqx_SNxSqY9qMcUiN76CJdxN-ICMNZg53RtNLBTpgCqBIDj1ewDaXvy1gWga-Lj788xhjtSD-2n_dE8WdyIIf86KjBhmBxKFqbYGZ36cqggeY04XU33B0_Jpi3JO3r4-G70Ey0OpmCHTc9A3BD71fSz60e4MFJWgKcJ8osSzUMX4H04U"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-background">Rear Mounted Bike Carrier</p>
+<p class="text-[10px] text-secondary font-medium">SKU: ACC-EXT-09</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Accessory</span>
+<p class="text-[10px] text-secondary mt-1">External / Utility</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs font-semibold">Prado / RAV4</p>
+<p class="text-[10px] text-secondary">Tow-bar Compatible</p>
+</td>
+<td class="px-6 py-5 text-sm font-black">112.000</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-green-500 h-full w-[45%]"></div>
+</div>
+<span class="text-xs font-bold">32</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-tighter text-secondary bg-surface-container px-3 py-1.5 rounded hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+                                    Add Offer
+                                </button>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 (Out of Stock State) -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4 opacity-60">
+<div class="w-12 h-12 bg-surface-container rounded-md overflow-hidden flex-shrink-0 grayscale">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Classic white automotive brand t-shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr4Ap1ShvNZbGB7swyo-oUCgcRdf9Fml9eBAt1DmlkiJqhhuFx3yF6r4_vKA2a_b7TXTbGPPr1KAq3Lsul-C_r8Ybs_p6uYa0oxcXKTiyGKvwjULPoRDFMKQbmQR0Kdur7b-hWchxA_kcEkcJHyipx7MLUCnOSd4ipiGecI-BjqA0r1SC9-N2r5XFMoSFeOpY2PT-_CtI6SX4s3aL_xpNRZ1hgMk46-jh_Ic_XmkPy4daVn9lARLsG0SXESHgC0x3MQc9w6AY61kU"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-background line-through">Heritage Series T-Shirt</p>
+<p class="text-[10px] text-secondary font-medium">SKU: MER-APP-21</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Merchandise</span>
+<p class="text-[10px] text-secondary mt-1">Apparel</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs font-semibold">Universal</p>
+<p class="text-[10px] text-secondary">S, M, L, XL</p>
+</td>
+<td class="px-6 py-5 text-sm font-black">8.500</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-error">
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-error h-full w-[0%]"></div>
+</div>
+<span class="text-xs font-bold uppercase">Sold Out</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-tighter text-secondary/40 bg-surface-container/50 px-3 py-1.5 rounded cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="block">block</span>
+                                    Add Offer
+                                </button>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination (Architectural) -->
+<div class="p-6 flex items-center justify-between bg-surface-container-low/30 border-t border-surface-container">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-tight">Showing 1-10 of 1,284 products</p>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-surface-container text-secondary transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-surface-container text-xs font-bold text-secondary transition-all">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-surface-container text-xs font-bold text-secondary transition-all">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-surface-container text-xs font-bold text-secondary transition-all">128</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-surface-container text-secondary transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Utility Footer -->
+<footer class="mt-24 pt-8 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-4 pb-8">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest">System Status: All systems operational</p>
+</div>
+<p class="text-[10px] text-secondary font-medium uppercase tracking-tighter">© 2024 Sayarti By AlSayer • Internal CMS v2.4.0</p>
+</footer>
+</main>
+<!-- FAB for Quick Actions (Suppressed on details, used on main dashboard) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-90 transition-all z-50 md:hidden">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

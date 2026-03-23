@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Profile | TOYOTA ACCESSORIES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-fixed": "#001d35",
+                        "surface": "#fcf9f8",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "secondary-container": "#e0dfe1",
+                        "tertiary": "#00619e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "primary-container": "#eb0a1e",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#007ac6",
+                        "surface-container-low": "#f6f3f2",
+                        "primary": "#bd0014",
+                        "secondary-fixed-dim": "#c6c6c8",
+                        "surface-container-high": "#eae7e7",
+                        "surface-tint": "#c00014",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "surface-variant": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary-fixed-variant": "#464749",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "tertiary-fixed": "#d0e4ff",
+                        "outline": "#936e6a",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#ffb4ab",
+                        "on-primary-container": "#fffeff",
+                        "on-primary-fixed-variant": "#93000d",
+                        "secondary-fixed": "#e3e2e4",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#1a1c1d",
+                        "background": "#fcf9f8",
+                        "on-surface-variant": "#5e3f3b",
+                        "on-secondary-container": "#626365",
+                        "on-primary-fixed": "#410002",
+                        "secondary": "#5d5e60",
+                        "outline-variant": "#e9bcb7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffeff",
+                        "surface-container-highest": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/15 dark:border-slate-800">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-8xl mx-auto flex-wrap md:flex-nowrap gap-4">
+<div class="text-xl font-black tracking-tighter text-red-700 dark:text-red-500 uppercase flex items-center gap-2">
+                TOYOTA ACCESSORIES
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-slate-400 hover:text-red-600 font-manrope font-bold tracking-tight transition-colors" href="#">Models</a>
+<a class="text-on-surface-variant dark:text-slate-400 hover:text-red-600 font-manrope font-bold tracking-tight transition-colors" href="#">Exterior</a>
+<a class="text-on-surface-variant dark:text-slate-400 hover:text-red-600 font-manrope font-bold tracking-tight transition-colors" href="#">Interior</a>
+<a class="text-on-surface-variant dark:text-slate-400 hover:text-red-600 font-manrope font-bold tracking-tight transition-colors" href="#">Performance</a>
+<a class="text-on-surface-variant dark:text-slate-400 hover:text-red-600 font-manrope font-bold tracking-tight transition-colors" href="#">Lifestyle</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-high px-4 py-2 rounded-lg group">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="text-on-surface-variant hover:text-red-600 transition-colors relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary text-[10px] text-white w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="text-red-700 dark:text-red-400 border-b-2 border-red-700 pb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Dashboard Header -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Customer Dashboard</span>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface">Welcome, Ahmed Al-Farsi</h1>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-highest text-on-surface font-semibold text-sm rounded-md transition-all hover:bg-surface-dim">Edit Profile</button>
+<button class="px-6 py-2.5 bg-primary-container text-on-primary font-semibold text-sm rounded-md transition-all hover:opacity-90 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">logout</span> Logout
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Column 1: Profile & Vehicles -->
+<div class="lg:col-span-1 space-y-8">
+<!-- Profile Overview -->
+<section class="bg-surface-container-low rounded-xl p-8 transition-all">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span> Profile Overview
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold block mb-1">Email Address</label>
+<p class="text-on-surface font-medium">ahmed.alfarsi@sayarti.kw</p>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold block mb-1">Phone Number</label>
+<p class="text-on-surface font-medium">+965 9988 7766</p>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold block mb-4">Communication Preferences</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-semibold">SMS</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-semibold">WhatsApp</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-semibold">Email</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded border border-outline-variant/10 opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">radio_button_unchecked</span>
+<span class="text-xs font-semibold">Call</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- My Vehicles -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">directions_car</span> My Vehicles
+                        </h3>
+<button class="text-xs font-bold text-primary hover:underline">+ Add Vehicle</button>
+</div>
+<div class="space-y-4">
+<!-- Vehicle Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 transition-all hover:border-primary/30">
+<div class="aspect-video w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="White Toyota Land Cruiser side view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf5t6cJEyAqlvHPjcOn0-SyZRhqZYhDYDHdmI8VKQAW0jd64BLnFm3VAN1j_MRNgsqZGo52ebv7eU37_mFCZGOpwmCp52mW-z1dABIGAuAImgQMUKJqhBzy44UiTkYWYcpPU7wUl_f8qObWo4f5Fo3Oo8ZxHa2dDj67Ed3A8aLMwy8JyIR_t5xESPv7p3HghpoOkG0LZ22JPcb6o3glRSuW9KnMkxaXzermGbYl15wTER52d1LItwfItrSwxFFNxnRwbf2-Q6oTPQ"/>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-lg">Land Cruiser 300</h4>
+<span class="bg-surface-container-highest px-2 py-1 text-[10px] font-black rounded uppercase">2024</span>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tag</span> Plate: 77/5432
+                                </p>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 transition-all hover:border-primary/30">
+<div class="aspect-video w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Blue Toyota Supra GR performance car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE5LdcbzlpZnJ1NEHEK-fsDqeb_Z5OLVoFpNhgCIMh0qfXtuoWEVGH_E6LqV8URDn1b7DYwfrADAKlcl5gOYYn7HdzRAXZon4PE_a5yDwNN9YpWKKQoujZiZDmIM1yshNkKM8o4jTy3kNAeUrjcKnLT_FM_mu-M_2kzBJlS3xw40oX_3GsukWw3zpwOCxyzGHqSSZogY1xmnMV9qwPXDZ-hAlOEYm-y7_FVFEh92S3J_Rg6l6CpsOuVQhHtQFOdHIfzxOTWVUgYxc"/>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-lg">GR Supra</h4>
+<span class="bg-surface-container-highest px-2 py-1 text-[10px] font-black rounded uppercase">2023</span>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tag</span> Plate: 12/9901
+                                </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Column 2 & 3: History & Inquiries -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Order History Bento -->
+<section class="bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_bag</span> Order History
+                        </h3>
+<a class="text-sm font-semibold text-primary" href="#">View All</a>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full border-collapse">
+<thead>
+<tr class="text-left border-b border-outline-variant/10">
+<th class="pb-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant/50">Order ID</th>
+<th class="pb-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant/50">Item</th>
+<th class="pb-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant/50">Date</th>
+<th class="pb-4 text-right text-[10px] uppercase tracking-widest font-black text-on-surface-variant/50">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="group hover:bg-surface-container-highest/20 transition-colors">
+<td class="py-5 font-mono text-sm">#ORD-9902</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-sm flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Roof rack bars for SUV" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLOW2LKzXBlaEcjO1ynGqPi0R7KHojmafnb8vx9Ar2LV8fy6SWcKXzZ9jDTtuybpGFTuxCPHef_k7N_NgyifrI3WQztw_Ekc41-ZPP_feG8mRostpBtqDTGkhXcajBizMQHR1eJ3YOb_00HbmudJrMNOBQYKJ0AuowGNxr5Ke4jI99-1boLqzXD7d9_UkrxY5BdgsIQ_HhOuXGNde07mWKbqiyVw3pYz_mkZqcQ98pHOSAk2WZeDPNML9ZCRucYAkbdiXvkMM_FyA"/>
+</div>
+<span class="font-semibold text-sm">Heavy-Duty Roof Rack</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Oct 12, 2024</td>
+<td class="py-5 text-right font-bold text-on-surface">145.000 KWD</td>
+</tr>
+<tr class="group hover:bg-surface-container-highest/20 transition-colors">
+<td class="py-5 font-mono text-sm">#ORD-8744</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-sm flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="GR Heritage Racing Jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBHL4NX5WACBGBH9wrfPreITV4bO8yUJ8-c_EXmcCdp_0pbmrDkN_kp54R26HrUKUj49n2bAXIqbbNPNFndS4XWPKmC31UURmrC6XDMe8QAUblbzovvs7yZtlmRyT65RO1cIBGV8ZK03pIiNSSh9pFHqdNhAKuxJLNheYHjSoWmbVZscKM1qTI-oHAM0bfvykiNgfMg3T2Xcmf4uJbUl-2fmsumUy4z6gE0LNhOYdjo5nvTivdHiRY5boBxuBp72m3A8BeSkVjTZ8"/>
+</div>
+<span class="font-semibold text-sm">GR Heritage Jersey</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Sep 28, 2024</td>
+<td class="py-5 text-right font-bold text-on-surface">24.500 KWD</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- My Inquiries -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-8 md:col-span-2">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">chat_bubble</span> Active Inquiries
+                        </h3>
+<div class="space-y-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between p-5 bg-surface-container-lowest rounded-lg border-l-4 border-primary shadow-sm">
+<div>
+<h5 class="font-bold text-on-surface">Off-Road Snorkel Installation</h5>
+<p class="text-xs text-on-surface-variant/70 mt-1">Ref: #INQ-4451 • Sent Oct 20</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full">Responded</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">arrow_forward_ios</button>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between p-5 bg-surface-container-lowest rounded-lg border-l-4 border-outline-variant shadow-sm">
+<div>
+<h5 class="font-bold text-on-surface">TRD Wheel Availability</h5>
+<p class="text-xs text-on-surface-variant/70 mt-1">Ref: #INQ-4320 • Sent Oct 18</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-4">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-black uppercase tracking-widest rounded-full">Pending</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">arrow_forward_ios</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wishlist Grid -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">favorite</span> My Wishlist
+                        </h3>
+<span class="text-sm font-semibold text-on-surface-variant">4 Items</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<!-- Wishlist Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/10 group transition-all hover:shadow-md">
+<div class="aspect-square w-full rounded-lg bg-surface-container overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Rugged all-weather floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6V9Nat8O_7Arth5mBAKMdC22s_qQBuZueD0_ej7Iy4NaV7cU1s2dhp5pynnEmvGWcBCkJ7d4fcYdZ4Hcv_w7zWlLQjQJ2C4fk0OUz5DZg7BUxR5RE0k_vs9Jam98iKu4pHkpzKXpplxrWZCKvV0RhGdp506zUDAWt0RdNj5dQdP8wFPfkTrSu0IbQPbDtppeFOAjNROX50bcawKYRuUSREiMwDq-TXYlyh0vkRH4N-MLcoFGHt0nT8i-EIAg1glHPf5US5ZC9Smo"/>
+</div>
+<h6 class="font-bold text-sm truncate">Premium Floor Mats</h6>
+<p class="text-xs text-primary font-bold mt-1">32.000 KWD</p>
+<button class="w-full mt-3 py-2 text-[10px] font-black uppercase tracking-widest border border-primary text-primary rounded hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+<!-- Wishlist Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/10 group transition-all hover:shadow-md">
+<div class="aspect-square w-full rounded-lg bg-surface-container overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Modern Toyota brand watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWBN55PBm8LHCeFN9dzuVcpLhl2msT8R2EYpn6iw0ajtXQGaeMOGWpIdq189l3-MaJBmdW629QVHU99lXZQzarkW_qh06_m5_yHrLdQx7-WcXBg9kyQUlaLBJCiXz7nZ9uNWBz7x77jOqza9njxA8_3zbqFoy5Tc1sfWglv66yJCfyn4xx1gVHcp_QzUeqwa9ITuUmpVO7jLR7PN5-6JT40CT25DGSMYY-vhvLQ-Vi8OJEK23FMMQtxiECILeuV2s45tOsNR8HVLg"/>
+</div>
+<h6 class="font-bold text-sm truncate">Limited Edition Chronograph</h6>
+<p class="text-xs text-primary font-bold mt-1">115.000 KWD</p>
+<button class="w-full mt-3 py-2 text-[10px] font-black uppercase tracking-widest border border-primary text-primary rounded hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+<!-- Wishlist Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/10 group transition-all hover:shadow-md">
+<div class="aspect-square w-full rounded-lg bg-surface-container overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Rear cargo organizer bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyHBAP-j8Kh-DDL-h5eirRqSrllopvEk84g7_Y4lcf5vp3n29VBCYaFrmU-Fs32ntz81PT4zWCQSYcW618bmpDRD7QDk9-iPpCNlKWVZ0XONdYxgUvPnxSI2onMAR6KEI7t7dS5RD5RYt5L6JvPEgW0rdQ1veJOIBqaAgQvfrSLGFeEEOs4ZvkHGUnOUgEmANkRlE83JHG59YMbKCBJTKyrWxxV2RCBQdonbMcGQUzy52xgeqpqDUm4cYpXNpJDSix2joxmKg6tdw"/>
+</div>
+<h6 class="font-bold text-sm truncate">Cargo Organizer</h6>
+<p class="text-xs text-primary font-bold mt-1">18.500 KWD</p>
+<button class="w-full mt-3 py-2 text-[10px] font-black uppercase tracking-widest border border-primary text-primary rounded hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-slate-950 w-full border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-8xl mx-auto">
+<div class="md:col-span-1">
+<div class="font-manrope font-black text-2xl text-on-surface mb-6 uppercase tracking-tighter">SAYARTI</div>
+<p class="text-on-surface-variant/70 text-sm leading-relaxed font-body">
+                    Official Toyota accessories and lifestyle merchandise. Engineering excellence meets sophisticated style.
+                </p>
+<div class="flex gap-4 mt-8">
+<a class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<img class="w-4 h-4 opacity-70" data-alt="Instagram icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt28QwGKo1xOkqZV4zwvhoapXsb_x231rbZg4AtxYOYM8yZoMSrOdSoN1drwon9HKaVEEE2gOSLxyZChQUbgHVEzVmtmCGbZQ3wK5cENs2Nv0BSnRAUVbn7zYpfVO_Kt7n-jaIwCe0Afx5yChuFf3h14vVV_-zQ8G-ejfwURMcuv7utsO63Jxoe819XjgFNMWTeAWlyrb3GjTxbJfGT3drDvqJ9zj1z7DHhjBr3ziUYN9wkNkHs3bCygf-AKwz_MsbPiaiH2FWcsE"/>
+</a>
+<a class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<img class="w-4 h-4 opacity-70" data-alt="YouTube icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuVHueWULIvCfrrD5Yh8zRl-NTAHGwnIQ799xEfENqqlvkCNxRdwrAlaUiZJDAioXvk8Ne9wXvUtn8veEoG_2iqt2KbHbvWDuRbLCmhQ1HMZ9dBQtw8B0ngQM6tzk81kYYE3sCVS3XVhZhSmAWZsiDwkv--Dg096suT9EsJdO6fZytDuF_IS2YB5HYMK7xHGZCuuwjYTE_89diNk5vG-B3Edh99ns9HkVj0NdA68GdRrYHDApUeNrxCo01yP8sbIgUcgRplziiOlc"/>
+</a>
+<a class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<img class="w-4 h-4 opacity-70" data-alt="TikTok icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDwaMeBmExlVeBPvSpkI_5SVYO4CX5fqpvTdJvlxw1eRQ5XGdzgqhQt4YMD2cBY2mBdCorM3ZpJcQdt-SlVjL3-bYvhXUoMqu5J7z1whI1eXztg94ypQJiMXd1ih36Lj41Gjvc_bSxhUUwE5ANVQEXLbJ94QcbrCagBfEey5d8-5ubqmNXrKE-El1HcwQG1Pp4LvNt-epjxZVPI2Ha4PHhQAk9GBRKJCapD49Ii6KhQdZH5oSgQtE9sU5c4iF2xVX32v3lTNHnVcs"/>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-sm uppercase tracking-widest mb-6">Discovery</h4>
+<ul class="space-y-4 text-sm font-inter text-on-surface-variant/70 dark:text-slate-500">
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Sayarti Locations</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">New Arrivals</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Limited Edition</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Dealer Locator</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-sm uppercase tracking-widest mb-6">Company</h4>
+<ul class="space-y-4 text-sm font-inter text-on-surface-variant/70 dark:text-slate-500">
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">About Sayarti</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Our Story</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-sm uppercase tracking-widest mb-6">Support</h4>
+<ul class="space-y-4 text-sm font-inter text-on-surface-variant/70 dark:text-slate-500">
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Help.</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Contact Us</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Cookie Settings</a></li>
+<li><a class="hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Installation Guide</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 px-12 py-8 max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] font-inter tracking-wide text-on-surface-variant/60 uppercase">
+                © 2024 TOYOTA MOTOR CORPORATION. ALL RIGHTS RESERVED.
+            </p>
+<div class="flex gap-6 items-center">
+<img class="h-4 grayscale opacity-40" data-alt="Visa payment icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4d4cRKsjmQDNDTdkiu4FGMgkCvK5_ElKN2Jg7lka8VuqVE-z-4ontpgD462WdBtuB0uiIrpMpYKl3bxqotR0no4MLRE-2-O0MVQ3PeWYQT041teVWX69bWb5If72OSYjqZIg5LXeKzZzRWu3KFsrqnhYOFnWiiLkbyZyOum2mkPJn6Be1tgBWbbVWtTgQgXnF5Rp-uAraxfppf9cppIw8x6gaF50zOSjkXSr0S0Mj7KXLZydjlMQFB_J-Mw24KrUDm--yhWzpneU"/>
+<img class="h-6 grayscale opacity-40" data-alt="Mastercard payment icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgTiLiofVsSzM8Y4o0_JikBQW0tZYTMNcPwDj8Q8Xz-zde_Tc-y9r1iI9PFa7Vy0GGwCONmHOteq9G47jfZJFMxyvAEev9pK9lFw4U3DHTghXzlPvjTiWqhH3GH2jzlRYCiKyPx2KOD9ifiQH6V-j_1NV5YK8ERnJhnxftl51R_u9GH9OMxDPy5phr4qEBRKVG1wX5Ouy_JeNWe1Ef3Nxd88begjdFt1nxfpkTMTkruCh0a7m-1Yko-b3l7j_Lewhe4g6L1G_alog"/>
+<span class="text-[10px] font-black text-on-surface-variant/40">KNET</span>
+</div>
+</div>
+</footer>
+</body></html>

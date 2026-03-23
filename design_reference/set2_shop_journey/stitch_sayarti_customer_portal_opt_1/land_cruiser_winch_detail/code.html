@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#1c1b1b",
+              "outline-variant": "#e9bcb7",
+              "secondary-fixed": "#e3e2e4",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#464749",
+              "surface-container-low": "#f6f3f2",
+              "tertiary-fixed-dim": "#9ccaff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eded",
+              "on-secondary-fixed": "#1a1c1d",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e5e2e1",
+              "on-error-container": "#93000a",
+              "tertiary": "#00619e",
+              "inverse-surface": "#313030",
+              "inverse-primary": "#ffb4ab",
+              "on-primary-container": "#fffeff",
+              "surface": "#fcf9f8",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-primary-fixed-variant": "#93000d",
+              "secondary": "#5d5e60",
+              "on-primary-fixed": "#410002",
+              "on-surface-variant": "#5e3f3b",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-secondary-container": "#626365",
+              "surface-variant": "#e5e2e1",
+              "surface-container-high": "#eae7e7",
+              "surface-bright": "#fcf9f8",
+              "outline": "#936e6a",
+              "background": "#fcf9f8",
+              "surface-dim": "#dcd9d9",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-tertiary-fixed": "#001d35",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdad6",
+              "inverse-on-surface": "#f3f0ef",
+              "tertiary-fixed": "#d0e4ff",
+              "primary": "#bd0014",
+              "tertiary-container": "#007ac6",
+              "surface-tint": "#c00014",
+              "on-surface": "#1c1b1b",
+              "on-tertiary-container": "#fffeff",
+              "secondary-container": "#e0dfe1",
+              "primary-container": "#eb0a1e",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift {
+            transition: background-color 0.3s ease;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-sm font-headline antialiased tracking-tight">
+<div class="flex items-center justify-between px-6 py-4 max-w-screen-2xl mx-auto w-full">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50" href="#">Sayarti</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="#">Models</a>
+<a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 pb-1" href="#">Accessories</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="#">Support</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="#">Dealers</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 max-w-screen-2xl mx-auto px-6">
+<!-- Breadcrumbs -->
+<nav class="mb-8 flex items-center gap-2 text-xs uppercase tracking-widest font-label font-medium text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Land Cruiser 300</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">Off-Road Accessories</span>
+</nav>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left: Gallery Asymmetric Layout -->
+<div class="lg:col-span-7 space-y-6">
+<div class="relative bg-surface-container-low overflow-hidden group">
+<img class="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Toyota Land Cruiser 300 with heavy-duty winch installed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAwaR1uv8UcztMDObglqiVoC09blVyXKqf9taUQmzzs11tH7WyJ27bUV6Tr07r-51R1C6d1Ivghb5PwKHZiiHj8uC5nBouL8gOLCv4ZqxiwL9DtFcuvuj72Ewo3bdcUMdJ49SCVSfKh1L2C553D_p1qCrbeKOUydLMA-3Ibq4lPpoJhxnrVmwUYvxCUB9lzYEi_1XH0-_6j17i9XZmXFNGCyd8qwSxUeSClB0P8q1Q_5nzgvtXyA-2qvJUd7EI0gVHsYt5VRGlZEc"/>
+<div class="absolute bottom-6 left-6 glass-effect bg-white/40 p-4 border border-white/20">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface mb-1">Fitment Verification</p>
+<div class="flex items-center gap-2 text-green-700">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-bold">Fits your Land Cruiser 300</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low h-80 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Winch close up engineering details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSbkk-c5RvTx7Sj6FZDEHar-hW9O9nOQuvzYCul21hKAwB11bOepf3ab15FjF4cWLdeS7BhmEnMpaJFHNxQkwj4Zh8YYM4mWVZmqLNXxq-4tM9Encz5Ls4b7L9kpM5Ooy7J_GGXbFy_p0QCTyzCOJqnPp2d1zOQWyCv2XkzUxquIS2o6KUCMAIQoR6XxYOfDVRgCxpIVPtSX5M24m6Yqgi1Ejt5ffmb_euiOYbigQYGUUbXRbvT3Nc_AyZDBXi5hJl78K4SNdOzAs"/>
+</div>
+<div class="bg-surface-container-low h-80 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Steel cable and recovery hook close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ8nqgCBT8jJ7M_gHPS23kWmkw85OFa1n_Cebk07WBy78Z0xiipnlEZx55rC7ARmpeQQzZauz8E3eNZSmGjVguA63R4_k1Y3iKXDfVwtHXjIfzUKSUvYcA25Mn_Z-RWYot2VpLXzda93Fe_rOgZf5s9zKNmhHpJDuVVYHlYm_EfiMK3koVY6A9c-8rBmp_POC53zyMDpiLB6dPLH0JGOepORVr8XoJR1jF6i0lIktIDmAt6arkN-2Ci_kufMVmpyALRnZtPFjRNHc"/>
+</div>
+</div>
+</div>
+<!-- Right: Information & Actions -->
+<div class="lg:col-span-5 sticky top-28 space-y-10">
+<header class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary font-label">SKU: TLC-WRN-12K-HD</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm text-on-surface">4.9 <span class="text-secondary font-normal">(128 Reviews)</span></span>
+</div>
+</div>
+<h1 class="text-5xl font-extrabold font-headline tracking-tighter text-on-surface leading-none">
+                        WARN Heavy-Duty Winch <br/>
+<span class="text-secondary font-medium text-3xl">(12,000 lbs)</span>
+</h1>
+<p class="text-3xl font-headline font-bold text-on-background">450.000 KWD</p>
+</header>
+<section class="space-y-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-on-surface font-label">Primary Performance</h3>
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-start gap-4 p-4 bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="construction">construction</span>
+<div>
+<p class="font-bold text-sm">High-tensile steel rope</p>
+<p class="text-xs text-secondary">Aviation-grade durability for extreme extraction scenarios.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="water_drop">water_drop</span>
+<div>
+<p class="font-bold text-sm">Waterproof IP68 rating</p>
+<p class="text-xs text-secondary">Submersible design ensures reliability in deep wades and storms.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<p class="font-bold text-sm">Precision mounting</p>
+<p class="text-xs text-secondary">Laser-cut brackets designed specifically for the LC300 chassis.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="space-y-4">
+<button class="w-full premium-gradient text-on-primary py-5 px-8 font-headline font-bold text-lg rounded-md hover:opacity-90 active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        ADD TO CART
+                    </button>
+<button class="w-full bg-surface-container-highest text-on-surface py-4 px-8 font-headline font-bold text-sm rounded-md hover:bg-surface-container-high transition-colors">
+                        FIND AN INSTALLATION CENTER
+                    </button>
+</div>
+<div class="p-4 bg-surface-container-lowest border border-outline-variant/20">
+<div class="flex items-center gap-3 text-sm text-secondary">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span>Estimated delivery: 2-3 business days within Kuwait.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs Bento Section -->
+<section class="mt-32 space-y-12">
+<div class="text-center space-y-2">
+<h2 class="text-3xl font-black font-headline tracking-tighter uppercase">Engineering Specification</h2>
+<div class="w-12 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 bg-surface-container-low p-8 flex flex-col justify-between h-[300px]">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="settings_input_component">settings_input_component</span>
+<div>
+<h4 class="text-xl font-bold font-headline mb-2">Planetary Gear System</h4>
+<p class="text-sm text-secondary leading-relaxed">Three-stage planetary gear train for fast line speed and reliable pulling power under load.</p>
+</div>
+</div>
+<div class="bg-surface-container-highest p-8 flex flex-col justify-between h-[300px]">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="electric_bolt">electric_bolt</span>
+<div>
+<h4 class="text-xl font-bold font-headline mb-2">Series-Wound</h4>
+<p class="text-sm text-secondary">High-torque motor with thermal protection.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 flex flex-col justify-between h-[300px]">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="shield">shield</span>
+<div>
+<h4 class="text-xl font-bold font-headline mb-2">Corrosion Proof</h4>
+<p class="text-sm text-secondary">Powder-coated finish with stainless steel fasteners.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cross-sell Section -->
+<section class="mt-32 space-y-8">
+<h3 class="text-2xl font-black font-headline tracking-tighter">COMPLETE THE RECOVERY RIG</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Product 1 -->
+<div class="flex gap-6 p-6 bg-surface-container-low group cursor-pointer">
+<div class="w-48 h-48 bg-white overflow-hidden shrink-0">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Heavy duty bull bar for Land Cruiser 300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfAvHFhoke9a6mNUmExH6a1yRMIvjC8xHxq-BZaRNQbUos1CVPxS_xXLl_uuJSaXYU10on-jNhTgkV54HlnF0sH3NWscmPfCeUEHbTcBGtWWGvBJncKlEP7CtzaX14e1UiEDmuN2XQnZpvoAlF0fZSwHsDR97WEZ_186mfpM7XtjE-M5q1jhLmj_7-fHWsZXJ2HJeH1_Vph42lmPfcwN7Uq0sVYOwmKT53oO_nBnUhdJh2JsgAbElzEgVGDLeGPumb8MXyvclStLA"/>
+</div>
+<div class="flex flex-col justify-center gap-2">
+<p class="text-[10px] font-bold uppercase tracking-widest text-primary">Recommended</p>
+<h4 class="text-lg font-bold font-headline leading-tight">Heavy-Duty Modular Bull Bar</h4>
+<p class="text-sm text-secondary">Winch-ready front protection for LC300.</p>
+<p class="font-bold text-lg mt-2">320.000 KWD</p>
+<button class="mt-2 text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                            View Product <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex gap-6 p-6 bg-surface-container-low group cursor-pointer">
+<div class="w-48 h-48 bg-white overflow-hidden shrink-0">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Professional recovery kit bag with straps and shackles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJxsq14SW7iJU1s96bpHSA9S2bA4-ITkr1rJ361_3wyioErAijB9sJFz5l9AYjfKtk_NL86PbfWeGFh2-fr-yLpu-WjVNuua-OKTrggoraD5CPrUNfqZ_K54UmvdPVCt-Brn9nsIw3jNo9pWw_Sk9mJEtfjAbhAyz_MSSvO7WwyhCffzho35Y8DtxW6DUZevt3XPmdxePKdNyc7Fl8s4nZGqoWvWMaSSU1fi17iaS2DvXFOLXfMg_87FxxWUtNIfcTczCoGELp1I8"/>
+</div>
+<div class="flex flex-col justify-center gap-2">
+<p class="text-[10px] font-bold uppercase tracking-widest text-primary">Essential</p>
+<h4 class="text-lg font-bold font-headline leading-tight">Premium Recovery Kit</h4>
+<p class="text-sm text-secondary">Snatch straps, bow shackles, and gloves.</p>
+<p class="font-bold text-lg mt-2">85.000 KWD</p>
+<button class="mt-2 text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                            View Product <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 font-label text-sm tracking-wide">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="text-lg font-bold text-zinc-900 dark:text-zinc-100">Sayarti</span>
+<p class="mt-2 text-zinc-500 dark:text-zinc-400">© 2024 Sayarti Toyota Accessories. Engineering Precision.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-colors opacity-80 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-colors opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

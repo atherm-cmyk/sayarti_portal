@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sayarti CMS - Offers &amp; Discounts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#bd0014",
+              "primary-container": "#eb0a1e",
+              "on-primary": "#ffffff",
+              "surface": "#f9f9f9",
+              "surface-container": "#eeeeee",
+              "surface-container-low": "#f3f3f3",
+              "surface-container-high": "#e8e8e8",
+              "on-surface": "#1a1c1c",
+              "on-surface-variant": "#5e3f3b",
+              "outline": "#936e6a",
+              "secondary": "#5e5e5e",
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+        }
+        .sidebar-active {
+            background-color: rgba(189, 0, 20, 0.08);
+            color: #bd0014;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary selection:text-white">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-72 z-50 bg-white border-r border-zinc-200 flex flex-col p-6">
+<div class="mb-10 px-2">
+<div class="flex flex-col">
+<h1 class="text-xl font-extrabold tracking-tighter text-primary leading-tight">SAYARTI</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">By AlSayer</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-500 hover:text-primary transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="dashboard"></span>
+<span class="font-medium text-sm tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-500 hover:text-primary transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="directions_car"></span>
+<span class="font-medium text-sm tracking-tight">Vehicle Inventory</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-500 hover:text-primary transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="shopping_bag"></span>
+<span class="font-medium text-sm tracking-tight">Accessories</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 sidebar-active rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="sell" style="font-variation-settings: 'FILL' 1;"></span>
+<span class="text-sm tracking-tight">Offers &amp; Discounts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-500 hover:text-primary transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="view_carousel"></span>
+<span class="font-medium text-sm tracking-tight">Banners</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-500 hover:text-primary transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="group"></span>
+<span class="font-medium text-sm tracking-tight">Customers</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1 border-t border-zinc-100">
+<a class="flex items-center space-x-3 px-4 py-2.5 text-zinc-500 hover:text-zinc-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings"></span>
+<span class="font-medium text-sm">System Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2.5 text-zinc-500 hover:text-red-600 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="logout"></span>
+<span class="font-medium text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-288px)] z-40 bg-white/80 backdrop-blur-md h-16 flex justify-between items-center px-8 border-b border-zinc-100">
+<div class="flex items-center w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-sm" data-icon="search"></span>
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-full py-2 pl-10 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Search campaigns..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<button class="p-2 text-zinc-500 hover:text-primary relative transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications"></span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-zinc-200"></div>
+<div class="flex items-center space-x-3 group cursor-pointer">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-zinc-900 leading-none">Admin User</p>
+<p class="text-[10px] text-zinc-400 mt-1 uppercase font-bold tracking-tighter">Senior Curator</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center group-hover:border-primary transition-all overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDExBFbhimofb34G4xJ6uzn7RLJkgwCTmyEqhI3lhjsKHmadqr4ruRW546PupVlvpJky2BD8XuDxWsPXx_diUYdJimxX1kclNyy8RjF0AGHbVPZcFPOPMPOyTBXHOIoIPIQ6gSV7GDfmZjsrYwvvA-LvVaTO9xeaf5PfLyEtSjyRAQYccMWTQSWHOI1ElnYYLjbEDuUVJUCz7oBAyeKcV5AnEI7W_pGjC0vIg38I9pNDlqrKHDJZGkVge6l2n2b7UuZDl6KjXFIqE"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-72 pt-24 pb-12 px-10 min-h-screen bg-[#fafafa]">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<nav class="flex text-[10px] uppercase tracking-[0.15em] font-bold text-zinc-400 mb-2">
+<span>CMS</span>
+<span class="mx-2 text-zinc-300">/</span>
+<span class="text-primary">Campaign Manager</span>
+</nav>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Offers &amp; Discounts</h2>
+</div>
+<div class="flex space-x-3">
+<button class="flex items-center space-x-2 px-5 py-2.5 bg-white border border-zinc-200 text-on-surface font-bold text-sm rounded-lg shadow-sm hover:bg-zinc-50 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="file_download"></span>
+<span>Export Report</span>
+</button>
+<button class="flex items-center space-x-2 px-5 py-2.5 bg-zinc-900 text-white font-bold text-sm rounded-lg shadow-lg hover:bg-black active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="add"></span>
+<span>Create New Offer</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- List Section -->
+<div class="col-span-8 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-base font-bold text-zinc-900 tracking-tight">Active Campaigns</h3>
+<div class="flex bg-zinc-100 p-1 rounded-lg">
+<button class="px-4 py-1.5 text-xs font-bold bg-white rounded-md shadow-sm">All</button>
+<button class="px-4 py-1.5 text-xs font-bold text-zinc-500 hover:text-zinc-900">Active</button>
+<button class="px-4 py-1.5 text-xs font-bold text-zinc-500 hover:text-zinc-900">Scheduled</button>
+</div>
+</div>
+<!-- Table of Active Campaigns -->
+<div class="bg-white rounded-xl shadow-sm border border-zinc-100 overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-zinc-50">
+<th class="px-6 py-4 text-[11px] font-extrabold text-zinc-400 uppercase tracking-wider">Campaign Name</th>
+<th class="px-6 py-4 text-[11px] font-extrabold text-zinc-400 uppercase tracking-wider">Type</th>
+<th class="px-6 py-4 text-[11px] font-extrabold text-zinc-400 uppercase tracking-wider">Value</th>
+<th class="px-6 py-4 text-[11px] font-extrabold text-zinc-400 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-[11px] font-extrabold text-zinc-400 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-50">
+<!-- Campaign Item 1 -->
+<tr class="hover:bg-zinc-50/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="layers"></span>
+</div>
+<div>
+<p class="font-bold text-zinc-900">15% Off Floor Mats</p>
+<p class="text-[11px] text-zinc-500">Expires: Dec 25, 2023</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-medium text-zinc-600">Percentage</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold text-primary">15%</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">Active</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit"></span>
+</button>
+</td>
+</tr>
+<!-- Campaign Item 2 -->
+<tr class="hover:bg-zinc-50/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="celebration"></span>
+</div>
+<div>
+<p class="font-bold text-zinc-900">New Year Launch Event</p>
+<p class="text-[11px] text-zinc-500">Starts: Jan 01, 2024</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-medium text-zinc-600">Fixed Amount</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold text-primary">KWD 50.000</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-0.5 bg-zinc-100 text-zinc-500 text-[10px] font-bold rounded uppercase">Scheduled</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit"></span>
+</button>
+</td>
+</tr>
+<!-- Campaign Item 3 -->
+<tr class="hover:bg-zinc-50/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="ac_unit"></span>
+</div>
+<div>
+<p class="font-bold text-zinc-900">Winter Gear Sale</p>
+<p class="text-[11px] text-zinc-500">Expires: Jan 30, 2024</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-medium text-zinc-600">Percentage</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold text-primary">20%</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">Active</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit"></span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Consumer Catalog Preview Card -->
+<div class="bg-white rounded-xl shadow-sm border border-zinc-100 p-8">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-base font-bold text-zinc-900 tracking-tight">Consumer Catalog Preview</h3>
+<p class="text-xs text-zinc-500 mt-1">Real-time visualization of the offer ribbon on product cards.</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300" data-icon="visibility"></span>
+</div>
+<div class="flex justify-center">
+<div class="w-72 bg-white rounded-xl shadow-2xl overflow-hidden border border-zinc-100 relative group">
+<!-- Product Card Mockup -->
+<div class="aspect-square bg-zinc-50 relative">
+<img alt="Product" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASVbfdwnfbU07Ehh3RojTgZYF5rAAn9gMPf_XBHttRRR-pPPEYFXBA45vxVjNSsiacNzEJlr2PxHv1GWAz-VFpsGt4zaNn5dMqWSWIKLS_6S_TYbzbZ84wVwZU9yr3hiptljTIwToqtVU3ASiSNtlMRn4uaowR3rGeHE0kqHnVfLQFj3teULHZB7AgxjSKToBFHI8lr_BQkXV4y5AjdW2ICSus_4gNDtcZE87urdESPvfhj43LXwPnppJJWwchU2U1XvEYW6Z5oKE"/>
+<!-- Offer Ribbon Feature -->
+<div class="absolute top-4 left-0 bg-primary text-white text-[10px] font-extrabold px-3 py-1.5 uppercase tracking-wider shadow-lg">
+                                15% OFF FLOOR MATS
+                            </div>
+</div>
+<div class="p-5">
+<p class="text-[10px] font-extrabold text-zinc-400 uppercase tracking-widest mb-1">Interior Accessories</p>
+<h5 class="font-bold text-zinc-900 text-sm mb-3">Custom 3D Comfort Mat</h5>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400 line-through">KWD 45.000</span>
+<span class="text-base font-extrabold text-primary">KWD 38.250</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="add_shopping_cart"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<p class="mt-8 text-[11px] text-zinc-400 text-center italic leading-relaxed">
+                    "Dynamic ribbons help grab user attention during the scrolling journey. This preview uses the primary 'Sayarti Red' branding."
+                </p>
+</div>
+</div>
+<!-- Detail/Edit Column -->
+<div class="col-span-4">
+<div class="bg-white rounded-xl shadow-sm border border-zinc-100 p-6 sticky top-24">
+<h3 class="text-sm font-extrabold uppercase tracking-widest text-zinc-900 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="auto_awesome"></span>
+                    Offer Details
+                </h3>
+<form class="space-y-5">
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Offer Name</label>
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" type="text" value="15% Off Floor Mats"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Type</label>
+<select class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 text-sm focus:ring-1 focus:ring-primary transition-all outline-none">
+<option>Percentage</option>
+<option>Fixed Amount</option>
+</select>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Value (KWD/%)</label>
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary transition-all outline-none font-bold text-primary" type="number" value="15"/>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Applicable Category</label>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-md flex items-center gap-1.5">
+                                Interior <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-zinc-900" data-icon="close"></span>
+</span>
+<span class="bg-zinc-100 text-zinc-600 text-[10px] font-bold px-2 py-1 rounded-md flex items-center gap-1.5">
+                                Protective Gear <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-zinc-900" data-icon="close"></span>
+</span>
+</div>
+<button class="w-full text-[10px] font-bold text-primary px-3 py-2 border border-dashed border-primary/40 rounded-lg hover:bg-primary/5 transition-colors" type="button">+ Add New Category</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Start Date</label>
+<div class="relative">
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2 text-xs focus:ring-1 focus:ring-primary transition-all outline-none" type="date" value="2023-12-15"/>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">End Date</label>
+<div class="relative">
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2 text-xs focus:ring-1 focus:ring-primary transition-all outline-none" type="date" value="2023-12-25"/>
+</div>
+</div>
+</div>
+<div class="pt-6 flex flex-col gap-3">
+<button class="w-full py-3 bg-primary text-white font-bold text-sm rounded-lg shadow-lg shadow-primary/20 hover:bg-primary-container active:scale-[0.98] transition-all" type="submit">
+                            Save Campaign Changes
+                        </button>
+<button class="w-full py-3 bg-white text-zinc-400 font-bold text-sm rounded-lg border border-zinc-200 hover:bg-zinc-50 transition-all" type="button">
+                            Discard Draft
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+</body></html>

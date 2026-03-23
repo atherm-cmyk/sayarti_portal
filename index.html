@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayarti — Toyota Kuwait Accessories</title>
+  <meta name="description" content="Premium Toyota genuine accessories, performance parts, and merchandise for Kuwait.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#bd0014', 'primary-ctr': '#eb0a1e',
+            surface: '#ffffff', 'surface-ctr': '#f5f0ee',
+            'surface-ctr-high': '#ece8e6', 'surface-ctr-highest': '#e6e2e0',
+            'on-surface': '#1c1b1b', 'on-surface-var': '#5d5e60',
+            tertiary: '#00619e', gold: '#D4AF37', secondary: '#5d5e60',
+          },
+          fontFamily: { heading: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] },
+          borderRadius: { xl: '16px', '2xl': '24px' }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-body bg-white text-on-surface">
+
+  <!-- ====== HEADER / Glass Nav ====== -->
+  <header class="glass-nav" id="mainHeader">
+    <div class="flex items-center justify-between h-16 px-4 lg:px-6 max-w-[1600px] mx-auto">
+      <!-- Left: Logo + Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-surface-ctr-high transition" aria-label="Menu">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <a href="#/home" class="flex items-center">
+          <img src="assets/sayarti.png" alt="Sayarti by AlSayer" class="h-[50px] w-auto object-contain">
+        </a>
+      </div>
+
+      <!-- Center: Navigation Links (desktop) -->
+      <nav class="hidden lg:flex items-center gap-1" id="desktopNav">
+        <a href="#/shop" class="px-4 py-2 text-sm font-semibold rounded-full hover:text-primary hover:bg-surface-ctr-high transition" data-nav="shop" data-i18n="shop">Shop</a>
+        <a href="#/merchandise" class="px-4 py-2 text-sm font-semibold rounded-full hover:text-primary hover:bg-surface-ctr-high transition" data-nav="merchandise" data-i18n="merchandise">Merchandise</a>
+        <a href="#/offers" class="px-4 py-2 text-sm font-semibold rounded-full hover:text-primary hover:bg-surface-ctr-high transition" data-nav="offers" data-i18n="offers">Offers</a>
+        <a href="#/locations" class="px-4 py-2 text-sm font-semibold rounded-full hover:text-primary hover:bg-surface-ctr-high transition" data-nav="locations" data-i18n="locations">Locations</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center gap-1">
+        <button id="searchToggle" class="p-2 rounded-full hover:text-primary hover:bg-surface-ctr-high transition" aria-label="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <button id="langToggle" class="px-3 py-1.5 font-bold rounded-full hover:bg-surface-ctr-high transition" style="font-family:'Almarai',sans-serif;font-size:18px;color:#bd0014;">ع</button>
+        <a href="tel:+96512345678" class="p-2 rounded-full hover:text-primary hover:bg-surface-ctr-high transition hidden sm:flex" aria-label="Phone">
+          <span class="material-symbols-outlined">phone</span>
+        </a>
+        <a href="#/profile" id="authIcon" class="p-2 rounded-full hover:text-primary hover:bg-surface-ctr-high transition" aria-label="Account">
+          <span class="material-symbols-outlined">person</span>
+        </a>
+        <button id="cartBtn" class="relative p-2 rounded-full hover:text-primary hover:bg-surface-ctr-high transition" aria-label="Cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart-badge hidden" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar (expandable) -->
+    <div id="searchBar" class="hidden border-t border-outline-variant">
+      <div class="max-w-2xl mx-auto px-4 py-3">
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary">search</span>
+          <input type="text" id="searchInput" placeholder="Search accessories, parts, merchandise..." class="form-input pl-10 pr-4" autocomplete="off" data-i18n-placeholder="search">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== SIDEBAR (Desktop) ====== -->
+  <aside class="sidebar hidden lg:flex flex-col" id="sidebar">
+    <div class="px-5 pt-6 pb-2">
+      <span class="text-xs font-bold text-secondary tracking-widest uppercase" data-i18n="accessories">Accessories</span>
+    </div>
+    <div class="px-5 py-2">
+      <span class="text-[11px] font-semibold text-on-surface-var tracking-wide uppercase" data-i18n="browseByLifestyle">Browse by Lifestyle</span>
+    </div>
+    <nav id="sidebarNav" class="flex-1">
+      <!-- Populated by JS -->
+    </nav>
+    <div class="p-4 border-t border-outline-variant">
+      <a href="#/shop" class="btn-hero w-full text-center justify-center text-sm py-2.5">
+        <span class="material-symbols-outlined text-lg">directions_car</span>
+        <span data-i18n="shopByVehicle">Shop by Vehicle</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ====== MOBILE SIDEBAR OVERLAY ====== -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 z-30 hidden lg:hidden" aria-hidden="true"></div>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main class="main-content" id="app">
+    <!-- Pages rendered here by router -->
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer bg-white border-t border-outline-variant" id="mainFooter">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <img src="assets/sayarti.png" alt="Sayarti by AlSayer" class="h-[50px] w-auto object-contain">
+          <p class="text-sm text-secondary mt-3 leading-relaxed">Premium Toyota genuine accessories and merchandise for the Kuwait market. Powered by AlSayer Engineering.</p>
+        </div>
+        <!-- Navigation -->
+        <div>
+          <h4 class="font-heading font-bold text-sm mb-4" data-i18n="navigation">Navigation</h4>
+          <ul class="space-y-2 text-sm text-secondary">
+            <li><a href="#/home" class="hover:text-primary transition" data-i18n="home">Home</a></li>
+            <li><a href="#/shop" class="hover:text-primary transition" data-i18n="shopByVehicle">Shop by Vehicle</a></li>
+            <li><a href="#/merchandise" class="hover:text-primary transition" data-i18n="merchandise">Merchandise</a></li>
+            <li><a href="#/profile" class="hover:text-primary transition" data-i18n="myAccount">My Account</a></li>
+          </ul>
+        </div>
+        <!-- Legal -->
+        <div>
+          <h4 class="font-heading font-bold text-sm mb-4" data-i18n="legal">Legal</h4>
+          <ul class="space-y-2 text-sm text-secondary">
+            <li><a href="#" class="hover:text-primary transition" data-i18n="privacyPolicy">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-primary transition" data-i18n="termsOfService">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-primary transition" data-i18n="returnPolicy">Return Policy</a></li>
+            <li><a href="#" class="hover:text-primary transition" data-i18n="warrantyInfo">Warranty Info</a></li>
+          </ul>
+        </div>
+        <!-- Social -->
+        <div>
+          <h4 class="font-heading font-bold text-sm mb-4" data-i18n="connect">Connect</h4>
+          <div class="flex gap-3 text-secondary">
+            <a href="#" class="p-2 rounded-full bg-surface-ctr hover:bg-primary hover:text-white transition" aria-label="Instagram"><span class="material-symbols-outlined text-xl">photo_camera</span></a>
+            <a href="#" class="p-2 rounded-full bg-surface-ctr hover:bg-primary hover:text-white transition" aria-label="Twitter"><span class="material-symbols-outlined text-xl">tag</span></a>
+            <a href="#" class="p-2 rounded-full bg-surface-ctr hover:bg-primary hover:text-white transition" aria-label="YouTube"><span class="material-symbols-outlined text-xl">play_circle</span></a>
+          </div>
+          <p class="text-xs text-secondary mt-4">+965 1234 5678</p>
+          <p class="text-xs text-secondary">info@sayarti.kw</p>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant mt-8 pt-6 text-center text-xs text-secondary" data-i18n="copyright">
+        &copy; 2026 Sayarti by AlSayer. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== MOBILE BOTTOM NAV ====== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-item" data-route="#/protected">
+      <span class="material-symbols-outlined">shield</span>
+      <span data-i18n="protected">Protected</span>
+    </button>
+    <button class="mobile-nav-item" data-route="#/off-grid">
+      <span class="material-symbols-outlined">terrain</span>
+      <span data-i18n="offGrid">Off-Grid</span>
+    </button>
+    <button class="mobile-nav-item" data-route="#/connected">
+      <span class="material-symbols-outlined">settings_input_antenna</span>
+      <span data-i18n="connected">Connected</span>
+    </button>
+    <button class="mobile-nav-item" data-route="#/accessorized">
+      <span class="material-symbols-outlined">minor_crash</span>
+      <span data-i18n="accessorized">Accessorized</span>
+    </button>
+  </nav>
+
+  <!-- ====== CART DRAWER ====== -->
+  <div id="cartDrawer" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/40" id="cartOverlay"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
+      <div class="flex items-center justify-between p-5 border-b border-outline-variant">
+        <h3 class="font-heading font-bold text-lg">Your Cart</h3>
+        <button id="cartClose" class="p-1 rounded-full hover:bg-surface-ctr transition">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto p-5" id="cartItems">
+        <div class="text-center py-12 text-secondary">
+          <span class="material-symbols-outlined text-5xl mb-3 block opacity-30">shopping_cart</span>
+          <p class="font-medium">Your cart is empty</p>
+          <p class="text-sm mt-1">Browse our accessories to get started</p>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant p-5" id="cartFooter">
+        <div class="flex justify-between mb-4">
+          <span class="font-semibold">Total</span>
+          <span class="font-heading font-bold text-lg" id="cartTotal">0.000 KWD</span>
+        </div>
+        <a href="#/checkout" class="btn-hero w-full text-center justify-center" id="checkoutBtn">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TOAST CONTAINER ====== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="data/cms-data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f6f3f2",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#9ccaff",
+              "secondary-fixed": "#e3e2e4",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#00497a",
+              "surface-container": "#f0eded",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-tint": "#c00014",
+              "surface-bright": "#fcf9f8",
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-dim": "#dcd9d9",
+              "on-surface": "#1c1b1b",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "outline": "#936e6a",
+              "background": "#fcf9f8",
+              "secondary": "#5d5e60",
+              "primary": "#bd0014",
+              "inverse-surface": "#313030",
+              "on-surface-variant": "#5e3f3b",
+              "inverse-primary": "#ffb4ab",
+              "surface-variant": "#e5e2e1",
+              "inverse-on-surface": "#f3f0ef",
+              "on-tertiary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "tertiary": "#00619e",
+              "tertiary-fixed": "#d0e4ff",
+              "surface": "#fcf9f8",
+              "on-error": "#ffffff",
+              "outline-variant": "#e9bcb7",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "on-secondary-fixed": "#1a1c1d",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#626365",
+              "tertiary-container": "#007ac6",
+              "secondary-container": "#e0dfe1",
+              "on-primary-container": "#fffeff",
+              "on-secondary-fixed-variant": "#464749",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001d35",
+              "primary-container": "#eb0a1e",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-primary-fixed": "#410002",
+              "surface-container-high": "#eae7e7"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bg-red-gradient {
+            background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+        }
+        .glass-nav {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar (Updated Branding Header from SCREEN_67) -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#">Shop</a>
+<a class="text-red-600 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#">Merchandise</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#">Offers</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#">Locations</a>
+</div>
+<div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors">EN</button>
+<span class="text-zinc-300">|</span>
+<button class="hover:text-primary transition-colors">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" title="Contact Us">
+<span class="material-symbols-outlined">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 h-[1px]"></div>
+</nav>
+<main class="pt-24 pb-20 max-w-7xl mx-auto px-6">
+<!-- Breadcrumb -->
+<div class="flex items-center gap-2 mb-8 font-label text-xs uppercase tracking-widest text-on-surface-variant">
+<span>Home</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Merchandise</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-semibold">GR Winter Cycling Jersey</span>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Visual Storytelling -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-low rounded-xl overflow-hidden group relative">
+<img class="w-full aspect-[4/5] object-cover mix-blend-multiply opacity-90" data-alt="Professional male cyclist in red and black GR winter jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGdGHLyipRB-W6Vc8VlSO_qBipVojbSlhIdvsU60ndA-IVBRP7o1IvH7UaTrMzC26hO1jrcpO8K9jKsumY776HhbDqXlevTpYWGZgcgQaDnN-ZtuVluiKVBYCv1QB2NKXVNBvX-nqJ1S4K4FDXin4LTCELYDdsD_KwLvAkSvmu5sqL054kYS-PnijF5GPoXCmNqi6qa0CsDTlxKfKXLiMKic_otP80RG0xb27R0lp72_kpUMEmnsHTgHgssSk2tHcfJTwqeBs5gSw"/>
+<!-- Spec Overlay -->
+<div class="absolute bottom-6 left-6 p-6 bg-white/40 backdrop-blur-xl border border-white/20 rounded-lg max-w-xs">
+<p class="font-headline font-extrabold text-sm uppercase tracking-tighter text-on-surface mb-1">Engineered Precision</p>
+<p class="text-xs text-on-surface-variant">Windproof membrane integrated with thermal fleece lining for high-speed performance in cold climates.</p>
+</div>
+</div>
+<!-- Secondary Visuals -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl overflow-hidden h-64">
+<img class="w-full h-full object-cover" data-alt="Close up of GR cycling jersey fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-VeiMAgHMraaqJkH5rV42esSLtdWEE-_-uWCdE2jD49R09Fs5QdU9xCGNctY9xrvVPvpoOCTNcNb0T5crpgfn9xfXdwUT9HvK8Zi7-NixKlitJcS6SRCR8dcNCOQ1imY9wc52kp4qzeCli1H_3veH8ldOeRmKdqT4_M70hmB4POsSaGMLdGjLxGA4mHVP0vX3avNZi53uAXEU2ckgc54W-lpDCk9Y8cFNw-yZmgkk7rYtFs9dmdlsDWqHFEVh9uUex3j50LoYQ34"/>
+</div>
+<div class="bg-surface-container-low rounded-xl overflow-hidden h-64">
+<img class="w-full h-full object-cover" data-alt="GR logo detail on jersey back pocket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSLuaMLT75rVbG9OrIwVPCF4XVMfiHD8nsyydcpZrYg0370fB7b-5KbQXGPU499cP6k_IMLf4QiJ7zuarSJ7Qr78kN4Xxr7jnZRgA-oUdomMh48ky4ppo_kNLZoO5fZUUm9WeebPhDcIhmeOaMPRgpSQfGzWsYY3pW6iPLCtgmNFfEKmqyy-dGxfFMhJ2iE9UG1_rJhlHsZD1NXP4DLT1OJcOtXt1RIoYSgVIB5Fk9N43z_khqIXne13oJd-3XTLVCBsGEnHiz4Vw"/>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Details & Purchase -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="sticky top-28">
+<header class="mb-8">
+<span class="inline-block py-1 px-3 bg-on-surface text-surface text-[10px] font-black uppercase tracking-widest mb-4">GR Performance Wear</span>
+<h1 class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface mb-2 leading-none">GR MENS L/S WINTER CYCLING JERSEY</h1>
+<p class="text-2xl font-manrope font-bold text-primary">KWD 2,107.59</p>
+</header>
+<div class="space-y-10">
+<!-- Color Selection -->
+<div>
+<p class="font-label text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-4">Select Color</p>
+<div class="flex gap-4">
+<button class="group flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border-2 border-primary p-0.5">
+<div class="w-full h-full rounded-full bg-zinc-900 shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface">Black</span>
+</button>
+<button class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 rounded-full border-2 border-transparent p-0.5">
+<div class="w-full h-full rounded-full bg-red-600 shadow-inner"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">GR Red</span>
+</button>
+</div>
+</div>
+<!-- Size Selection -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<p class="font-label text-xs font-semibold uppercase tracking-widest text-on-surface-variant">Select Size</p>
+<button class="text-[10px] uppercase font-bold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">straighten</span>
+                                Size Guide
+                            </button>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">XXS</button>
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">XS</button>
+<button class="py-3 bg-on-surface text-surface font-bold text-sm">S</button>
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">M</button>
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">L</button>
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">XL</button>
+<button class="py-3 bg-surface-container-highest font-bold text-sm hover:bg-on-surface hover:text-surface transition-colors">2XL</button>
+</div>
+</div>
+<!-- Purchase Action -->
+<div class="space-y-4">
+<button class="w-full py-5 bg-red-gradient text-white font-headline font-bold text-lg uppercase tracking-tight rounded-lg shadow-xl shadow-primary/10 hover:brightness-110 active:scale-[0.98] transition-all">
+                            Buy Online
+                        </button>
+<button class="w-full py-4 bg-surface-container-highest text-on-surface font-headline font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-surface-container-high transition-colors">
+                            Find at Dealer
+                        </button>
+</div>
+<!-- Description Toggles (Bento Detail) -->
+<div class="border-t border-surface-container-high pt-8 space-y-6">
+<div>
+<h3 class="font-headline font-bold text-sm uppercase tracking-tight mb-2">Technical Description</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-body">
+                                Designed for the dedicated GAZOO Racing enthusiast, this winter cycling jersey combines advanced aerodynamics with superior thermal protection. The multi-panel construction ensures a second-skin fit that reduces drag while the brushed Italian fleece interior traps body heat during long winter rides. 
+                            </p>
+</div>
+<ul class="grid grid-cols-1 gap-3">
+<li class="flex items-start gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span>Moisture-wicking fabric with breathable side panels</span>
+</li>
+<li class="flex items-start gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span>Three reinforced rear pockets + zip security pocket</span>
+</li>
+<li class="flex items-start gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span>Silicone waist gripper for stay-put fit</span>
+</li>
+<li class="flex items-start gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span>YKK full-length camlock zipper for ventilation</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Lifestyle Grid (Asymmetric) -->
+<section class="mt-32">
+<h2 class="font-headline text-3xl font-extrabold tracking-tighter mb-12">COMPLETE THE KIT</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between h-96 relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="GR performance cycling bib shorts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzbtWG1VWuIWD5HkE5v4BNrMTB0jICd_VT18jz_Erj1sC7Hgep22122kBLZtSeMEeR7s0yPEc-06Y5Yv4GkOB-xEP8Fwx4rYR0DJ08yFXPUJEzyQt_pJKWBg0GXkDqXH1mTaq_Ud4jDoSZ4M-xp3DiiAL2d0A4r5P9pKSFqzUHh4FBZW06gHTHH_V4hgf6caALn5_dRK-mO9HGY7t9laRqKiNYTl0ll2lg6F61eVgVkiz3sN7FKvr_hdVufcGgUErbT-tkclfxj-4"/>
+<div class="relative z-10">
+<p class="font-label text-[10px] uppercase font-bold tracking-[0.2em] text-on-surface-variant mb-2">Essential</p>
+<h3 class="font-headline text-2xl font-black leading-none">GR CORE BIB SHORTS</h3>
+</div>
+<button class="relative z-10 w-fit text-xs font-bold uppercase border-b-2 border-primary pb-1">Shop Legwear</button>
+</div>
+<div class="bg-surface-container rounded-xl p-8 flex flex-col justify-between h-96 group">
+<div class="w-full h-48 bg-white/50 rounded-lg flex items-center justify-center mb-4">
+<img class="h-full object-contain mix-blend-multiply" data-alt="GR cycling gloves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7wMsmO5xkUPi1l59Pgjgs8e9eQf18CM-ECZPi0sYrI1606rm6HF1J79wytscCoauIQDrpYUpLRbIIClvUHmasDYdcpp3tEkGfwkhDA2P-qCY9gPVRvrAMY60r372W5eI6oNbbDE4RFgiJKTJ3vbmpKz1DWi_RUKfSvEP2MKJB8RFO03u0eB3SPVUpq18MU4FiaPyIVOJgoYfNS8PMZGwQhTe76sXYbpZIk3vaEGHRruPC-1rodjYS4oFQ8iHYm_EB1Eq5NoYcOg8"/>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">GR PRO GLOVES</h3>
+<p class="text-primary font-bold">KWD 450.00</p>
+</div>
+<button class="w-full py-2 bg-on-surface text-surface text-[10px] font-bold uppercase rounded mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Add to Cart</button>
+</div>
+<div class="bg-surface-container rounded-xl p-8 flex flex-col justify-between h-96 group">
+<div class="w-full h-48 bg-white/50 rounded-lg flex items-center justify-center mb-4">
+<img class="h-full object-contain mix-blend-multiply" data-alt="GR thermal cycling cap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq93i4KHINpEe6RMRjFSr40kKr4KR2VrhAxIQlQNzFwCqyRM65lmyeKgIZBBTtuCkXpHhnSkHfBpvr371YZaGAiBgJd8d73b_uBVMtrD30i3WE1MjdzAO7RzQbDyNQ_x8U6h-P6HSq9T69iiwX58w135KXRxbKnefezCb8bGbWBh8Mklz40q6b6LpIUssbh1t4nU0fCnsSdcbdapoQ1BUjX4v45ycre7f15jh9HeG-ZMvqVQ4NhtvziiCIVXALxcmw0VYrhVvVav0"/>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">THERMAL CAP</h3>
+<p class="text-primary font-bold">KWD 295.00</p>
+</div>
+<button class="w-full py-2 bg-on-surface text-surface text-[10px] font-bold uppercase rounded mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Add to Cart</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Replaced with Footer from SCREEN_70) -->
+<footer class="bg-surface-container-high border-t border-outline-variant py-20">
+<div class="max-w-[1440px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-8">
+<img alt="Sayarti By AlSayer" class="h-12 w-auto object-contain self-start" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+<p class="text-on-surface-variant font-body leading-relaxed">Your one-stop destination for authentic Toyota accessories and official GAZOO Racing merchandise.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">facebook</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-8">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">All Accessories</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GR Merchandise</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Latest Offers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Dealer Locator</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-8">Support</h4>
+<ul class="flex flex-col gap-4 font-body text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-8">Stay Connected</h4>
+<p class="text-on-surface-variant mb-6 text-sm">Subscribe for updates on new arrivals and exclusive offers.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary w-full" placeholder="Enter your email" type="email"/>
+<button class="bg-primary text-on-primary font-bold py-3 rounded-lg hover:bg-primary-container transition-colors uppercase tracking-widest text-xs">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 mt-20 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-on-surface-variant font-body">
+<p>© 2024 Sayarti By AlSayer. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

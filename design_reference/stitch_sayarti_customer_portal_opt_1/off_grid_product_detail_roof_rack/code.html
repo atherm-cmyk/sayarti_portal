@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#f0eded",
+              "primary-fixed-dim": "#ffb4ab",
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-container-low": "#f6f3f2",
+              "surface-container-high": "#eae7e7",
+              "on-tertiary-fixed": "#001d35",
+              "on-surface-variant": "#5e3f3b",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#007ac6",
+              "secondary": "#5d5e60",
+              "inverse-on-surface": "#f3f0ef",
+              "inverse-surface": "#313030",
+              "on-secondary-container": "#626365",
+              "on-error": "#ffffff",
+              "surface": "#fcf9f8",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#fcf9f8",
+              "primary": "#bd0014",
+              "on-surface": "#1c1b1b",
+              "surface-variant": "#e5e2e1",
+              "error": "#ba1a1a",
+              "outline-variant": "#e9bcb7",
+              "tertiary-fixed": "#d0e4ff",
+              "on-primary-fixed": "#410002",
+              "on-error-container": "#93000a",
+              "on-background": "#1c1b1b",
+              "surface-container-highest": "#e5e2e1",
+              "on-secondary-fixed-variant": "#464749",
+              "on-tertiary-fixed-variant": "#00497a",
+              "tertiary-fixed-dim": "#9ccaff",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#e3e2e4",
+              "secondary-container": "#e0dfe1",
+              "surface-tint": "#c00014",
+              "inverse-primary": "#ffb4ab",
+              "background": "#fcf9f8",
+              "outline": "#936e6a",
+              "tertiary": "#00619e",
+              "on-tertiary-container": "#fffeff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#eb0a1e",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#1a1c1d",
+              "on-primary-container": "#fffeff",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .red-gradient-btn {
+        background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+      }
+    </style><style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Header (Shared Component: TopNavBar) -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm border-b border-zinc-200">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-primary border-b-2 border-primary pb-1 hover:text-accent transition-colors duration-200" href="#">Shop</a>
+<a class="text-zinc-600 hover:text-primary transition-colors duration-200" href="#">Merchandise</a>
+<a class="text-zinc-600 hover:text-primary transition-colors duration-200" href="#">Offers</a>
+<a class="text-zinc-600 hover:text-primary transition-colors duration-200" href="#">Locations</a>
+</div>
+<div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-accent transition-colors">EN</button>
+<span class="text-zinc-300">|</span>
+<button class="hover:text-primary transition-colors">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 hover:text-primary" title="Contact Us">
+<span class="material-symbols-outlined">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 hover:text-primary">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative hover:text-primary">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</nav>
+<aside class="hidden lg:flex h-screen w-64 fixed left-0 top-0 pt-20 border-r border-zinc-200 flex-col gap-2 p-4 z-40 bg-white">
+<div class="mb-6 px-2 mt-[10px]">
+<h3 class="font-manrope uppercase text-xs tracking-widest font-semibold text-zinc-400">ACCESSORIES</h3>
+<p class="text-[10px] text-zinc-500 font-label uppercase tracking-tighter">Browse by Lifestyle</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-zinc-50 text-primary border-r-4 border-primary transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-manrope uppercase text-xs tracking-widest font-semibold">Protected</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-100 hover:text-primary transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">terrain</span>
+<span class="font-manrope uppercase text-xs tracking-widest font-semibold">Off-Grid</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-100 hover:text-primary transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings_input_antenna</span>
+<span class="font-manrope uppercase text-xs tracking-widest font-semibold">Connected</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-100 hover:text-primary transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">minor_crash</span>
+<span class="font-manrope uppercase text-xs tracking-widest font-semibold">Accessorized</span>
+</a>
+</nav>
+</aside><main class="lg:pl-64 pt-16">
+<!-- Hero Section: Breadcrumb & Title -->
+<section class="max-w-screen-2xl mx-auto px-8 py-6">
+<nav class="flex items-center space-x-2 text-xs font-label uppercase tracking-widest text-secondary mb-4">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Accessories</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Off-Grid Expedition</span>
+</nav>
+</section>
+<!-- Product Presentation -->
+<section class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left: Visual Column -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-low overflow-hidden relative group">
+<img class="w-full h-[600px] object-contain transition-transform duration-700 group-hover:scale-105" data-alt="Matte black heavy-duty expedition roof rack on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg_6oLldDuGuwjkRN1TA4W1b95eElon8wCQ9s4uzcevN6UkkEzagwWK6-GFqdygf5tAbhLg0r-GIkeRUg0ZqLCSscWGrSndISBLJGtQmBhyr6DSOBtZRiSrOakINr7yVjSxC0tKhGoZKJIzPVgbrfUo_WEJb0P-r2RG74M2TSS80h2cyUKTyksW0VraLr96NZ10FBBUYrC6ZgLflvotfxZJlPzZ6gBf1WhfMZ4mKC0x8m6tiC0Pvp7OWBARGdsTJeakgLz0Bw69z4"/>
+<!-- Spec Overlay Component -->
+<div class="absolute bottom-6 left-6 glass-effect bg-white/40 p-4 border border-white/20">
+<p class="text-[10px] font-label uppercase tracking-tighter text-on-surface/60 mb-1">Precision Fit</p>
+<p class="text-sm font-headline font-bold">2024 Tacoma Access Cab / Double Cab</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container-high cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Roof rack mounting bracket detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMWseX-xkVTemb8yN5uNIPmrZgpB7L2OhIZvetvNdI6MNAFdblAvwKsa2_gq5kOla5uT3fw92e8gMlXUQnCAdZLycKqNftH5MbFTfs_H5Ijob8lA7IEcUCKzr2fpunAoqnps8NxH2u3V2MlQKVKw3x4a9qRquA0eO9GnPj9oLV1DPhfQRuWhKDjuIAwp5vlTkXPuuBZMUszUpxcKNLzHX9KWgE-UHqnvboINQn-N_rMd9CgC_GVVrpiUgmHyYY37Q3yQahpfF1pxo"/>
+</div>
+<div class="aspect-square bg-surface-container-high cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Roof rack t-slot accessory profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkEwKSmuslrTFhzqrEMHebAeLrr1H_LrhalhXM5YrrVjOSnH0TGMxCzmUZiww2ZwK5e3za39rYe7-3Aa88l6ajKwNtypdPU2wBWPbMZ7F2aRIIV26wQj8PF4MCTJk7PFup180yMkmmvwVhGx3ZiInpgp3yLEzpZYbeOf16Nfc6QbYhVCHKDioTJLGSbmStzhkSExlOGt3gvDpMHoleCkkBidMjECbw_KGCmocB9LIZ5_y6X79C1NLI0h3q1f-AYOOgdlIc9ciaCs"/>
+</div>
+<div class="aspect-square bg-surface-container-high cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Expedition roof rack aerodynamic wind deflector" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9-_2zqHGR2t3UsR7jhqXpGXXF2FvEiE8DxMv-T9ZEy0bj7PbGdoaibbzrqWzs-ZUksLL2oMGWoIggxURP5e4PUJ1SB3Q2m_nv6JrZfvdjg5hi2cK2oZNkav4JkYy-KiLOqGr1WqiEc3dIUB28Iu9-byYyjXMRnoTmkIny-sTsKB1Rl5Z-qZkPUWpAeaw3fMzBHGOjdw3_k44oXvx9JtfIzbFwy4btamXDcGHFiX5Wcrw52gbKEz2LtsX09QnZ1pHxuHQTXkzVx-E"/>
+</div>
+<div class="aspect-square bg-surface-container-high flex items-center justify-center cursor-pointer hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right: Information Column -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="mb-2">
+<span class="bg-surface-container-highest px-3 py-1 text-[10px] font-bold tracking-widest uppercase">Off-Grid Series</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight mb-2 leading-tight">
+                    Heavy-Duty Expedition Roof Rack
+                </h1>
+<div class="flex items-center space-x-4 mb-6">
+<p class="text-xs font-label text-secondary uppercase tracking-wider">SKU: TRD-OFF-884</p>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">4.9</span>
+<span class="text-xs text-secondary ml-1">(185 reviews)</span>
+</div>
+</div>
+<div class="mb-8">
+<p class="text-3xl font-headline font-bold text-on-surface">1,249.000 <span class="text-lg font-normal">KWD</span></p>
+<p class="text-xs text-secondary mt-1">Inclusive of VAT and Standard Installation</p>
+</div>
+<div class="space-y-6 mb-8">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+<div>
+<p class="text-sm font-bold">Fits your 2024 Tacoma</p>
+<p class="text-xs text-secondary">Laser-measured for a seamless, bolt-on factory finish.</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary mt-0.5">airplanemode_active</span>
+<div>
+<p class="text-sm font-bold">Aerodynamic low-profile design</p>
+<p class="text-xs text-secondary">Reduces wind noise and maintains fuel efficiency at highway speeds.</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary mt-0.5">extension</span>
+<div>
+<p class="text-sm font-bold">Integrated T-slots</p>
+<p class="text-xs text-secondary">Versatile accessory mounting for Maxtrax, Rotopax, and more.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<button class="red-gradient-btn text-on-primary py-4 rounded-md font-bold text-sm tracking-wide shadow-lg flex items-center justify-center space-x-2 transition-all hover:scale-[1.02] active:scale-[0.98]">
+<span class="material-symbols-outlined">garage</span>
+<span>Add to Garage</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface py-4 rounded-md font-bold text-sm tracking-wide transition-all hover:bg-surface-dim">
+                        Find a Dealer
+                    </button>
+</div>
+<!-- Technical Specs Bento -->
+<div class="bg-surface-container-low p-6 space-y-4">
+<h3 class="text-xs font-bold uppercase tracking-widest mb-2 border-b border-outline-variant/20 pb-2">Technical Specifications</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-secondary uppercase font-label">Construction</p>
+<p class="text-sm font-semibold">Powder-coated aluminum</p>
+</div>
+<div>
+<p class="text-[10px] text-secondary uppercase font-label">Finish</p>
+<p class="text-sm font-semibold">Matte Black</p>
+</div>
+<div>
+<p class="text-[10px] text-secondary uppercase font-label">Weight Capacity</p>
+<p class="text-sm font-semibold">300 lbs Dynamic / 600 lbs Static</p>
+</div>
+<div>
+<p class="text-[10px] text-secondary uppercase font-label">Warranty</p>
+<p class="text-sm font-semibold">3-Year Limited</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Info Sections -->
+<section class="max-w-screen-2xl mx-auto px-8 mt-24">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- In the Box -->
+<div class="space-y-6">
+<h2 class="text-2xl font-headline font-extrabold tracking-tight">In the Box</h2>
+<ul class="space-y-4">
+<li class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<span class="text-sm font-medium">Expedition Roof Rack Main Assembly</span>
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<span class="text-sm font-medium">Heavy-Duty Mounting Hardware Kit</span>
+<span class="material-symbols-outlined text-secondary">build</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<span class="text-sm font-medium">Installation &amp; Torque Guide</span>
+<span class="material-symbols-outlined text-secondary">description</span>
+</li>
+</ul>
+</div>
+<!-- Installation Info -->
+<div class="bg-surface-container-highest p-8 rounded-xl flex flex-col justify-center">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-12 h-12 bg-white flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary">history</span>
+</div>
+<div>
+<p class="text-xs uppercase font-label tracking-widest text-secondary">Installation Effort</p>
+<h2 class="text-xl font-headline font-bold">Standard Setup</h2>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-secondary">Estimated Time</span>
+<span class="text-sm font-bold">60-90 minutes</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-secondary">Difficulty Level</span>
+<span class="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase rounded-full">Moderate</span>
+</div>
+<p class="text-xs text-secondary leading-relaxed italic">
+                            *No drilling required for 2024 Tacoma. Uses existing factory mounting points. Professional installation recommended for best seal.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cross-Selling Section -->
+<section class="max-w-screen-2xl mx-auto px-8 mt-32">
+<div class="flex items-end justify-between mb-10">
+<div>
+<p class="text-xs font-label uppercase tracking-widest text-primary font-bold mb-2">Adventure Essentials</p>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight">Customers Also Bought</h2>
+</div>
+<a class="text-sm font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">View All Accessories</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-low mb-6 aspect-video overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Toyota stealth series LED light bar on off-road vehicle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ1rx9c8ZYxhFKvr9T8_Tzl_gV2cFgTfZuGvdb6IXXdUnIszijnXvwA9-hJsE5ksk4O65zWHPQZygDqjwpbRjmir_kAgSQ1eUzS4D5N0HhqT3oaP4GpnprSFnukIw8r_EGlrp3y6i4oOjmpbflfy2sePc6zSqBsAkg3c4_8D7GZ5xPaffolL-9XyH69tcF6y1lxQysSuR0C-xVnWQ2O_C6dLuCDvxmoRylFuNGP6BI9qXnL0wfOAd5NJdesgqnGRlaZaKK3tCHz40"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-headline font-bold group-hover:text-primary transition-colors">30" Stealth Series LED Light Bar</h3>
+<p class="text-xs text-secondary mt-1">High-output CREE LEDs, IP69K Waterproof</p>
+</div>
+<p class="text-lg font-bold">425 KWD</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-low mb-6 aspect-video overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Custom fit cargo drawer system for truck bed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmpfnkSSwcjHe2rEOrJctoDZCC-uXVGQYdM-u2vhlhucjp6LM9gzB_eYkvGRXk7uXGsqt6ptoo1g-RsFLkerMvPL-u8bwY9gLsM0sBIjwoMwUldeM65GraxDXqgc_CtjeI_le1mJQXZ-rO4vP3utQ-UOBzir8reYk3CR6v-J4CW6df-3lJUFihcBs3lpMcYWGQCD0VBlNH3Kga-pcUrZNjW6_Tb_Hz3UhT9JZaM0wAqc0WP9HjzQ6iaRoqY2EDTqKAC5eC2laYzGw"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-headline font-bold group-hover:text-primary transition-colors">Custom Fit Cargo Drawer System</h3>
+<p class="text-xs text-secondary mt-1">Heavy-duty steel, Weatherproof, Locking mechanism</p>
+</div>
+<p class="text-lg font-bold">1,550 KWD</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component: Footer) -->
+<footer class="bg-white w-full py-12 px-8 border-t border-zinc-200 mt-24">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12">
+<div class="flex flex-col gap-6">
+<div class="font-black text-zinc-900 text-2xl font-headline flex items-center gap-2">
+<img alt="Sayarti Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</div>
+<p class="font-manrope text-sm text-zinc-600 max-w-md">Enhance every drive with Genuine Toyota Accessories. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-primary font-manrope text-sm font-semibold">© 2026 Sayarti Accessories. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">Navigation</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-primary transition-colors" href="#">Sayarti Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">Legal</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Use</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help.</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">Social Media</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">camera</span> Instagram</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">smart_display</span> YouTube</a></li>
+<li><a class="hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

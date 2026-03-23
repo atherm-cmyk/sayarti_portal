@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#313030",
+              "tertiary": "#00619e",
+              "surface-bright": "#fcf9f8",
+              "outline": "#936e6a",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#e3e2e4",
+              "surface-tint": "#c00014",
+              "on-tertiary-fixed": "#001d35",
+              "primary-container": "#eb0a1e",
+              "on-surface": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-primary-fixed": "#410002",
+              "secondary-container": "#e0dfe1",
+              "primary": "#bd0014",
+              "tertiary-fixed-dim": "#9ccaff",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-secondary-fixed": "#1a1c1d",
+              "surface-dim": "#dcd9d9",
+              "surface-variant": "#e5e2e1",
+              "surface-container-highest": "#e5e2e1",
+              "surface": "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#93000d",
+              "inverse-primary": "#ffb4ab",
+              "surface-container": "#f0eded",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5e3f3b",
+              "on-tertiary-container": "#fffeff",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed-dim": "#ffb4ab",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "on-secondary-container": "#626365",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "outline-variant": "#e9bcb7",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#d0e4ff",
+              "background": "#fcf9f8",
+              "surface-container-high": "#eae7e7",
+              "on-secondary-fixed-variant": "#464749",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1c1b1b",
+              "secondary": "#5d5e60",
+              "tertiary-container": "#007ac6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 dark:bg-zinc-800 h-[1px]"></div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 sticky top-16 left-0 bg-zinc-50 dark:bg-zinc-950 flex flex-col gap-2 p-4 border-r border-zinc-100 dark:border-zinc-800">
+<div class="mb-6 px-3">
+<h3 class="font-manrope text-sm font-semibold uppercase tracking-widest text-zinc-900">Categories</h3>
+<p class="text-xs text-zinc-500 mt-1">Refine by Type</p>
+</div>
+<a class="flex items-center gap-3 bg-white dark:bg-zinc-900 text-red-600 dark:text-red-400 rounded-lg p-3 shadow-sm font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Exterior</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="chair">chair</span>
+<span>Interior</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span>Performance</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+<span>Lighting</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="adjust">adjust</span>
+<span>Wheels</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all font-manrope text-sm font-semibold uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+<span>Protection</span>
+</a>
+<div class="mt-auto p-4 bg-zinc-100 dark:bg-zinc-900 rounded-xl">
+<p class="text-xs text-zinc-500 mb-2">Exclusive Offers</p>
+<button class="w-full py-2 bg-red-600 text-white rounded-lg text-xs font-bold hover:bg-red-700 transition-colors uppercase tracking-widest">View All Offers</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 bg-surface-bright">
+<!-- Hero Section -->
+<section class="relative h-[400px] w-full overflow-hidden flex items-center px-12">
+<div class="absolute inset-0 bg-gradient-to-r from-zinc-950/60 to-transparent z-10"></div>
+<img alt="Toyota Corolla Performance" class="absolute inset-0 w-full h-full object-cover" data-alt="Toyota Corolla sedan side profile white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT36au7wrWQt-GfLJlailKiajCkxKdpyOOB8KCYNxpezYHwRYAFzggoTX3hYmqOzXtdOnTSadAUM4lpitVFS3a0RtCAcHPWkYjj3lCzoumTNX4Ls7G2r-jpYn6elAQRifRO-NWwETUJCFgozbZZIbwEPMBFpI2mMhgLqtuoFj64TQ1N5tPfQ-RjapMpiKWTgxxIrjZxoRsFl-YfMPa49estm7Z1pRrdrvrdSWAco1aJ4PGaHIeYwrg5wkPxdcxlF4V7b85FiDlqis"/>
+<div class="relative z-20 max-w-2xl text-white">
+<span class="inline-block py-1 px-3 bg-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-sm mb-4">Precision Engineering</span>
+<h1 class="font-headline text-6xl font-black tracking-tighter mb-4 leading-none uppercase">Toyota Corolla</h1>
+<p class="font-body text-lg text-zinc-200 max-w-md">Elevate your daily drive with genuine accessories designed for seamless integration and timeless style.</p>
+</div>
+</section>
+<!-- Accessories Grid (Bento Style) -->
+<div class="p-12 max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">Daily Utility &amp; Style</h2>
+<div class="h-1 w-12 bg-primary mt-2"></div>
+</div>
+<div class="flex gap-2">
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-widest rounded-full hover:bg-zinc-300 transition-all">Filter</button>
+<button class="px-6 py-2 bg-primary text-on-primary text-xs font-bold uppercase tracking-widest rounded-full shadow-lg shadow-primary/20 hover:scale-105 transition-all">Sort By</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Alloy Wheels (Large Feature) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm border border-transparent hover:border-primary/20 transition-all">
+<div class="aspect-[16/9] overflow-hidden">
+<img alt="Toyota Alloy Wheels" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Modern 18 inch alloy wheel close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUIjaxfTGZbs2vfZTZyM3Zl_LGnBsGl3WQM7myU7jhANxYvRzo9hh-fj7vs6HR0gJ30J5X6OBFCZS_dFXXzgQKjFUGFHWM_6-wlD3JJghI6_5EP1iAow8NoN-d26yb650FVjlC8uZjbN5Aw3u1DZEjk3IfyrDNkKv0MJyDV16jqyfkeVlnqBLsWNEwXQ9jNwtIVqPwfzQXfl4lt1LG7FoqD0rJFM64XNuzzxSg5-AE9i36cuAtyH5KSi7hnn64XzvX82snQCH49o8"/>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight">18" Gloss Black Alloy Wheels</h3>
+<p class="text-zinc-300 text-sm mt-2 max-w-xs">Precision-crafted for enhanced handling and a bold aesthetic statement.</p>
+</div>
+<div class="text-right">
+<p class="text-sm text-zinc-400 font-medium">Starting from</p>
+<p class="text-3xl font-black tracking-tighter text-primary-container">KWD 185.000</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Window Tints (Small Feature) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-low flex flex-col">
+<div class="flex-1 overflow-hidden relative">
+<img alt="Toyota Window Tints" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek dark car window tint reflection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9C7F4AHu6Vqc_VoVVZWDovRuVSTqWNtP-XTOQolnR0kVmytXWAPhyErtrdri55Mye27uDAsosCgKN-qhoD8Om5d_lK6DOwMNAdtBo9qtFlsXHi2Ik4kIGvtXtT3dlLMh4krXUluzj86mLLkuXly8UYNqCpIbrdcMLr6A4C4BvjLN_xx5t367eWZ1N3qFVS30HH7LQJT19gQaBSSH14I8QsgaT_YbxUEw8Ioo91bhMdGBpuPTntXwC6DSJuBvorTrF77TQnecsMdM"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline font-bold uppercase tracking-tighter text-lg leading-tight">Premium Ceramic Window Tint</h3>
+<span class="bg-surface-container-highest px-2 py-1 text-[10px] font-bold rounded">UV-SHIELD</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-6">99% UV protection and superior heat rejection for Kuwaiti summers.</p>
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold">KWD 45.000</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Park Assist Sensors (Wide Horizontal) -->
+<div class="md:col-span-12 flex flex-col md:flex-row rounded-xl overflow-hidden bg-surface-container-low">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img alt="Parking Sensors" class="w-full h-full object-cover" data-alt="Car bumper close up with ultrasonic sensor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUlelOPF0l2vwBRtcIGuxH0Xks3QFardIazSa8Rupsca2iDxgERx3ZFRKuDllW5zySaFXd_0NGAS-GUDKijvkaCxQbYp_72uzLNyKZoHBJ_7D3oBxPD8JDOoYXS-_I0b_50KJgiwXlojaCq3bV7vBcLX8YePb8ogi3RsJHbcYDsth8lHWlR0ibSyNzpDTMdjK1x9kGZiNK1Otldw6TMpVFh6zbcJofRorsXj2JYEfmswODz_HpKu9n-J40DOiYKmD_uzl5DAqnA6I"/>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<span class="text-primary font-bold text-xs tracking-widest uppercase mb-2">Safety First</span>
+<h3 class="font-headline text-3xl font-black uppercase tracking-tighter mb-4">Intelligent Park Assist</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Front and rear ultrasonic sensors provide audible and visual alerts for effortless maneuvering in tight urban spaces.</p>
+<div class="flex items-center gap-8">
+<div>
+<p class="text-2xl font-black">KWD 120.000</p>
+<p class="text-[10px] uppercase font-bold text-zinc-400">Including Installation</p>
+</div>
+<button class="flex-1 max-w-[200px] h-12 bg-zinc-900 text-white font-bold uppercase tracking-widest text-xs hover:bg-zinc-800 transition-colors">Configure Now</button>
+</div>
+</div>
+</div>
+<!-- Protection Pack (Small Card) -->
+<div class="md:col-span-4 p-6 rounded-xl bg-surface-container-highest flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="shield">shield</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter mb-2">Body Protection Film</h3>
+<p class="text-xs text-on-surface-variant">Invisible shield against gravel and door dings. 10-year warranty included.</p>
+</div>
+<div class="mt-8 flex justify-between items-end">
+<span class="text-lg font-bold">KWD 210.000</span>
+<a class="text-primary font-bold text-xs uppercase underline underline-offset-4" href="#">Learn More</a>
+</div>
+</div>
+<!-- Lighting Pack (Small Card) -->
+<div class="md:col-span-4 p-6 rounded-xl bg-surface-container-highest flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="light_mode">light_mode</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter mb-2">LED Door Scuff Plates</h3>
+<p class="text-xs text-on-surface-variant">Illuminated Corolla branding to welcome you every time the door opens.</p>
+</div>
+<div class="mt-8 flex justify-between items-end">
+<span class="text-lg font-bold">KWD 32.000</span>
+<a class="text-primary font-bold text-xs uppercase underline underline-offset-4" href="#">Learn More</a>
+</div>
+</div>
+<!-- Interior Pack (Small Card) -->
+<div class="md:col-span-4 p-6 rounded-xl bg-surface-container-highest flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="chair">chair</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter mb-2">All-Weather Floor Mats</h3>
+<p class="text-xs text-on-surface-variant">Heavy-duty rubber protection designed specifically for the Corolla footwell.</p>
+</div>
+<div class="mt-8 flex justify-between items-end">
+<span class="text-lg font-bold">KWD 18.000</span>
+<a class="text-primary font-bold text-xs uppercase underline underline-offset-4" href="#">Learn More</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 font-manrope text-xs text-zinc-500 dark:text-zinc-400">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-2">Toyota Kuwait</span>
+<p>© 2024 Toyota Kuwait. All Rights Reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Terms of Service</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Contact Us</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Find a Dealer</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="language">language</span>
+</div>
+<span class="font-bold uppercase tracking-widest text-[10px]">KUWAIT | ARABIC</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e5e2e1",
+              "on-secondary-fixed-variant": "#464749",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#9ccaff",
+              "outline-variant": "#e9bcb7",
+              "tertiary-fixed": "#d0e4ff",
+              "on-primary-fixed": "#410002",
+              "on-error-container": "#93000a",
+              "on-background": "#1c1b1b",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#1a1c1d",
+              "on-primary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#c00014",
+              "secondary-fixed": "#e3e2e4",
+              "secondary-container": "#e0dfe1",
+              "inverse-primary": "#ffb4ab",
+              "background": "#fcf9f8",
+              "tertiary": "#00619e",
+              "outline": "#936e6a",
+              "primary-container": "#eb0a1e",
+              "on-tertiary-container": "#fffeff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f6f3f2",
+              "surface-container-high": "#eae7e7",
+              "on-tertiary-fixed": "#001d35",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#5e3f3b",
+              "surface-container": "#f0eded",
+              "primary-fixed-dim": "#ffb4ab",
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fcf9f8",
+              "primary": "#bd0014",
+              "on-surface": "#1c1b1b",
+              "surface-bright": "#fcf9f8",
+              "surface-variant": "#e5e2e1",
+              "error": "#ba1a1a",
+              "tertiary-container": "#007ac6",
+              "secondary": "#5d5e60",
+              "inverse-on-surface": "#f3f0ef",
+              "inverse-surface": "#313030",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#626365"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .text-shadow-premium {
+        text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 dark:bg-zinc-800 h-[1px]"></div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[870px] overflow-hidden bg-surface-container-highest">
+<div class="absolute inset-0 z-0">
+<img alt="Toyota RAV4 Adventure" class="w-full h-full object-cover" data-alt="Toyota RAV4 with Thule roof box in mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI_B-xHt-Rckuj9MpuNB234h0y1jfVpw8I9Xt4pSlKcRTSGG7enjC1PuOmdZpF8VPWamOAktuhgrrvFZPUqzVtMJeci0PJNwtwyfIQdAnvFgz4iuY9DbAO86H6jZvuP7JyZVxCZ3BpLvSZuymKbFYu2fKRbsCxYA-IN8yMO5Qu88b0hqkjYWxlXDeUHfKfZ1tPfaITqSdErTpuUYVCgdGohKzOq70lFzbCUbBgYlS-qT8JCUZ6ddglCoofQsdmxibRTQSp4dr881w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-8 h-full flex flex-col justify-end pb-24">
+<div class="flex flex-col space-y-4 max-w-3xl">
+<div class="flex items-center space-x-3">
+<div class="flex items-center bg-white/90 backdrop-blur-md px-3 py-1 rounded-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="ml-2 text-[11px] font-bold text-on-surface uppercase tracking-tight">Fits your RAV4</span>
+</div>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-black tracking-tighter text-on-background leading-none">
+                        THULE<br/>ADVENTURE
+                    </h1>
+<p class="text-lg md:text-xl text-on-surface-variant font-medium max-w-xl leading-relaxed">
+                        Engineered precision meets rugged capability. Expand your RAV4's horizons with the ultimate aerodynamic roof box.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Product Details Grid -->
+<section class="max-w-screen-2xl mx-auto px-8 -mt-16 relative z-20 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Product Info Card -->
+<div class="lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest p-10 shadow-sm rounded-lg">
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+<div>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight mb-2">Thule Adventure Roof Box XL</h2>
+<div class="flex items-center space-x-4 mb-6">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star_half" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="ml-2 text-sm font-bold text-on-surface">4.7</span>
+</div>
+<span class="text-on-surface-variant text-sm border-l border-surface-container-high pl-4">SKU: TY-RAV-THULE-XL</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-1">Price</span>
+<span class="text-4xl font-headline font-black text-primary tracking-tighter">185.000 KWD</span>
+</div>
+</div>
+<!-- Product Highlights -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-surface-container-low my-8">
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="inventory_2">inventory_2</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Capacity</span>
+<span class="text-lg font-headline font-bold">420 Liters</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="air">air</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Aero Profile</span>
+<span class="text-lg font-headline font-bold">Drag Reduction</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="lock">lock</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Security</span>
+<span class="text-lg font-headline font-bold">SlideLock Pro</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="build">build</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Install</span>
+<span class="text-lg font-headline font-bold">PowerClick</span>
+</div>
+</div>
+<div class="prose prose-zinc max-w-none">
+<h3 class="text-xl font-headline font-bold mb-4">Technical Engineering</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                The Thule Adventure XL for Toyota RAV4 is the pinnacle of rooftop storage. Featuring an optimized aerodynamic design that minimizes wind noise and fuel consumption, this box integrates seamlessly with your vehicle's architectural lines. The internal PowerClick mounting system ensures a secure, rapid installation with an integrated torque indicator that "clicks" when properly tightened.
+                            </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 list-none p-0">
+<li class="flex items-center text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg mr-2" data-icon="check_circle">check_circle</span>
+                                    High-gloss Black Metallic Finish
+                                </li>
+<li class="flex items-center text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg mr-2" data-icon="check_circle">check_circle</span>
+                                    Dual-side Opening System
+                                </li>
+<li class="flex items-center text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg mr-2" data-icon="check_circle">check_circle</span>
+                                    Integrated LED Box Light
+                                </li>
+<li class="flex items-center text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg mr-2" data-icon="check_circle">check_circle</span>
+                                    Impact Resistant ABS Plastic
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Recommended for Adventure Bento -->
+<div>
+<h3 class="text-2xl font-headline font-extrabold tracking-tight mb-8">Recommended for Adventure</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-lg overflow-hidden group flex">
+<div class="w-1/3 overflow-hidden">
+<img alt="Cross bars" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Toyota RAV4 roof cross bars" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8WrouhSCUX7mPI19j_BWegIU3_-zybrXKfZi1eKsyE8xsdz2YqYEfK1UoF-RRZSTRnXQIzBXFFe3EpD-DvrwanWcal28Ktehz06cClI9wlTprDlAW39WBQHaCrgItLQuOg5CF7JRBYoySIC5s_bqUQ62rWMainMlXhTXNCbSYuWv9Pbc_Wv4VixQJWg66KpUIfKbytW2EJLaccoPbuv0DqbUvRZBemONqnT1iZVV8v5obKWDWPXz7_y-wgR7Zv5JQ8AnnkahqfHQ"/>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<h4 class="font-headline font-bold text-lg mb-1">RAV4 Aero Cross Bars</h4>
+<p class="text-xs text-on-surface-variant leading-snug">Required for roof box installation.</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-primary font-bold">45.000 KWD</span>
+<button class="text-on-surface hover:text-primary">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg overflow-hidden group flex">
+<div class="w-1/3 overflow-hidden">
+<img alt="Floor mats" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Heavy duty all weather floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTYUlTsn71IiCJtUZT-yqT_5yF0e9HubyIJPYtABdc49CKVjti6-UHCx6WwgEgRmWPXezIDE6X0VgkJvp92e4u1EmIN7KGZsKpTwkms-haXhze4W68H7R9BYLov7e0DwYgNJixZScYOug3Q30Lq0MLc2px87JwC-7Z3Dq-bkqBCi9BBl2QtPvqe2DuujbMYJv8kNkHq03EXiEVM2jcu5eNY96LXf4SWh52NXKzGGy6m3a8GEaKNvkGlSf3N1trOTncN0PS63WHmsA"/>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<h4 class="font-headline font-bold text-lg mb-1">All-Weather Cargo Liner</h4>
+<p class="text-xs text-on-surface-variant leading-snug">Protect your trunk from dirt and sand.</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-primary font-bold">22.000 KWD</span>
+<button class="text-on-surface hover:text-primary">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Sidebar Actions -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 space-y-6">
+<div class="bg-surface-container-highest p-8 rounded-lg shadow-sm">
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-6">Purchase Options</h4>
+<div class="space-y-4 mb-8">
+<label class="flex items-center p-4 bg-surface-container-lowest border-2 border-primary rounded-lg cursor-pointer">
+<input checked="" class="hidden" name="delivery" type="radio"/>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mr-4">
+<div class="w-2.5 h-2.5 bg-primary rounded-full"></div>
+</div>
+<div>
+<p class="font-bold text-sm">Professional Installation</p>
+<p class="text-xs text-on-surface-variant">+ 10.000 KWD at AlSayer Service</p>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest border-2 border-transparent hover:border-surface-container-high rounded-lg cursor-pointer transition-all">
+<input class="hidden" name="delivery" type="radio"/>
+<div class="w-5 h-5 rounded-full border-2 border-surface-container-highest flex items-center justify-center mr-4"></div>
+<div>
+<p class="font-bold text-sm">Direct Home Delivery</p>
+<p class="text-xs text-on-surface-variant">FREE within Kuwait</p>
+</div>
+</label>
+</div>
+<button class="w-full bg-primary text-white py-5 rounded-md font-headline font-extrabold tracking-tight text-lg shadow-lg hover:bg-primary-container transition-all flex items-center justify-center space-x-3 mb-4">
+<span>ADD TO CART</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full bg-surface-container-low text-on-surface py-4 rounded-md font-bold tracking-tight hover:bg-surface-container-high transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>SAVE TO WISHLIST</span>
+</button>
+</div>
+<!-- Trust Badge -->
+<div class="bg-surface p-6 border border-surface-container-high rounded-lg flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield">shield</span>
+<div>
+<h5 class="font-bold text-sm mb-1 uppercase tracking-tight">Toyota Genuine Guarantee</h5>
+<p class="text-xs text-on-surface-variant leading-relaxed">Backed by 2-Year warranty when installed by our specialists.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Spec Overlay Feature (Glassmorphism) -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-24">
+<div class="relative rounded-2xl overflow-hidden h-[600px]">
+<img alt="Product Detail View" class="w-full h-full object-cover" data-alt="Close up of black roof box on white RAV4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa_TRWlNzBSqxZym-rX2yT_f4f7Vx-4IdCHcyeicM-A1KRuxh_yDnPFn9Ur0BeLiClmKkulTy8WS_sjqVhaqg4scBHyo2QBwH7alo37Mw6FCnFE4ihqWAzUUp_Sad2MiC9-9q1SOLkgnaDseyKdJzMi9Q2_HtPyBW6Hrno82LlV7DBM3tdRC2y54u0pFWOkWMJOnHCPnkU5EyF0MuUztB0zVZ9EWDBEyfnS0kHWaDPCzr3q-O3fIKj6u3o8YWZOKV-JLz3KQfLZvk"/>
+<!-- Spec Floating Overlays -->
+<div class="absolute top-[20%] right-[15%] w-64 bg-white/20 backdrop-blur-xl p-6 rounded-xl border border-white/30 text-white shadow-2xl">
+<div class="h-1 w-12 bg-primary mb-4"></div>
+<h5 class="font-headline font-extrabold text-xl mb-2">SlideLock</h5>
+<p class="text-sm font-medium opacity-90 leading-relaxed">Separate locking and opening functions automatically lock the lid in place.</p>
+</div>
+<div class="absolute bottom-[15%] left-[10%] w-72 bg-white/20 backdrop-blur-xl p-6 rounded-xl border border-white/30 text-white shadow-2xl">
+<div class="h-1 w-12 bg-primary mb-4"></div>
+<h5 class="font-headline font-extrabold text-xl mb-2">Dual Side Opening</h5>
+<p class="text-sm font-medium opacity-90 leading-relaxed">Easy access from either side of the vehicle for maximum convenience at the campsite.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-12 py-16 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="font-black text-zinc-900 dark:text-white text-2xl tracking-tighter uppercase font-headline">
+                    Sayarti
+                </div>
+<p class="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                    Official Toyota accessories and lifestyle collection. Engineered for adventure, built for reliability.
+                </p>
+</div>
+<div>
+<h6 class="font-bold text-sm uppercase tracking-widest mb-6">Quick Links</h6>
+<ul class="space-y-4 font-manrope text-sm tracking-wide">
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Privacy Policy</a></li>
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Terms of Service</a></li>
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Warranty</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-sm uppercase tracking-widest mb-6">Support</h6>
+<ul class="space-y-4 font-manrope text-sm tracking-wide">
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Contact Us</a></li>
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Global Toyota</a></li>
+<li><a class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity underline decoration-red-600 underline-offset-4" href="#">Service Centers</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-sm uppercase tracking-widest mb-6">Experience</h6>
+<div class="flex space-x-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface group-hover:text-white" data-icon="language">language</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface group-hover:text-white" data-icon="location_on">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-12 py-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-zinc-500 text-xs font-manrope tracking-wide">
+                © 2026 AlSayer Group. All Rights Reserved. Engineered for Adventure.
+            </p>
+<div class="flex space-x-6 grayscale opacity-50">
+<img alt="Toyota" class="h-4" data-alt="Toyota Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmxsQg6i-T0En0k3j58WO7wPOH-7G06BGLdwuV4mbFe6O1JXgJZ62U92n938POWiSB8RFYnHxfkAM0ulVATWYMsAm5B3htNsxvjSnK4Do9jLJNcjjMo5l3Kku3PnoDv1U0powHOJmfYJzzOIHi2wa_dEUlhfymOUWuwR9niQMyd1sgH9tqThf1xvQP67tLacwfR3xKq7LCJcLubQ0iFEaHp1W5Ky9MaexmZ_JmmkmPw_PA-t0NY2qQQyia7q6kEU9XGN7UMA26tFk"/>
+</div>
+</div>
+</footer>
+</body></html>

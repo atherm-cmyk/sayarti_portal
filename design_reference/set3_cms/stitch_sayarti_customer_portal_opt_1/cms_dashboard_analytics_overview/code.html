@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sayarti Admin - Analytics Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "outline-variant": "#e9bcb7",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#464747",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb4ab",
+                        "on-secondary-container": "#646464",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-bright": "#f9f9f9",
+                        "on-surface-variant": "#5e3f3b",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "outline": "#936e6a",
+                        "background": "#f9f9f9",
+                        "on-primary-container": "#fffeff",
+                        "tertiary": "#00619e",
+                        "inverse-surface": "#2f3131",
+                        "inverse-primary": "#ffb4ab",
+                        "secondary": "#5e5e5e",
+                        "on-primary-fixed": "#410002",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#93000d",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-fixed": "#d0e4ff",
+                        "primary": "#bd0014",
+                        "tertiary-container": "#007ac6",
+                        "surface-tint": "#c00014",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "primary-fixed": "#ffdad6",
+                        "primary-container": "#eb0a1e",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#fffeff",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#e3e2e2"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 bg-gray-100 dark:bg-gray-950 flex flex-col h-full py-6 px-4 z-50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-red-600">Sayarti CMS</h1>
+<p class="text-[10px] uppercase tracking-widest text-secondary font-bold">Accessories &amp; Merchandise</p>
+</div>
+<nav class="flex-1 space-y-1 sidebar-scroll overflow-y-auto">
+<!-- Active Tab: Analytics -->
+<a class="flex items-center gap-3 bg-white dark:bg-gray-900 text-red-600 dark:text-red-500 rounded-md px-4 py-3 font-bold Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href="#">
+<span class="material-symbols-outlined">view_carousel</span>
+<span>Banners</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href="#">
+<span class="material-symbols-outlined">settings_applications</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-surface-container space-y-1">
+<button class="w-full mb-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-md py-3 px-4 font-bold text-sm shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Add New Product
+            </button>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-2 hover:bg-gray-200 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-2 hover:bg-gray-200 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-40 bg-white/85 dark:bg-gray-900/85 backdrop-blur-md font-manrope antialiased tracking-tight">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-high border-none rounded-md focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all text-sm" placeholder="Search inquiries, products or VIN..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="relative text-gray-500 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="text-gray-500 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-surface-container mx-2"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="text-sm font-bold text-gray-900 leading-none">Admin Profile</p>
+<p class="text-[10px] text-secondary font-medium mt-1">SUPER USER</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-surface-container group-hover:border-primary transition-all" data-alt="Admin User Profile Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfL8PQFfUDHPQU2aZ6q7QITi9sbVaSwm4EYTsKITDeW9IUQJz3dc-5AjPVBw5KD9gxeD-E1PlM3hy5L-WvICOMdSnwvfIb0FUxvSbCmd857pHLeJgxs4sGdrLu3WxmHw1z4r6gGzIAvPaHwsR_geByqPOVYdlpRsz2_sIlQNH9AawQjt5NGbjNjIH-osNaBMPZnJZciAaQoXWE-JP1T9d0ZqeVeBoqR5DHT03hynNi1EZvX8e1lUmTaNu66TQzzUN3OILaL4CugOo"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-24 px-8 pb-12">
+<!-- Dashboard Hero Section -->
+<div class="mb-12">
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-background mb-2">Analytics Overview</h2>
+<p class="text-secondary">Real-time performance metrics for Sayarti Accessories &amp; Merchandise.</p>
+</div>
+<!-- Bento Grid - Key Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-2 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between group hover:bg-surface-container-lowest transition-colors">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Total Inquiries</p>
+<div class="flex items-end gap-3">
+<h3 class="text-5xl font-black tracking-tighter">1,248</h3>
+<span class="text-green-600 flex items-center text-sm font-bold mb-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> 12%
+                            </span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<div class="h-1 flex-1 bg-primary rounded-full"></div>
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between hover:bg-surface-container-lowest transition-colors">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-secondary mb-4">Total Sales</p>
+<h3 class="text-3xl font-black tracking-tighter">14,250 <span class="text-sm font-medium text-secondary">KWD</span></h3>
+</div>
+<div class="mt-6">
+<p class="text-[10px] font-bold text-secondary uppercase mb-2">Target Completion</p>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary w-[68%] h-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-primary p-8 rounded-xl flex flex-col justify-between text-white shadow-xl shadow-primary/10">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-white/70 mb-4">Conversion Rate</p>
+<h3 class="text-4xl font-black tracking-tighter">8.4%</h3>
+</div>
+<p class="text-xs text-white/60">Avg. 3.2 days to close</p>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<!-- Inquiry Breakdown by Type -->
+<div class="lg:col-span-1 bg-surface-container-low rounded-xl p-6">
+<div class="flex justify-between items-start mb-8">
+<h4 class="font-bold tracking-tight">Inquiry by Category</h4>
+<span class="material-symbols-outlined text-secondary text-sm cursor-pointer">more_horiz</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>PROTECTED</span>
+<span>420</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-sm overflow-hidden">
+<div class="bg-primary w-[45%] h-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>OFF-GRID</span>
+<span>310</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-sm overflow-hidden">
+<div class="bg-on-surface w-[32%] h-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>CONNECTED</span>
+<span>290</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-sm overflow-hidden">
+<div class="bg-tertiary w-[28%] h-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>ACCESSORIZED</span>
+<span>228</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-sm overflow-hidden">
+<div class="bg-secondary w-[20%] h-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Merchandise Sales Trend (Visual representation) -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-xl p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-bold tracking-tight">Merchandise Sales Trends</h4>
+<p class="text-[10px] text-secondary font-medium">MONTH OVER MONTH COMPARISON</p>
+</div>
+<select class="bg-surface-container-lowest border-none text-xs font-bold py-1 px-3 rounded ring-1 ring-surface-container-highest">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="h-56 w-full flex items-end justify-between gap-4 pt-4">
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[40%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">JAN</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[55%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">FEB</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[45%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">MAR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary rounded-t-sm h-[85%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">APR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[65%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">MAY</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-[75%] group-hover:bg-primary transition-colors"></div>
+<span class="text-[9px] font-bold text-secondary">JUN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Model Breakdown -->
+<div class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-xl font-extrabold tracking-tight">Inquiries by Vehicle Model</h4>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-primary shadow-sm">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Land Cruiser</p>
+<p class="text-2xl font-black">412</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-on-surface shadow-sm">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Prado</p>
+<p class="text-2xl font-black">285</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-secondary shadow-sm">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Camry</p>
+<p class="text-2xl font-black">194</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-tertiary shadow-sm">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Hilux</p>
+<p class="text-2xl font-black">156</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-surface-container-highest shadow-sm">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Others</p>
+<p class="text-2xl font-black">201</p>
+</div>
+</div>
+</div>
+<!-- Recent Inquiries Table -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-surface-container-high flex justify-between items-center">
+<h4 class="font-bold text-lg tracking-tight">Recent Inquiries</h4>
+<button class="text-primary text-xs font-bold hover:underline">View All Inquiries</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 text-[10px] font-black uppercase tracking-widest text-secondary">
+<th class="px-6 py-4">Customer Details</th>
+<th class="px-6 py-4">Vehicle Model</th>
+<th class="px-6 py-4">Selected Items</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-sm font-medium">
+<tr class="border-b border-surface-container hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">AH</div>
+<div>
+<p class="text-on-surface font-bold">Ahmed Al-Hassan</p>
+<p class="text-[10px] text-secondary">ahmed.h@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface">Land Cruiser 300</td>
+<td class="px-6 py-5">
+<div class="flex gap-1 flex-wrap">
+<span class="text-[9px] font-bold bg-surface-container-highest px-2 py-0.5 rounded">Bull Bar</span>
+<span class="text-[9px] font-bold bg-surface-container-highest px-2 py-0.5 rounded">Snorkel</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800">
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-5 text-secondary">Oct 12, 2023</td>
+<td class="px-6 py-5 text-right">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary font-bold text-xs">FA</div>
+<div>
+<p class="text-on-surface font-bold">Fatima Abdulla</p>
+<p class="text-[10px] text-secondary">fatima.a@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface">Prado 2024</td>
+<td class="px-6 py-5">
+<div class="flex gap-1 flex-wrap">
+<span class="text-[9px] font-bold bg-surface-container-highest px-2 py-0.5 rounded">Leather Seats</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800">
+                                        Completed
+                                    </span>
+</td>
+<td class="px-6 py-5 text-secondary">Oct 11, 2023</td>
+<td class="px-6 py-5 text-right">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold text-xs">KM</div>
+<div>
+<p class="text-on-surface font-bold">Khaled Mansour</p>
+<p class="text-[10px] text-secondary">k.mansour@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface">Camry Hybrid</td>
+<td class="px-6 py-5">
+<div class="flex gap-1 flex-wrap">
+<span class="text-[9px] font-bold bg-surface-container-highest px-2 py-0.5 rounded">All-Weather Mats</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
+                                        Processing
+                                    </span>
+</td>
+<td class="px-6 py-5 text-secondary">Oct 10, 2023</td>
+<td class="px-6 py-5 text-right">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>

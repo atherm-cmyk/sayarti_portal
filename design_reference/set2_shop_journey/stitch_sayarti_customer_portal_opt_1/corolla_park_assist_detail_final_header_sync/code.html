@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#936e6a",
+              "tertiary-fixed": "#d0e4ff",
+              "on-primary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "inverse-surface": "#313030",
+              "inverse-primary": "#ffb4ab",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#93000d",
+              "secondary-fixed": "#e3e2e4",
+              "on-surface-variant": "#5e3f3b",
+              "on-secondary-fixed": "#1a1c1d",
+              "background": "#fcf9f8",
+              "on-primary-fixed": "#410002",
+              "on-secondary-container": "#626365",
+              "secondary": "#5d5e60",
+              "outline-variant": "#e9bcb7",
+              "on-tertiary-container": "#fffeff",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#9ccaff",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e5e2e1",
+              "secondary-container": "#e0dfe1",
+              "tertiary": "#00619e",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-tertiary-fixed": "#001d35",
+              "surface": "#fcf9f8",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f3f0ef",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eded",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#dcd9d9",
+              "primary-container": "#eb0a1e",
+              "tertiary-container": "#007ac6",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f6f3f2",
+              "primary": "#bd0014",
+              "surface-tint": "#c00014",
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-container-high": "#eae7e7",
+              "surface-variant": "#e5e2e1",
+              "surface-bright": "#fcf9f8",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-surface": "#1c1b1b",
+              "on-background": "#1c1b1b",
+              "on-secondary-fixed-variant": "#464749"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed-dim">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm bg-white/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Models</a>
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Accessories</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Support</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 dark:bg-zinc-800 h-[1px]"></div>
+</nav>
+<main class="pt-16 pb-32">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Breadcrumbs / Context -->
+<div class="flex items-center gap-2 mb-8 text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold">
+<span>Accessories</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span>Technology</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">Parking Systems</span>
+</div>
+<!-- Hero Section / Bento-style Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+<!-- Main Product Visuals -->
+<div class="lg:col-span-7 space-y-6">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover" data-alt="Modern Toyota interior dashboard showing parking assist interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhgz1jOGo3Kscz9fW0Z1HmBQ0Lx8OsGGIkEO9LtOhtpxStcT3_0NwOOg5rD0-xDesmy_7G1bRz65-7ebF98xkOt1Avf8BV9bPX_ZuWUUWYhNHnzcqJOO_mTOaPq15olAKY2W4mIfIyPY3wyrrmOwyMPZab62AWykALt5sqS7lp4jRC8g21V5-EmpZTiBn6_bk9nBdUhxo3nPVsaqQglLb_ReO3cOKIS8kuakdCx5tgxENKWCBH0qTdp7BSOIhrftmNfAI48FkW7HY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 glass-panel px-4 py-3 rounded-lg border border-white/20">
+<p class="text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Live Interface</p>
+<p class="text-sm font-medium">Real-time Visual Obstacle Mapping</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Close up of a car bumper ultrasonic sensor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPKAiaPfFZQlQxXHAJ9y9k38DE-D_fF01DJ5CuPPHd9FVyhX3C7GSYD8RSjd0JdxDkufBjVGkdSOUuLeWvuBwhyvT6RC5gQumQVTXCn25idvXSlYmpztewYMMYVK1JHOh5pwWp8DUUUqAfnrVipX7aOYUS3SVNs6flgauj0RxCKUdm2hT_oqYTjIBRJ4OJtMXKqKfAZDHQQenWnBf5FYTQ7dZk0qHgEcLuKmRjUYFmCueOypXVHHFpPPMdTiqP-O3pg7cGkwDZPVI"/>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-8 text-center border-2 border-dashed border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h4 class="font-headline text-lg font-bold">Toyota Certified</h4>
+<p class="text-sm text-on-secondary-container mt-2">Engineered specifically for your Corolla's electronic architecture.</p>
+</div>
+</div>
+</div>
+<!-- Product Details & CTA -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl shadow-sm border border-outline-variant/10 flex-grow">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-widest text-on-secondary-container mb-6">
+<span class="material-symbols-outlined text-sm">verified</span>
+                            Fits your Toyota Corolla
+                        </div>
+<h1 class="font-headline text-4xl lg:text-5xl font-black text-on-surface leading-tight mb-4 tracking-tighter">
+                            Intelligent Park Assist
+                        </h1>
+<p class="text-on-surface-variant leading-relaxed mb-8 text-lg">
+                            Navigate the tightest parking spots with absolute confidence. Our ultrasonic sensor array provides 360-degree awareness with intuitive audible and visual feedback.
+                        </p>
+<div class="mb-10">
+<p class="text-sm font-label text-on-surface-variant uppercase tracking-widest mb-1">Price including installation</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold text-primary">120.000</span>
+<span class="text-xl font-headline font-bold text-on-surface">KWD</span>
+</div>
+</div>
+<div class="space-y-4">
+<button class="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold rounded-lg shadow-lg active:scale-95 transition-transform">
+                                Configure Now
+                            </button>
+<button class="w-full py-5 bg-surface-container-highest text-on-surface font-headline font-bold rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+                                Add to Cart
+                            </button>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20 grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">calendar_today</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Installation</p>
+<p class="text-xs font-semibold">Next Day Available</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">shield_with_heart</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Warranty</p>
+<p class="text-xs font-semibold">2 Year Coverage</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Features Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+<div class="md:col-span-2 bg-surface-container-low p-10 rounded-xl relative overflow-hidden group">
+<h3 class="font-headline text-2xl font-bold mb-6">Technical Specifications</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 relative z-10">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">sensors</span>
+<div>
+<h4 class="font-bold text-on-surface">Ultrasonic Precision</h4>
+<p class="text-sm text-on-surface-variant">Front and rear 40kHz sensors detect obstacles up to 1.5 meters away with millimeter accuracy.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">campaign</span>
+<div>
+<h4 class="font-bold text-on-surface">Audible Alerts</h4>
+<p class="text-sm text-on-surface-variant">Multi-tone buzzer system with progressive frequency as you approach an object.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">monitor</span>
+<div>
+<h4 class="font-bold text-on-surface">Visual Feedback</h4>
+<p class="text-sm text-on-surface-variant">Direct integration with your Corolla's multi-information display for color-coded distance zones.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+<div>
+<h4 class="font-bold text-on-surface">Smart Activation</h4>
+<p class="text-sm text-on-surface-variant">Automatically engages when reverse gear is selected or at low speeds for front sensors.</p>
+</div>
+</div>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-10 rounded-xl flex flex-col">
+<h3 class="font-headline text-2xl font-bold mb-6">In the Box</h3>
+<ul class="space-y-4 flex-grow">
+<li class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-sm">4 x Ultrasonic Sensors</span>
+</li>
+<li class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-sm">Main Control Module</span>
+</li>
+<li class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-sm">Wiring Harness Kit</span>
+</li>
+<li class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-sm">High-Output Buzzer</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Related Accessories -->
+<section class="mt-24">
+<div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/20 pb-4">
+<h2 class="font-headline text-3xl font-black tracking-tight">Complete the Experience</h2>
+<a class="text-primary font-bold text-sm hover:underline flex items-center gap-1" href="#">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Related 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/9] rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gloss black 18 inch alloy wheels on a sleek car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXW1lC-cM6_DT5UaxlYN9noOFxNJvdyLCe073C295QhTAJ_81rr7Blt9MR78zuXeBBLPyNBnPYY5UhbVVXc8_YBPSQsnUNnbKxNr9MftnlBSBzDUT_-BZ7wPJhyLhynP38cOuGw0QdcA39t2RIDGtFOvIY5SbnRjaIkh7aykJm9p-GJ-3wWkGWADeDRcU2QWJ9KZpGY4vUkO_2EIsnMhfn3H8t_MhZjy4PdMhTzYmOMkwNB-rHCKlCNnE45GggFr41rdzJs7P5S14"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline text-xl font-bold mb-1">18" Gloss Black Alloy Wheels</h4>
+<p class="text-sm text-on-surface-variant">Lightweight performance with a bold aesthetic.</p>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-on-surface">450.000 KWD</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Set of 4</p>
+</div>
+</div>
+</div>
+<!-- Related 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/9] rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a car looking through high quality window tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK4wp79h8YTmrX5W7l4R6e9Wxcm8DS-Os3FCOWqbdKkVV1t5tq5QFenyDfJpWT8ZYRpug0y7yjYqH3LcQPV1P7iL8UxRLgQPNBCHm8v9SyXjOn0a3yl7kLD_YxHPHjh5NVvRr9I_YeYIwXQi7tmvLSxvMJ9fdKBTvfGYPfbkoOrl1F_6FjiF1jMLgwVLdw-lN0RUPyvuRArlPZdgZTH1KRFME3dDP4gy7pAI2EPL2gIznj3InJAAmK1VuSlntkP7yqYEME-R2VtA0"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline text-xl font-bold mb-1">Premium Ceramic Window Tint</h4>
+<p class="text-sm text-on-surface-variant">99% UV protection and superior heat rejection.</p>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-on-surface">85.000 KWD</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Full Vehicle</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe md:hidden bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl z-50 border-t border-zinc-100 dark:border-zinc-800 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-red-600 dark:text-red-500" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">My Garage</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low pt-20 pb-24 md:pb-12 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="text-2xl font-black text-primary tracking-tighter font-headline mb-6">
+                        Sayarti Toyota
+                    </div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        The ultimate destination for authentic Toyota accessories and performance parts in Kuwait. Professional installation and guaranteed quality.
+                    </p>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Products</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Exterior Styling</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Interior Comfort</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Safety &amp; Tech</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">TRD Performance</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Ownership</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">My Garage</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Service Booking</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Parts Warranty</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Recall Info</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Help</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-6">
+<p class="text-xs text-on-surface-variant">© 2024 Sayarti Toyota Kuwait. All rights reserved.</p>
+<div class="flex gap-6 text-xs text-on-surface-variant">
+<a class="hover:text-on-surface" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface" href="#">Terms of Service</a>
+<a class="hover:text-on-surface" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

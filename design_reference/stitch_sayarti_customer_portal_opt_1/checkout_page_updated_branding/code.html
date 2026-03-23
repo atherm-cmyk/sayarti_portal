@@ -1,0 +1,327 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#9ccaff",
+              "on-secondary-container": "#626365",
+              "surface-container-highest": "#e5e2e1",
+              "secondary-container": "#e0dfe1",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#001d35",
+              "surface-container": "#f0eded",
+              "secondary": "#5d5e60",
+              "inverse-surface": "#313030",
+              "surface-bright": "#fcf9f8",
+              "on-secondary-fixed-variant": "#464749",
+              "inverse-primary": "#ffb4ab",
+              "on-background": "#1c1b1b",
+              "surface-container-high": "#eae7e7",
+              "surface": "#fcf9f8",
+              "on-tertiary-container": "#fffeff",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#5e3f3b",
+              "outline": "#936e6a",
+              "on-error": "#ffffff",
+              "tertiary-container": "#007ac6",
+              "surface-tint": "#c00014",
+              "on-primary-container": "#fffeff",
+              "inverse-on-surface": "#f3f0ef",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#d0e4ff",
+              "on-surface": "#1c1b1b",
+              "tertiary": "#00619e",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#1a1c1d",
+              "on-primary-fixed": "#410002",
+              "surface-variant": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#00497a",
+              "secondary-fixed-dim": "#c6c6c8",
+              "outline-variant": "#e9bcb7",
+              "on-primary-fixed-variant": "#93000d",
+              "background": "#fcf9f8",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#e3e2e4",
+              "primary": "#bd0014",
+              "surface-container-low": "#f6f3f2",
+              "primary-container": "#eb0a1e",
+              "primary-fixed-dim": "#ffb4ab",
+              "primary-fixed": "#ffdad6",
+              "surface-dim": "#dcd9d9"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar Replicated from {{DATA:SCREEN:SCREEN_31}} -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style="">
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-red-600 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div>
+<div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text">
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" title="Contact Us" style="">
+<span class="material-symbols-outlined" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 h-[1px]"></div>
+</nav>
+<main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Checkout Form & Cart Items -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Header Section -->
+<header>
+<h1 class="text-4xl font-extrabold tracking-tighter text-on-background mb-2 uppercase" style="">Checkout</h1>
+<p class="text-secondary font-medium" style="">Complete your adventure gear selection below.</p>
+</header>
+<!-- Product Summary List -->
+<section class="space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<h2 class="text-xl font-bold tracking-tight" style="">Your Selection</h2>
+<span class="text-sm font-label uppercase tracking-widest text-secondary" style="">2 Items</span>
+</div>
+<div class="space-y-4">
+<!-- Product 1 -->
+<div class="flex flex-col md:flex-row gap-6 p-4 bg-surface-container-low rounded-xl group transition-all hover:bg-surface-container-high">
+<div class="w-full md:w-32 h-32 overflow-hidden rounded-lg bg-white flex-shrink-0">
+<img alt="Toyota TRD Roof Rack" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Heavy-Duty Expedition Roof Rack black metal finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpeMp9_E-A99CcEGjp5Aut3eEvblZ9ZlIxzLoecV6ttaltoG8qUIJwexg34tqqjtVOV-SGWIwIMt2DPftOhTj5cOncRzOMVZBpzRd5nq-eELzB16z4wqg9FxkrSdrOZTLAuvF42DzZMaP0JjDPXMIyylpdIHQ8rWjYiBEVJMmS2R6GC_zIFdMtUP53z3iboat-fHyaM1ZywiuS0pK14aSsA18NlgeW2HhNhp3tW1YJDGGIwIPL95VAN_sYO2RWLgtK6t4G17WJei4" style="">
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1" style="">Exterior Performance</p>
+<h3 class="text-lg font-bold leading-tight" style="">Heavy-Duty Expedition Roof Rack</h3>
+<p class="text-sm text-secondary mt-1" style="">Custom Fit for Toyota Land Cruiser 300</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-bold" style="">450.000</span>
+<span class="text-xs font-bold text-secondary ml-1" style="">KWD</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<button class="text-xs font-bold text-secondary flex items-center gap-1 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined text-sm" style="">delete</span> REMOVE
+                                    </button>
+<button class="text-xs font-bold text-secondary flex items-center gap-1 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined text-sm" style="">edit</span> EDIT
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col md:flex-row gap-6 p-4 bg-surface-container-low rounded-xl group transition-all hover:bg-surface-container-high">
+<div class="w-full md:w-32 h-32 overflow-hidden rounded-lg bg-white flex-shrink-0">
+<img alt="TRD Pro Wheels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="TRD Pro Wheels matte black finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaohfVPSZwZ7Lr6mCGC6nWmR6qGJZSUb_74rHA6rV7ZXMwvQcH537LZ053rwotmUi-FFhr7-XrcJiUXqAwLV-P_4iisz72AC4X-IENsjiU0Qj4kUaXTZsNJHAHgEldOltl3pmdG9Hgy34NOA7AqN4imLH1ax8xJ86T8dak2-pfcdj1Jpg4NItv8PC4HK2zA4olaQKdpEmdGsOdqc7Mpqa9BV7LNYwVyMXsl_2os3fW3TY6_A-vdUga9gqYOOynqaD6m5YM8FlJb_s" style="">
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1" style="">Wheels &amp; Tires</p>
+<h3 class="text-lg font-bold leading-tight" style="">TRD Pro 18" Alloy Wheels - Matte Black</h3>
+<p class="text-sm text-secondary mt-1" style="">Set of 4 wheels including performance caps</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-bold" style="">820.000</span>
+<span class="text-xs font-bold text-secondary ml-1" style="">KWD</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<button class="text-xs font-bold text-secondary flex items-center gap-1 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined text-sm" style="">delete</span> REMOVE
+                                    </button>
+<button class="text-xs font-bold text-secondary flex items-center gap-1 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined text-sm" style="">edit</span> EDIT
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Details Form -->
+<section class="space-y-8 bg-surface-container-low p-8 rounded-2xl">
+<div class="border-b border-outline-variant pb-4">
+<h2 class="text-xl font-bold tracking-tight" style="">Customer Information</h2>
+<p class="text-sm text-secondary" style="">Details for purchase confirmation and warranty registration.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant" style="">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-zinc-400" placeholder="Enter your full name" type="text">
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant" style="">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-zinc-400" placeholder="example@domain.com" type="email">
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant" style="">Phone Number</label>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-3 py-3 rounded-lg text-sm font-bold flex items-center" style="">+965</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-zinc-400" placeholder="9000 0000" type="tel">
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant" style="">Vehicle Model Year</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/40 transition-all text-on-surface">
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+</select>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Order Summary & CTA -->
+<aside class="lg:col-span-4 sticky top-28">
+<div class="bg-on-background text-white p-8 rounded-2xl shadow-xl space-y-8 overflow-hidden relative">
+<!-- Visual Background Texture -->
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: &quot;FILL&quot; 1;">speed</span>
+</div>
+<h2 class="text-2xl font-black tracking-tighter uppercase relative z-10" style="">Order Summary</h2>
+<div class="space-y-4 relative z-10 border-b border-zinc-700 pb-6">
+<div class="flex justify-between text-sm text-zinc-400 font-medium">
+<span class="" style="">Subtotal</span>
+<span class="text-white" style="">1,270.000 KWD</span>
+</div>
+<div class="flex justify-between text-sm text-zinc-400 font-medium">
+<span class="" style="">Installation Fee</span>
+<span class="text-white" style="">25.000 KWD</span>
+</div>
+<div class="flex justify-between text-sm text-zinc-400 font-medium">
+<span class="" style="">Delivery</span>
+<span class="text-emerald-400 font-bold uppercase tracking-widest text-[10px] bg-emerald-400/10 px-2 py-1 rounded" style="">Complimentary</span>
+</div>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-8">
+<span class="text-xs font-bold uppercase tracking-widest text-zinc-500" style="">Total Amount</span>
+<div class="text-right">
+<div class="text-4xl font-black tracking-tighter text-white" style="">1,295.000</div>
+<span class="text-xs font-bold text-primary tracking-widest" style="">KWD</span>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full py-5 px-6 rounded-lg font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all active:scale-95 bg-gradient-to-br from-primary to-primary-container text-white shadow-lg shadow-primary/20" style="">
+                                Complete Purchase <span class="material-symbols-outlined text-lg" style="">arrow_forward</span>
+</button>
+<button class="w-full py-5 px-6 rounded-lg font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all active:scale-95 bg-zinc-800 text-zinc-200 hover:bg-zinc-700" style="">
+                                Send Inquiry <span class="material-symbols-outlined text-lg" style="">mail</span>
+</button>
+</div>
+<p class="text-[10px] text-zinc-500 text-center mt-6 leading-relaxed" style="">
+                            Prices include 0% VAT in accordance with local regulations. Installation available at Sayarti centers nationwide.
+                        </p>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-4 px-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" style="">verified_user</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-tight" style="">Secure Transaction</p>
+<p class="text-[10px] text-secondary" style="">Encrypted end-to-end payment processing</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Replicated from {{DATA:SCREEN:SCREEN_31}} -->
+<footer class="bg-white py-12 px-8 border-t border-zinc-200">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12">
+<div class="flex flex-col gap-6">
+<div class="font-black text-zinc-900 text-2xl font-headline flex items-center gap-2">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style="">
+</div>
+<p class="font-manrope text-sm text-zinc-600 max-w-md" style="">Enhance every drive with Genuine Toyota Accessories from Sayarti by AlSayer. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-red-600 font-manrope text-sm" style="">© 2026 Sayarti By AlSayer. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">Navigation</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Sayarti Locations</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Help Center</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">Legal</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Privacy Policy</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Terms of Use</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Help</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">CONNECT</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">camera</span> Instagram</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">smart_display</span> YouTube</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

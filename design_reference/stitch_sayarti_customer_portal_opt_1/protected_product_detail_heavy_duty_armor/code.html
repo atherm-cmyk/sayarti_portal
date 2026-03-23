@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e5e2e1",
+              "secondary-fixed": "#e3e2e4",
+              "outline": "#936e6a",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "tertiary": "#00619e",
+              "surface-bright": "#fcf9f8",
+              "on-primary-fixed": "#410002",
+              "background": "#fcf9f8",
+              "on-tertiary-fixed": "#001d35",
+              "tertiary-fixed-dim": "#9ccaff",
+              "surface-tint": "#c00014",
+              "surface-dim": "#dcd9d9",
+              "on-primary-container": "#fffeff",
+              "surface": "#fcf9f8",
+              "surface-variant": "#e5e2e1",
+              "on-secondary-fixed-variant": "#464749",
+              "primary": "#bd0014",
+              "secondary": "#5d5e60",
+              "tertiary-fixed": "#d0e4ff",
+              "on-surface": "#1c1b1b",
+              "on-secondary-fixed": "#1a1c1d",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "outline-variant": "#e9bcb7",
+              "secondary-container": "#e0dfe1",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#007ac6",
+              "on-surface-variant": "#5e3f3b",
+              "surface-container-low": "#f6f3f2",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-secondary-container": "#626365",
+              "inverse-primary": "#ffb4ab",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#eae7e7",
+              "surface-container": "#f0eded",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffeff",
+              "inverse-surface": "#313030",
+              "primary-container": "#eb0a1e",
+              "on-primary-fixed-variant": "#93000d",
+              "inverse-on-surface": "#f3f0ef",
+              "primary-fixed": "#ffdad6",
+              "on-background": "#1c1b1b"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #bd0014 0%, #eb0a1e 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-zinc-100">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold">
+<a class="text-zinc-600 hover:text-red-600 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 hover:text-red-600 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 hover:text-red-600 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 hover:text-red-600 transition-colors duration-200" href="#" style="">Locations</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-20">
+<!-- Breadcrumbs -->
+<nav class="max-w-screen-2xl mx-auto px-6 mb-8">
+<ol class="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] uppercase text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Shop</a></li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Protected</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface">Heavy-Duty Aluminum Underbody Armor</span>
+</li>
+</ol>
+</nav>
+<!-- Product Hero Section -->
+<section class="max-w-screen-2xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+<!-- Gallery -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="aspect-[16/10] bg-surface-container-low rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Toyota Tacoma with installed silver aluminum underbody protection armor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3SqWjzvF7YR3tgX48eVC7t4PfLfOha5aTY-p-D9NyPnToNBUn1-wC0bwuz1ry5-ucaDUHwujZTZjWaqqeyT3TgsWY_ZQQO38Q2rD7gw0Z738ViU0OPVFfJ6qKXr3vNmxxH2lhG63N2PbVj3SSX8DCxI4hzVijk68_8LzR_emlNrANU-bWbpsukuWL4gLjcYpCQNHpeGHvAcMz3zrsBkb8SlP04qJcptzIwGz87hUrbun9Vtf3fCcQlt7m6GFBFL_wE6TNIH1hdt0"/>
+<div class="absolute bottom-6 left-6 glass-effect bg-white/20 px-4 py-2 rounded-full border border-white/30 text-[10px] font-bold tracking-widest text-white uppercase">
+                        High-Fidelity Engineering
+                    </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Close up of aircraft grade aluminum texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLTuIh6qdI1Z9GzL3Qg6I391Eh51y57ZBhlq2m0_4NEI-0995IHscRSK16HNNSdUDrw90ysl2fRfOjSmCP8LQp-O5o12SrT1eSkZ3cKJMmFtaL9SNxZiPQeLhAE27Cbv1lMUV8RrcE_rUO7lhUnP777-OpoalfwRQ91i1ISDaRH6KxNB7zB-dfRWijlxI6wcxyo6oQysT1pxOElHUm8NOtdvrwfT0wget4-5JIkpuYnv-qLA3g1B4KEGlXfUljYcha6CflZugsnew"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Underbody view of a 4x4 vehicle chassis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC454pSrpXp-hLlsiJzDVVpTJw5ih1_hWRLJMK41uXVXGXiDWAKDZX1jXy32uVpykYrTYuL8AayXlwO0s7UlWDdD7S09FvJhPjvW-XQBuWk0gAM-9rb7VCNi6mVFuODZWFyR4iaE3vlddhwm9m2MpbIdYrxjSH950ylXSvi0I1IHmZea2Xn70ohFfntgAxRMEi1NO25TYYYLQWCbw3TWWKNbWNI7H_5Gp7x1bSSxP6UY8n0dgx-CthVwwHJamBqTjdQvHPLcVgzZnQ"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Installation process showing mounting hardware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjgXFB8QkoauBzV5nqQ5kRD6YsvHSnwMvF1ItpXhjSgvfDf4wzKXQJV9tLlA8e0ch0fBoQ3OIHoyF0NM9yrxWKBeOqyG_VvFTL39UKPOFPhdCDuGtCJCFhTVwyCin8ivQIwmeqPaRdK94cjA1oZBpk_RkyA7vbaY3FfTj3M9RAL_356LuRMQyF8NOPMcFLxcsWZAaYxVxJnJvNKbBAFc5PXOgf8SxCR1OVArrDMVWy3ufR6PNIje6U8KqeezvRFJ3xp_cPN3HsKR4"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity relative">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="Off road terrain background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuion7o19L5ifmESv-U2qs43gRDXj3f5gf9Bh3EstaI-4SFGVLbOm7xtRCX_1IWBH8OQhb7a7IKBGdS6jIWnOqlaxHT8mODAOJtqOuvZFsoCz0nVGVhqKSVQzKMWMdzO-BogPYA7_1kksxWf659v6waBIBrtxGjCg9yPYqJW_Fy0HbP0DYJCBh6PZKdfERZHS14NAGdSy6lHxJtE5VrRabydoEDVCl6sZaaHhUr1YgzJjwH1CqUOPAgByvl1nKe13O8-N8J8hkQ_0"/>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-white">+5</div>
+</div>
+</div>
+</div>
+<!-- Product Info -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="inline-flex items-center gap-2 mb-4">
+<span class="bg-primary text-on-primary text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase">Protected</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase">SKU: HD-UBA-2024</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-surface mb-4 leading-tight">Heavy-Duty Aluminum Underbody Armor</h1>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+<span class="ml-2 text-sm font-bold text-on-surface">4.9</span>
+</div>
+<span class="text-sm text-on-surface-variant">(156 reviews)</span>
+</div>
+<div class="flex items-baseline gap-2 mb-8">
+<span class="text-4xl font-headline font-black text-on-surface">245.000</span>
+<span class="text-xl font-headline font-bold text-on-surface-variant">KWD</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4 mb-10 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold text-on-surface uppercase tracking-wide">Fits your 2024 Tacoma</span>
+</div>
+<div class="flex flex-col gap-4">
+<button class="hero-gradient text-on-primary py-5 rounded-lg font-headline font-bold text-lg tracking-wide hover:brightness-110 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+<button class="bg-surface-container-highest text-on-surface py-5 rounded-lg font-headline font-bold text-lg tracking-wide hover:bg-surface-container-high transition-all">
+                        Find a Dealer
+                    </button>
+</div>
+<div class="mt-10 grid grid-cols-2 gap-6">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Installation Time</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">schedule</span>
+<span class="font-bold">60-90 Minutes</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Difficulty</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">build</span>
+<span class="font-bold">Moderate</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Details / Tabs -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-screen-2xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
+<div class="space-y-8">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface uppercase">The Narrative</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed font-body">
+                        Designed for the unyielding adventurer, this Heavy-Duty Aluminum Underbody Armor is the ultimate barrier between your vehicle's vitals and the treacherous terrain. Precision-engineered from 6mm aircraft-grade aluminum, it offers a structural resilience that steel counterparts struggle to match at this weight.
+                    </p>
+<p class="text-lg text-on-surface-variant leading-relaxed font-body">
+                        Whether navigating sharp rocky outcrops or heavy sand dunes, this shield ensures your transmission and oil pan remain untouched. It's not just a part; it's peace of mind for the long road ahead.
+                    </p>
+<div class="pt-8 flex items-center gap-6">
+<a class="flex items-center gap-3 text-primary font-bold hover:underline" href="#">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                            Download Installation PDF
+                        </a>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-12">
+<div>
+<h3 class="text-xs font-black tracking-[0.2em] text-on-surface-variant uppercase mb-6">Key Features</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<span class="font-bold block">Full-Chassis Protection</span>
+<span class="text-sm text-on-surface-variant">Covers critical components from front bumper to transfer case.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<span class="font-bold block">Corrosion-Resistant Finish</span>
+<span class="text-sm text-on-surface-variant">Natural aluminum oxide layer prevents rust in harsh environments.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<span class="font-bold block">Easy Installation</span>
+<span class="text-sm text-on-surface-variant">Uses existing factory mounting points. No drilling required.</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-surface p-8 rounded-lg">
+<h3 class="text-xs font-black tracking-[0.2em] text-on-surface-variant uppercase mb-6">In The Box</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">hardware</span>
+<span class="text-sm font-semibold">Mounting Hardware</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">description</span>
+<span class="text-sm font-semibold">Installation Guide</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customers Also Bought -->
+<section class="py-24 max-w-screen-2xl mx-auto px-6">
+<h2 class="text-2xl font-headline font-black tracking-tight text-on-surface uppercase mb-12">Customers Also Bought</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rugged bumper protector on a truck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhTaUj96RsUWpHTSpDTS-gdOlE7ZPwtFx6oWJ0xaP5zU7IBdDcNgTiFnOLT3wonWtUgmhmZjMwlNXakZ-aNdkVIM_EGY-TgxLW4rVn38hbJfTXi_FII96-dSFynVxyoxscLI77wTYBjxYp6KBZcUV5EkE2gzKFX7qDM-LHuXyH0BjsZwTrrxrIJCI_v9iSEHxhzqRTG_BrJFf1-jigBxw3PHqWfeUZ3JbWk1GP6tJoPr8_k3s7F2HgeXxWgsC0K-SbiYsnaqBWZC0"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Exterior</span>
+<h3 class="font-headline font-bold mt-1 text-on-surface">Bumper Protector</h3>
+<p class="text-lg font-headline font-black mt-2">85.000 KWD</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Black rock sliders for off road vehicle side protection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEheODbdrWK7JbklMKj-xmRB00AZC3PXzvqcAE1v12d3wMO5BXHo0ScmGRXp-UyFQaoeHKgQHB6aByW-lTjrBFSnxTgX5Bol8tqQ9zQDiCAy8w4edBVSdQ8KX_7YIJNIpIzBTPX516yD3v7Z28Ci8NfRUFRDAzxtbHcYRiHfdcLqFgT9sk9qwIgVJ85mg-FBc2F-MF60H7Kl5yzsd6KRktHKYzZgNalwJ4k69XIaFQaHrNQx8RD-E_Z0o5hAaO43p5AH7H4Bbxms"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Off-Road</span>
+<h3 class="font-headline font-bold mt-1 text-on-surface">Rock Sliders</h3>
+<p class="text-lg font-headline font-black mt-2">120.000 KWD</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="LED Off road light bar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACl-DzaD7cjebZSRWi0dxTNh8SIeijuFUzPf1x94e1m1oK9R1B4hs91wKslzatYp2L0tCH2QlnIQwKFcEBWpVKyCsXmP6VHU3AOA9S_vzVQxs10bwLIumKmFKLFM_i9xfT-PFWns2HkFl1rTq_D-Ru9I-DbZr3UoayGVoYRhaQsNQX-3QX62IdCwqyibguO8zjp8lHA2jjTd9PiUNWi4OePADbtr1m-EK_6PUNeJubDLPU1OZwbYgE82l0_G78-BfFrH93-mZgMNE"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Lighting</span>
+<h3 class="font-headline font-bold mt-1 text-on-surface">Stealth Light Bar</h3>
+<p class="text-lg font-headline font-black mt-2">145.000 KWD</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Custom heavy duty floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc-rhiMz9YF5kMbWz6jN3PvrExl_aJv1DksiGlLiv5lsoQhwp5C3D0I9vcfRBKPeo-RNF8Vu2Oe9XO6xy0e0Isx_FzNweK0gvYAAx_raFiDdLnFRPSPsAXNxMKPD2Y_xSpefF1xJ4AO30dYbIhf7VNV2YkNyw7wqAaPO6sDh4hJK5MkGMe8XyBm4k2MUGeZQ1BVLwK0ZDkCv53Fu1384zBPYKqpWmNB2b0xCSSA-uTmWD9H3yxzfUmXms8yLU2juKdV8roJCeHeYk"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-4">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Interior</span>
+<h3 class="font-headline font-bold mt-1 text-on-surface">All-Weather Mats</h3>
+<p class="text-lg font-headline font-black mt-2">45.000 KWD</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white py-12 px-8 border-t border-zinc-100">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div class="flex flex-col gap-6 max-w-sm">
+<div class="flex items-center justify-start">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+<p class="font-body text-sm text-zinc-600 leading-relaxed" style="">Enhance every drive with Genuine Toyota Accessories from Sayarti by AlSayer. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-zinc-400 font-manrope text-[11px] font-semibold tracking-wide uppercase" style="">© 2026 Sayarti By AlSayer. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest" style="">Navigation</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">Sayarti Locations</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">Help Center</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest" style="">Legal</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">Privacy Policy</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">Terms of Use</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">Help</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-[11px] tracking-widest" style="">Social Media</h5>
+<ul class="flex flex-col gap-2 font-body text-sm text-zinc-500">
+<li class="" style=""><a class="hover:text-primary transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-[18px]" style="">camera</span> Instagram</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-[18px]" style="">smart_display</span> YouTube</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-[18px]" style="">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

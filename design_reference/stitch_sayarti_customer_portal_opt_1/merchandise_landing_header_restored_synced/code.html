@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-container-highest": "#e5e2e1",
+              "secondary-fixed": "#e3e2e4",
+              "on-surface-variant": "#5e3f3b",
+              "on-tertiary-container": "#fffeff",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-secondary-container": "#626365",
+              "inverse-surface": "#313030",
+              "tertiary-container": "#007ac6",
+              "surface-variant": "#e5e2e1",
+              "outline": "#936e6a",
+              "on-secondary-fixed-variant": "#464749",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#ffb4ab",
+              "surface": "#fcf9f8",
+              "primary": "#EB0A1E",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "on-tertiary-fixed": "#001d35",
+              "primary-container": "#EB0A1E",
+              "on-background": "#1c1b1b",
+              "surface-container-lowest": "#ffffff",
+              "background": "#fcf9f8",
+              "on-secondary-fixed": "#1a1c1d",
+              "surface-bright": "#fcf9f8",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed": "#ffdad6",
+              "surface-container": "#f0eded",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f3f0ef",
+              "outline-variant": "#e9bcb7",
+              "secondary-container": "#e0dfe1",
+              "on-surface": "#1c1b1b",
+              "surface-dim": "#dcd9d9",
+              "surface-container-high": "#eae7e7",
+              "primary-fixed-dim": "#ffb4ab",
+              "tertiary-fixed-dim": "#9ccaff",
+              "secondary": "#5d5e60",
+              "error": "#ba1a1a",
+              "surface-tint": "#EB0A1E",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#d0e4ff",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#fffeff",
+              "tertiary": "#00619e",
+              "on-primary-fixed-variant": "#93000d",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter", "Manrope"],
+              "label": ["Inter", "Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #EB0A1E 0%, #ff2d41 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Header from SCREEN_76 -->
+<header class="bg-white border-b border-zinc-200 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-8">
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-2" href="#">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-headline text-sm font-bold uppercase tracking-widest text-zinc-900 hover:text-primary transition-colors" href="#">Shop</a>
+<a class="font-headline text-sm font-bold uppercase tracking-widest text-zinc-900 hover:text-primary transition-colors" href="#">Merchandise</a>
+<a class="font-headline text-sm font-bold uppercase tracking-widest text-zinc-900 hover:text-primary transition-colors" href="#">Offers</a>
+<a class="font-headline text-sm font-bold uppercase tracking-widest text-zinc-900 hover:text-primary transition-colors" href="#">Locations</a>
+</nav>
+</div>
+<div class="flex-1 max-w-md hidden lg:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-full bg-zinc-100 border-none rounded-lg py-2 pl-10 pr-4 text-sm font-body focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search for accessories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-headline text-xs font-black uppercase tracking-widest hover:text-primary transition-colors">EN | AR</button>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-700 hover:text-primary transition-colors" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-zinc-700 hover:text-primary transition-colors relative" data-icon="shopping_bag">
+                        shopping_bag
+                        <span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="">
+<!-- Hero Section -->
+<section class="relative h-[600px] flex items-center overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0">
+<img alt="Gazoo Racing Performance Gear" class="w-full h-full object-cover grayscale-[10%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDin4a2qd6fNxoG1ZN70fcDmv0ZKRFZyfbO2SiOktr8QnAd_0LKslnQpEPalkEmHz5WHQVp0X0hbFqGsV3KpW8OTKbGCiK_Rh7xJF9xWFvqrmUNUKzm0ER_xdKI5kVROc4WZt9_GspKnHajlAY_N1xreYhtlaz1YGOcJX1EOA8jSr-LcxnspuQ8vLjtzW8HpIn3EUIkzVte5L8UGZ6V4ASk8X6346HGjhNornpmALsjY4yB58qa9WNa9cIdZXn15KdJvZ3v2D5fr5U"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-6 md:px-20 max-w-4xl">
+<span class="font-label text-xs font-bold tracking-[0.25em] uppercase text-primary mb-4 block">The Performance Collection</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background leading-[0.9] mb-6">
+                    ENGINEERED <br/> FOR THE <br/> <span class="text-primary">DRIVE.</span>
+</h1>
+<p class="font-body text-lg text-secondary max-w-md mb-8 font-medium">
+                    High-performance lifestyle gear designed with the same precision as your vehicle's performance.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 font-headline font-bold uppercase tracking-widest text-xs rounded-lg shadow-lg hover:bg-primary/90 transition-all active:scale-95">
+                        Shop Performance
+                    </button>
+<button class="bg-surface-container-highest text-on-surface px-10 py-4 font-headline font-bold uppercase tracking-widest text-xs rounded-lg transition-all hover:bg-surface-dim active:scale-95">
+                        Explore All
+                    </button>
+</div>
+</div>
+</section>
+<!-- Product Interface -->
+<section class="flex flex-col md:flex-row min-h-screen">
+<!-- Filter Sidebar -->
+<aside class="w-full md:w-72 bg-surface-container-low p-8 md:sticky md:top-[80px] md:h-[calc(100vh-80px)] overflow-y-auto">
+<div class="mb-10">
+<h3 class="font-headline font-extrabold text-sm uppercase tracking-widest mb-6 border-b-2 border-primary/20 pb-2">Category</h3>
+<div class="space-y-4">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="font-label text-sm font-semibold text-on-surface-variant group-hover:text-primary">Clothing</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="font-label text-sm font-semibold text-on-surface-variant group-hover:text-primary">Accessories</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="font-label text-sm font-semibold text-on-surface-variant group-hover:text-primary">Gifts &amp; Gear</span>
+</label>
+</div>
+</div>
+<div class="mb-10">
+<h3 class="font-headline font-extrabold text-sm uppercase tracking-widest mb-6 border-b-2 border-primary/20 pb-2">Size</h3>
+<div class="flex flex-wrap gap-2">
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-xs font-bold hover:border-primary hover:text-primary transition-colors">XS</button>
+<button class="w-10 h-10 rounded border border-primary bg-primary text-white flex items-center justify-center text-xs font-bold shadow-md">S</button>
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-xs font-bold hover:border-primary hover:text-primary transition-colors">M</button>
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-xs font-bold hover:border-primary hover:text-primary transition-colors">L</button>
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-xs font-bold hover:border-primary hover:text-primary transition-colors">XL</button>
+</div>
+</div>
+<div class="mb-10">
+<h3 class="font-headline font-extrabold text-sm uppercase tracking-widest mb-6 border-b-2 border-primary/20 pb-2">Color</h3>
+<div class="flex gap-4">
+<div class="w-7 h-7 rounded-full bg-zinc-900 border-2 border-white ring-2 ring-primary cursor-pointer"></div>
+<div class="w-7 h-7 rounded-full bg-red-600 border-2 border-white ring-1 ring-outline-variant cursor-pointer"></div>
+<div class="w-7 h-7 rounded-full bg-white border-2 border-white ring-1 ring-outline-variant cursor-pointer"></div>
+<div class="w-7 h-7 rounded-full bg-zinc-400 border-2 border-white ring-1 ring-outline-variant cursor-pointer"></div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1 p-6 md:p-12 bg-white">
+<!-- Sorting Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+<div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tighter uppercase">The Collection</h2>
+<span class="font-label text-xs font-bold text-secondary-fixed-dim uppercase tracking-widest">Showing 32 Items</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/30">
+<span class="font-label text-xs uppercase font-bold text-on-surface-variant">Sort By</span>
+<select class="bg-transparent border-none font-headline text-sm font-bold focus:ring-0 cursor-pointer">
+<option>Newest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+<!-- Featured Card (Span 2) -->
+<div class="group md:col-span-2 relative bg-surface-container-lowest overflow-hidden flex flex-col md:flex-row rounded-lg border border-outline-variant/20 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-full md:w-3/5 h-[400px] overflow-hidden relative">
+<img alt="Technical Series Jacket" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWihAayrAfowbnJlvZpNMkOYW0XCaSO64yFpGlp3d5qEtXpVJ5ojoEa3QdGZAzBVgU-rxaSiLtZO1We03kFujEekaXFPcqKZg-9OWgplB-qMhP4xmQSZff2JvJIupjWCEe45teGrbcz4xCO87WYAv15u9wz9VRPQ68-ybsc-6fs5GVcq5QtvyD49tMNck3ldC-9UVM0Kyg2zA6YrIefjMD25aKSOKO3jm0SyhxsKvP2gZ_zfPzQ-vcgmT_qLrPI7299A8qTHKcDeQ"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-sm">New Arrival</div>
+</div>
+<div class="p-8 flex flex-col justify-center flex-1 bg-surface-container-low/50">
+<span class="font-label text-[10px] text-primary font-extrabold tracking-widest uppercase mb-2">GR Performance</span>
+<h3 class="font-headline text-2xl font-extrabold tracking-tight mb-4">GR TECHNICAL SERIES JACKET</h3>
+<p class="font-body text-sm text-secondary mb-6 font-medium leading-relaxed">Lightweight, windproof technical fabric with embossed branding.</p>
+<span class="font-headline text-2xl font-black mb-8">KWD 42.000</span>
+<button class="w-full bg-on-background text-surface py-4 rounded font-headline font-bold text-xs uppercase tracking-[0.2em] hover:bg-primary transition-colors active:scale-95">
+                                View Details
+                            </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Heritage Trucker Cap" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqxp5xGaBJu--o0zz1Y30BVdqZn4-GbGfWrS_LAn_7pAWeik8Ks0C467K3j-4KhhcHnmkhpoBeTd36GGBHZ3y-lfVZfLxwD_n9GHPP38C1dCjt0dC48y0Y-5DmgJAwUygXxnmGVI4FTsDwhyB-51jYVDDvVzPSuCvHaOAhouSAGDSTrzalsgX9QxINayc-VK-gJZe0FWXfhLbyeII-Gi9ZcG5GDG4j2tyHraJ1M4LMxvUALs7l7lKBFj4DxG7VkBJBR95V44xUjZc"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Headwear</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">Heritage Trucker Cap</h3>
+<span class="font-headline font-black text-sm">KWD 5.950</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Winter Cycling Jersey" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGdGHLyipRB-W6Vc8VlSO_qBipVojbSlhIdvsU60ndA-IVBRP7o1IvH7UaTrMzC26hO1jrcpO8K9jKsumY776HhbDqXlevTpYWGZgcgQaDnN-ZtuVluiKVBYCv1QB2NKXVNBvX-nqJ1S4K4FDXin4LTCELYDdsD_KwLvAkSvmu5sqL054kYS-PnijF5GPoXCmNqi6qa0CsDTlxKfKXLiMKic_otP80RG0xb27R0lp72_kpUMEmnsHTgHgssSk2tHcfJTwqeBs5gSw"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">GR Cycling</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">L/S Winter Cycling Jersey</h3>
+<span class="font-headline font-black text-sm">KWD 35.850</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="GR Pro Gloves" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7wMsmO5xkUPi1l59Pgjgs8e9eQf18CM-ECZPi0sYrI1606rm6HF1J79wytscCoauIQDrpYUpLRbIIClvUHmasDYdcpp3tEkGfwkhDA2P-qCY9gPVRvrAMY60r372W5eI6oNbbDE4RFgiJKTJ3vbmpKz1DWi_RUKfSvEP2MKJB8RFO03u0eB3SPVUpq18MU4FiaPyIVOJgoYfNS8PMZGwQhTe76sXYbpZIk3vaEGHRruPC-1rodjYS4oFQ8iHYm_EB1Eq5NoYcOg8"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Accessories</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">GR Pro Performance Gloves</h3>
+<span class="font-headline font-black text-sm">KWD 7.650</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Thermal Cap" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq93i4KHINpEe6RMRjFSr40kKr4KR2VrhAxIQlQNzFwCqyRM65lmyeKgIZBBTtuCkXpHhnSkHfBpvr371YZaGAiBgJd8d73b_uBVMtrD30i3WE1MjdzAO7RzQbDyNQ_x8U6h-P6HSq9T69iiwX58w135KXRxbKnefezCb8bGbWBh8Mklz40q6b6LpIUssbh1t4nU0fCnsSdcbdapoQ1BUjX4v45ycre7f15jh9HeG-ZMvqVQ4NhtvziiCIVXALxcmw0VYrhVvVav0"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Headwear</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">Performance Thermal Cap</h3>
+<span class="font-headline font-black text-sm">KWD 5.000</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Minimalist Tee" class="width-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHvwF2QOcJK6L5HzTH_9rvbX1qeu2bAzoqaBAbe_di6qlxC-h98MG3TQjkLM6HXqNL-1ZYRCBKh7mPLjUPae0zOz0XxLepTVv2Oc1v7hqywHQACL7aD-WLCf8KE1pkPA15Mq2o9jhf-GQI4k-em2n-dIVbOgm88V7knc2QvIbZvxSHd60-5W1_BuHIqRFFpBADDCR2udzbBFLnQ_QAIgMbIOgqu-GdOEFe-RcJl_VuBglMvbPhe_wuO4piRZyESLDo9oDcZwkTAco"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Clothing</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">GR Minimalist Graphic Tee</h3>
+<span class="font-headline font-black text-sm">KWD 9.350</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Adventure Duffel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG2KM8K_A4geVEfx5CbnksuXZnErokVnzHyxtXtFAi5wzoryMzw-9rKUoYoz4UoLPsGa6ZGhP3avyLduuuEMj0-F5TvbEEQgtxB8N7fFaNYILwO4_6ovVaFObpp7Jt143cDsl_-_i9vKtxgvQta8b0ZMUta__qq_qCuYhy1WTLnpxraXfFTMmNK5g6ZmQkiwXQC6H3YhgDy2FHp_6xGPFXl0bXWe_jiynomHxhYmzADa4xBW2lIriCJWLU5Q5J-SIm4WbYbxm3hfM"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Gear</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">Adventure Expedition Duffel</h3>
+<span class="font-headline font-black text-sm">KWD 21.250</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 8 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Stainless Bottle" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7_lnaeJreYCVgH1fWDucQWvyi1TEgeiv9B8t2OB2Lm3uAGIwEsA9mtAI2f07JIXapVI1rU6xdEkjRsdtZ3wfyBZc3SkjUEKyrx2LY5knTyPLfZhnKTbN9xhaeOBmDdnmJ_nnEE6FStA4JBnVaEcyYSc4bl0ecJwW-BDr1-VNeFRM5POnE_-YgeCKmpx5nCnwmp6tVwokHl-xE1LfjMqcaITIn9itQRcMZ6ok1On6dPUdAGG7SSaM_sgjLpGBXHYsNVyUvNyvY4mc"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Lifestyle</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">Insulated Thermal Flask</h3>
+<span class="font-headline font-black text-sm">KWD 6.750</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 9 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-low relative overflow-hidden mb-6 rounded-lg">
+<img alt="Gazoo Racing Umbrella" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFW9xOmf-1_XlCpo70ve9Y0Xft01fTvZVk2scMXoGUMAaOCdK7KHWV_6yDHAC8vXQrUOPQNUgIpWX6TbAv8hH69gB1UZIF4sDpVNz8Ikh-gDGE1Ue04t6dUcos2CE6NLXsnZGHEXM0stSFYMLx4Qrc5jEXAX19Q-YAgG5Vv4KaYYylkrSAW6vN0c8sBSQd2nNZHh77KzOJnWhb38ozdeXBT2nMnEyNMCjlI1HXQSUP-EYDsr8Mu9Pa_hNBujCTWS7vX22wBscMZE"/>
+</div>
+<div class="px-2">
+<span class="font-label text-[10px] text-primary font-bold uppercase tracking-widest">Accessories</span>
+<div class="flex justify-between items-start mt-1">
+<h3 class="font-headline text-sm font-extrabold uppercase tracking-tight">GR Oversized Golf Umbrella</h3>
+<span class="font-headline font-black text-sm">KWD 11.850</span>
+</div>
+<button class="w-full mt-4 border-2 border-outline-variant py-2 rounded font-headline text-[10px] font-extrabold uppercase tracking-widest hover:bg-on-background hover:text-white hover:border-on-background transition-all">
+                                Quick Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-20 flex justify-center">
+<button class="flex items-center gap-2 group border-b-2 border-transparent hover:border-primary transition-all pb-1">
+<span class="font-headline text-xs font-black uppercase tracking-widest group-hover:text-primary">Load More Products</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-y-1" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Branding Interstitial -->
+<section class="py-24 bg-on-background text-surface relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative z-10">
+<h2 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-none">
+                        CURATED <br/> FOR THE <br/> <span class="text-primary">ENTHUSIAST.</span>
+</h2>
+<p class="font-body text-secondary-fixed text-lg mb-10 max-w-sm font-medium">
+                        Limited edition drops and iconic lifestyle pieces. Authentic gear for those who live the adventure.
+                    </p>
+<a class="inline-flex items-center gap-4 group" href="#">
+<span class="font-headline font-bold uppercase text-sm tracking-widest border-b-2 border-primary pb-1">Shop Trending Now</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="relative h-[500px] md:h-[600px] mt-12 md:mt-0">
+<img alt="Adventure Lifestyle" class="w-full h-full object-cover grayscale brightness-90 rounded-lg shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFW9xOmf-1_XlCpo70ve9Y0Xft01fTvZVk2scMXoGUMAaOCdK7KHWV_6yDHAC8vXQrUOPQNUgIpWX6TbAv8hH69gB1UZIF4sDpVNz8Ikh-gDGE1Ue04t6dUcos2CE6NLXsnZGHEXM0stSFYMLx4Qrc5jEXAX19Q-YAgG5Vv4KaYYylkrSAW6vN0c8sBSQd2nNZHh77KzOJnWhb38ozdeXBT2nMnEyNMCjlI1HXQSUP-EYDsr8Mu9Pa_hNBujCTWS7vX22wBscMZE"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white py-12 px-8 border-t border-zinc-200">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12">
+<div class="flex flex-col gap-6">
+<div class="font-black text-zinc-900 text-2xl font-headline flex items-center gap-2">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ"/>
+</div>
+<p class="font-manrope text-sm text-zinc-600 max-w-md">Enhance every drive with Genuine Toyota Accessories from Sayarti by AlSayer. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-red-600 font-manrope text-sm">© 2026 Sayarti By AlSayer. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">Navigation</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-zinc-900 transition-colors" href="#">Sayarti Locations</a></li>
+<li><a class="hover:text-zinc-900 transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-zinc-900 transition-colors" href="#">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">Legal</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-zinc-900 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-zinc-900 transition-colors" href="#">Terms of Use</a></li>
+<li><a class="hover:text-zinc-900 transition-colors" href="#">Help</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest">SOCIAL MEDIA</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">camera</span> Instagram</a></li>
+<li><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">smart_display</span> YouTube</a></li>
+<li><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

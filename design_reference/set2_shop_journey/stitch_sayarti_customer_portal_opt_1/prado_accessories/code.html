@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Toyota Accessories | Prado</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#313030",
+              "tertiary": "#00619e",
+              "surface-bright": "#fcf9f8",
+              "outline": "#936e6a",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#e3e2e4",
+              "surface-tint": "#c00014",
+              "on-tertiary-fixed": "#001d35",
+              "primary-container": "#eb0a1e",
+              "on-surface": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-primary-fixed": "#410002",
+              "secondary-container": "#e0dfe1",
+              "primary": "#bd0014",
+              "tertiary-fixed-dim": "#9ccaff",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-secondary-fixed": "#1a1c1d",
+              "surface-dim": "#dcd9d9",
+              "surface-variant": "#e5e2e1",
+              "surface-container-highest": "#e5e2e1",
+              "surface": "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#93000d",
+              "inverse-primary": "#ffb4ab",
+              "surface-container": "#f0eded",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5e3f3b",
+              "on-tertiary-container": "#fffeff",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed-dim": "#ffb4ab",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "on-secondary-container": "#626365",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "outline-variant": "#e9bcb7",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#d0e4ff",
+              "background": "#fcf9f8",
+              "surface-container-high": "#eae7e7",
+              "on-secondary-fixed-variant": "#464749",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1c1b1b",
+              "secondary": "#5d5e60",
+              "tertiary-container": "#007ac6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 dark:bg-zinc-800 h-[1px]"></div>
+</nav>
+<div class="flex min-h-screen pt-16">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col gap-2 p-4 border-r border-zinc-100 dark:border-zinc-800 h-screen w-64 sticky top-16 left-0 bg-zinc-50 dark:bg-zinc-950">
+<div class="mb-6 px-3">
+<h3 class="font-manrope text-sm font-semibold uppercase tracking-widest text-zinc-900 dark:text-zinc-100">Categories</h3>
+<p class="text-xs text-zinc-500 mt-1">Refine by Type</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+                    Exterior
+                </a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">chair</span>
+                    Interior
+                </a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">speed</span>
+                    Performance
+                </a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">light_mode</span>
+                    Lighting
+                </a>
+<a class="flex items-center gap-3 text-zinc-500 dark:text-zinc-500 p-3 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">adjust</span>
+                    Wheels
+                </a>
+<a class="flex items-center gap-3 bg-white dark:bg-zinc-900 text-red-600 dark:text-red-400 rounded-lg p-3 shadow-sm active:translate-x-1 duration-150 font-manrope text-sm font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">shield</span>
+                    Protection
+                </a>
+</nav>
+<div class="mt-auto p-3">
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-manrope text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">View All Offers</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 bg-surface">
+<!-- Hero Banner -->
+<section class="relative h-[614px] min-h-[500px] overflow-hidden bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern Toyota Prado driving through a rugged desert landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1HCmQv044IeBXkTr0IuT7iwWJ3hc18L5gAE_v5-X4vLramffnx6BtwNwMwylu07PnR2O4XeosixhB8b1If9EoZLptr1uWdZJ3lmOdM7XD2-l01bTcQQKhCTzRaVLCb770jJSX88fIth_KFZoqZfnqC-OlfyZUwNgrgChB_7COqTHr_dz7ayeoyv10FBtgt9VQ2xwBPEFZFE4_FCoLY7fKOAeenrVUTuLWSdSCxa-4JzeEh0JnpLgT56d0JAZGcjKsvw4m4jb0Xhw"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
+<div class="relative h-full flex flex-col justify-center px-8 md:px-16 max-w-4xl">
+<span class="inline-block px-3 py-1 bg-primary-container text-on-primary text-[10px] font-bold tracking-widest uppercase mb-4 w-fit">2024 Collection</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-white tracking-tighter leading-none mb-4">Prado<br/>Engineered for Extremes</h1>
+<p class="text-white/80 text-lg md:text-xl max-w-xl font-body leading-relaxed mb-8">Elevate your adventure with genuine Toyota accessories designed for precision fit and rugged durability.</p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-on-primary px-8 py-4 rounded-md font-bold tracking-tight hover:brightness-110 transition-all">Explore Exterior</button>
+<button class="bg-white/10 glass-effect border border-white/20 text-white px-8 py-4 rounded-md font-bold tracking-tight hover:bg-white/20 transition-all">Custom Builder</button>
+</div>
+</div>
+<!-- Spec Overlay -->
+<div class="absolute bottom-12 right-12 hidden lg:block">
+<div class="bg-white/10 glass-effect border border-white/20 p-6 rounded-xl backdrop-blur-xl w-72">
+<p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">Featured Fitment</p>
+<h4 class="text-white font-headline text-lg font-bold mb-4">Premium Adventure Pack</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-white/80 text-sm">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Heavy-duty Bull Bar</span>
+</div>
+<div class="flex items-center gap-3 text-white/80 text-sm">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Snorkel Air Intake</span>
+</div>
+<div class="flex items-center gap-3 text-white/80 text-sm">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>All-terrain Alloy Wheels</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filter Pills -->
+<section class="px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-12">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-sm">All Accessories</button>
+<button class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container hover:bg-zinc-200 font-bold text-sm">Protected</button>
+<button class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container hover:bg-zinc-200 font-bold text-sm">Connected</button>
+<button class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container hover:bg-zinc-200 font-bold text-sm">Off-Road</button>
+<button class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container hover:bg-zinc-200 font-bold text-sm">Cargo</button>
+<div class="ml-auto flex items-center gap-2 text-zinc-500 font-bold text-sm">
+<span>Sort:</span>
+<select class="bg-transparent border-none focus:ring-0 text-on-surface font-bold p-0">
+<option>Latest</option>
+<option>Price: Low to High</option>
+<option>Popularity</option>
+</select>
+</div>
+</div>
+<!-- Bento Grid for Products -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Toyota Prado heavy duty black nudge bar front protection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDY4gEupSVqoC22UUp5nSiuJhFX8CQGmTN150u45veKCBxcH7p26GhMGkwbETEAgBnL51G4U4atRjOiEIs5rH32i4nIhPRPylDFuLEGV_GaLQW7bv-2Nc-8Ix1YuMxjV2wznvXdo7D0FOhP4Hi61t87WOQ4LYID4-nPuiHwzc7qPwhra5Q1DuB6ME1aRTU4kvBBBENDAhF5xJSD4xz0lasjKwC0f7xeiD9A8LEOLAcsgZ5JXevPzRYQoAcr9la0-r2-9T8ZSkM4X0"/>
+<span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">MOST POPULAR</span>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Protection</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Heavy Duty Nudge Bar</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">185.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 (Highlight/Wider) -->
+<div class="group md:col-span-2 bg-surface-container-low overflow-hidden flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 aspect-square md:aspect-auto md:h-full bg-zinc-100 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Toyota Prado sleek roof rack storage system installed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO--DrVLDo2MTQ6qgVY7SkDYgTEMvOh9a34k-xMJjOkHQJekeMFxgyxBaucS3N8D1gilDlDMG3x4TEg7IH8GMj-WSYvx5dHcaINem3LJUk42fFORnJOE7dRbKGGoblXef4ajgWNVtqC6fcCsPtZSG_hpAu477S-vR6r7qGZ8vTJrgGyHT7n0SCAIQDJNNioxLHnRwfU3nefcOC9gAmNjE91QyJi10TiyQAtYRaPfebvZb2Zr5pb3eJ7d13d7Ky0QvTdBSvGWYDFQA"/>
+</div>
+<div class="w-full md:w-1/2 p-10">
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Adventure Pack</p>
+<h3 class="font-headline font-extrabold text-3xl text-on-surface mb-4">Aero Roof Rack System</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Engineered for low wind noise and high durability. Compatible with all T-slot carriers for bicycles, kayaks, and roof boxes.</p>
+<div class="flex items-center gap-6">
+<span class="font-headline font-extrabold text-2xl">95.000 <span class="text-xs">KWD</span></span>
+<button class="bg-primary-container text-on-primary px-6 py-3 rounded font-bold text-sm tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Digital infotainment touch screen for car dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP05UZpfcsEbrnhloQ4-BxhRTQXrclR2WxBptrmFPu514sP2rJOe3RpB9V3yplrXTNxkhqonN0BuXp9Y3_KgLlbQgrFjjxLB2bk8Senc3PPwqilHJ5Cx6XPk_3b9wd8geQCe0Zk7pPhBrbGrIpMduMQEhhjgx58vNMB3VKPug_JGvJcJ9iyo16S-FVIL4O9vWz2wu-7Cq2-l4Jr13PK_zN2SHpcUeG1TX6N2ZpXvH16qIIIvl8Dp27joLtXS8sfiZLHzqXi6UArws"/>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Connected</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">12.3" Infotainment Upgrade</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">420.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Heavy duty all weather rubber floor mats for Toyota Prado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_eqU6RTV55BgPJJMwu_DXE5b42No3DFTAwyYsVOX7CnHzGPTRyyVrzDXpA4Y6GSElP4nEgPvpqsEiZYzhNoc7IUiXTdOVYsV5K3ei4XTtIl54iG5e45-M9w-dZE6H6ThASgnoLVzPwlMXbdHsRKRjzKkuc9nQzGLK_E12EBo5FI3_piVCvCtCNAj2I7iRN4mDmJ8C5wzV1FlcULXW6-4kfYzlxpXSI9hPq393WfgZ_ya7UsRGSwGd7A3JFIDoGxxLgvSUZrnTRBo"/>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Interior</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">All-Weather Rubber Mats</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">45.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Premium side steps for vehicle entry assistance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFFRdpGjxPMn8sDqWa6_UKHQhoLNdXuiCYN_ScWJgXEaKcJTOZlRj7NT0xmjpJvmDQ5y1MIZpYPl_wOCzVHkJtY1EKZzyAEBDvQ_xKNYhSEKBkybyzda5bXztlTYyLY6TODOnfEMMs9fwaw5WBQ-YEkaWFYgCZXPqtRSDzLuo9plVEmSu7boZ6shLDo7ejcN3UZelx9GxFl0p8GpRkddfg1q3ym0SAmYgba09lKJdYls0I2NBcSnWK_qlTWlxZO-yALHz_Nauv9jY"/>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Exterior</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Illuminated Side Steps</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">210.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Prado headlamp protectors transparent high impact resistant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACtozUglmPwG1TXc5bjeCsuriEW7AhF-wGTArusJf3T8LYIF9-UQLR8Zv9jUXyNWtuov8s60rlTgPez04LLTaqPQHJYcGrY7fHkYTD6KNK0jjFm2C2kA3MuK1PJDvB9ZqW5jl47kh9nMzdZp8wzQ2jjJFo6mCMsw44GMnfF-796jLdDKBJeozWJL0eKzOCFd2FanY_KR61nTvdRch9zhR2jLH7OSEIdRExyct_Sc1geGOrlCK5qn90BlDTDTaX5xYVBpkA13ieFdU"/>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Protection</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Headlamp Protectors</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">32.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-square bg-zinc-100 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Toyota genuine spare tire cover for Prado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-7EawYZW_79q_CCOIOcnfHnaSrBNKee8GY-0naQxCWGZcoHgyL-EGTNsLkZQVT1Ccpp0IjPFkzEIRoWFBJsQ5RDX2Zu_tb3FmboGfO_mqZrPCpWIz6NMB6gUBiSl_-EHqQZP6iAaalAYAhspx-4FchID3zWxSxHZfVO3wJqN06xFZAEdNTQV_uZQx2d_V7TqMmJ6b1KnK2yvmI-mC_kJ0ZEXYYa3RMiHfMse2XFog5ATIPKPYkLLUD0-6K0ZNOrJHmByIvh0Sg9U"/>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Exterior</p>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Spare Wheel Cover</h3>
+<div class="flex items-center justify-between mt-6">
+<span class="font-headline font-extrabold text-xl">58.000 <span class="text-xs">KWD</span></span>
+<button class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Maintenance/Trust Section -->
+<section class="mt-24 bg-surface-container-low py-20 px-8">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+<div class="text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-3">Genuine Warranty</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">All accessories are backed by the official Toyota 1-year limited warranty when installed by authorized dealers.</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">build_circle</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-3">Expert Installation</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Book a professional installation with our certified technicians at any Toyota service center in Kuwait.</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-3">Rapid Delivery</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Free home delivery within Kuwait for all orders over 150 KWD. Track your order in real-time.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 font-manrope text-xs text-zinc-500 dark:text-zinc-400">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="text-lg font-bold text-zinc-900 dark:text-zinc-100">Toyota Kuwait</div>
+<p>© 2024 Toyota Kuwait. All Rights Reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Terms of Service</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Contact Us</a>
+<a class="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-opacity duration-300 hover:underline decoration-red-500 decoration-2 underline-offset-4" href="#">Find a Dealer</a>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">language</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB (Suppressed on details pages, but shown here as it is a category listing) -->
+<button class="fixed bottom-8 right-8 bg-primary-container text-on-primary w-16 h-16 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">help</span>
+</button>
+</body></html>

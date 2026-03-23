@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e5e2e1",
+              "on-secondary-fixed-variant": "#464749",
+              "on-tertiary-fixed-variant": "#00497a",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#9ccaff",
+              "outline-variant": "#e9bcb7",
+              "tertiary-fixed": "#d0e4ff",
+              "on-primary-fixed": "#410002",
+              "on-error-container": "#93000a",
+              "on-background": "#1c1b1b",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#1a1c1d",
+              "on-primary-container": "#fffeff",
+              "primary-fixed": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#c00014",
+              "secondary-fixed": "#e3e2e4",
+              "secondary-container": "#e0dfe1",
+              "inverse-primary": "#ffb4ab",
+              "background": "#fcf9f8",
+              "tertiary": "#00619e",
+              "outline": "#936e6a",
+              "primary-container": "#eb0a1e",
+              "on-tertiary-container": "#fffeff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f6f3f2",
+              "surface-container-high": "#eae7e7",
+              "on-tertiary-fixed": "#001d35",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#5e3f3b",
+              "surface-container": "#f0eded",
+              "primary-fixed-dim": "#ffb4ab",
+              "secondary-fixed-dim": "#c6c6c8",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fcf9f8",
+              "primary": "#bd0014",
+              "on-surface": "#1c1b1b",
+              "surface-bright": "#fcf9f8",
+              "surface-variant": "#e5e2e1",
+              "error": "#ba1a1a",
+              "tertiary-container": "#007ac6",
+              "secondary": "#5d5e60",
+              "inverse-on-surface": "#f3f0ef",
+              "inverse-surface": "#313030",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#626365"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .spec-overlay {
+          backdrop-filter: blur(12px);
+          background: rgba(252, 249, 248, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div><div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" data-icon="search" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" data-icon="phone" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" data-icon="person" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 dark:bg-zinc-800 h-[1px]"></div>
+</nav><main class="pt-16">
+<!-- Hero Section: Architectural Lens -->
+<section class="relative w-full h-[870px] overflow-hidden bg-surface-container-low flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Toyota Fortuner equipped with heavy duty steel bull bar in desert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfDwDqxOwlscQwnWJ6uL8U2XsC5kQRsx4wsH4Ozogw1YQAPPYdG82f3vOA5TUCSCN3dW17Z4qeHuMswiHTEe8fZWQi_iHkFS9wApxcwY19mXm5GhD2CY-WfxkvFx-lMG5n4PErzvm9KAORu1EKu9j67IysE3yeHEr3lPQsRw6YNuSH5OFTHb1rI00qT_VY1DJsssMkdCytDIiadsGWqz4r5QZaTBPFwXjBV_Nydkeyzmi9dPj_y2V20jIpqLepcWx4nFgCPiybank"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent opacity-60"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-12 w-full grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-6 flex flex-col justify-center">
+<div class="mb-4">
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-primary font-label">Extreme Protection</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-background leading-[0.9] mb-6">
+                        Premium Steel<br/>Bull Bar
+                    </h1>
+<p class="text-lg text-secondary max-w-md mb-8 leading-relaxed">
+                        Engineered for the Toyota Fortuner. A fusion of structural integrity and aggressive aesthetics, designed to conquer the harshest terrains of Kuwait.
+                    </p>
+<div class="flex items-center space-x-6">
+<div class="bg-primary px-8 py-4 text-on-primary font-headline font-bold tracking-tight rounded-md shadow-lg shadow-primary/20 hover:scale-105 transition-transform cursor-pointer">
+                            Order for 425.000 KWD
+                        </div>
+<div class="flex items-center space-x-2 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">5.0</span>
+<span class="text-secondary text-sm">(124 Reviews)</span>
+</div>
+</div>
+</div>
+<!-- Spec Floating Card -->
+<div class="hidden lg:flex col-span-6 items-end justify-end pb-12">
+<div class="spec-overlay p-8 rounded-xl border border-white/20 shadow-2xl max-w-xs space-y-6">
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="shield">shield</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Armor Grade</h4>
+<p class="text-sm text-secondary">High-impact tensile steel for maximum collision dispersion.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="hardware">hardware</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Winch Ready</h4>
+<p class="text-sm text-secondary">Pre-drilled mounting points for 12,000lb recovery winches.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Details Grid -->
+<section class="max-w-screen-2xl mx-auto px-12 py-24">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<!-- Left: Technical Identity -->
+<div class="lg:col-span-1 space-y-12">
+<div>
+<h3 class="font-headline text-3xl font-extrabold tracking-tight mb-6">Technical Blueprint</h3>
+<div class="space-y-4">
+<div class="flex justify-between py-4 border-b border-surface-container-high">
+<span class="text-secondary font-label text-sm uppercase tracking-wider">SKU</span>
+<span class="font-bold">TY-FTN-BULL-01</span>
+</div>
+<div class="flex justify-between py-4 border-b border-surface-container-high">
+<span class="text-secondary font-label text-sm uppercase tracking-wider">Material</span>
+<span class="font-bold">3mm Cold-Rolled Steel</span>
+</div>
+<div class="flex justify-between py-4 border-b border-surface-container-high">
+<span class="text-secondary font-label text-sm uppercase tracking-wider">Weight</span>
+<span class="font-bold">48 kg</span>
+</div>
+<div class="flex justify-between py-4 border-b border-surface-container-high">
+<span class="text-secondary font-label text-sm uppercase tracking-wider">Coating</span>
+<span class="font-bold">Textured Black Powder</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex items-center space-x-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="build">build</span>
+<h4 class="font-headline font-bold">Installation Estimate</h4>
+</div>
+<p class="text-secondary text-sm mb-4">Professional fitment recommended. Available at all AlSayer Service Centers.</p>
+<div class="text-2xl font-black font-headline text-on-surface">3.5 Hours</div>
+<button class="mt-6 w-full py-3 border border-outline-variant hover:bg-white transition-colors font-bold text-sm">BOOK INSTALLATION</button>
+</div>
+</div>
+<!-- Center & Right: High Fidelity Features (Bento Style) -->
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-lowest p-10 rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-primary font-black text-4xl mb-4 block italic">01.</span>
+<h4 class="text-2xl font-headline font-bold mb-4">Optimal Airflow</h4>
+<p class="text-secondary leading-relaxed">Multi-slotted front panels designed to ensure peak radiator cooling during high-load desert driving conditions.</p>
+</div>
+<div class="mt-8 overflow-hidden rounded-lg bg-surface-container">
+<img class="w-full h-48 object-cover opacity-80" data-alt="Close up detail of steel bull bar texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoJDo6dBOkIwHIUYLkmkzjxOkeycNOnvVl23EGTfU_TIpecImNx8Qlc80v2Cam__pRzSVf_7XeHSsU3G71u81U66hEmcndrinV4ne5YW1Hoz_BudY9PKY337XHq3ORNQWzx7BmBf34ABmLxFYiTwkq00l0QZQK1DGmCQ_p-NJxzpi3WsMrEGJJtdOkDF1LzOF5RR9y5CqqYKdtTNQSLauUe8F-VUnZ5DieBZQVk704DtR1Ffg1FwSi_gAUT4Qr3OKgdH6wqOK5u90"/>
+</div>
+</div>
+<div class="bg-surface-container-highest p-10 rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-primary font-black text-4xl mb-4 block italic">02.</span>
+<h4 class="text-2xl font-headline font-bold mb-4">Integrated Lighting</h4>
+<p class="text-secondary leading-relaxed">Dedicated recess for 20" LED light bars and secondary mounting points for additional fog illumination.</p>
+</div>
+<div class="mt-8 flex space-x-2">
+<div class="h-16 w-16 rounded-full border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="h-16 w-16 rounded-full border-2 border-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 bg-on-background text-white p-12 rounded-2xl relative overflow-hidden">
+<div class="relative z-10 max-w-lg">
+<h4 class="text-3xl font-headline font-bold mb-6">Built for the Expedition</h4>
+<p class="text-zinc-400 mb-8">Every Premium Steel Bull Bar undergoes rigorous stress testing in simulated sandstorm and high-heat environments to guarantee AlSayer's standard of longevity.</p>
+<ul class="space-y-4 text-sm font-label tracking-wide uppercase">
+<li class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span>Corrosion-Resistant Zinc Prime</span>
+</li>
+<li class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span>Airbag Compatible Mounting</span>
+</li>
+<li class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span>OEM Parking Sensor Relocation</span>
+</li>
+</ul>
+</div>
+<div class="absolute right-0 bottom-0 top-0 w-1/3 bg-primary opacity-10 blur-3xl rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Gear: Visual Breadcrumb -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-primary font-label">Complete the Rig</span>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight mt-2">Related Gear</h2>
+</div>
+<a class="text-primary font-bold flex items-center space-x-2 hover:underline" href="#">
+<span>View All Accessories</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Related Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-lowest rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Toyota Fortuner roof rack storage system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSghvXoNolewqwbw67lv9YNUotADURn8mg46dCnfPe5msKpax6izx0Cz4sCvgt4pjgWplancrG5Oix_sm1goaufkVKnw8Ck1K7Lt4LBCEtxKuiJwLUom594gtC_qOLMUdxKYFlx35ZXIpEODHdBB4tt4zLVMZhygD-bx6duCRil7tlKqp0z3kcNE5HA4rg4xw_AZRHBCz3F8hq9vBITzX3HcMZZwSLPwyOpEcs7YGdu7EU_G-Su7cLk2hPUam05uBG3t118d0sD8g"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-black uppercase">Exterior</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Expedition Roof Rack</h4>
+<p class="text-secondary font-bold">185.000 KWD</p>
+</div>
+<!-- Related Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-lowest rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Performance suspension shock absorbers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw94uyxxcl-kx6unuxIHGN7nnzag0tMRDQCR7HvXaCtl5b_ao21PK_t8H1XRsDYf3B4iPYIuZPAd0Aywtiqe1g2RO9aoq3HRxCJEijFoufVyRLw9ixftC2AynxPP85fDUmaVMzgJCvj0OVoNnuQsDc2fIo_judW6pJm9Se24R1CNjXxqc7ghmo7Phkgvdt43Qvg-t0JB5-9QgTXxYDk4GdGCQwlrIJT1INXI5onlTscyMZB3khAI_eYYxu1XfV7ChOGA9r0tiY0pw"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-black uppercase">Performance</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Nitro Gas Suspension Kit</h4>
+<p class="text-secondary font-bold">310.000 KWD</p>
+</div>
+<!-- Related Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-lowest rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Fortuner interior heavy duty floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzxtoAQoQRF76VLn55deDDwyXuHugoqSN9XuweWxuMIlitku9z9g4ReFDooRySQfZk1gKBE94Dd9iLF0eOm_cA8WEW-BO0C4ndvdYJNZVUY8wGcrFRzT21Ko2g8ezaiyrlnGzyVKMiguypo81bWVMaq9qjD3FLdF8S-cM2ELgsosiexgq2IcmVHjGO5Z6r-Q5VMhwbPN9qytQfOeFSguNIwK3PkIDaVyV_d2FHilM_7m-DqvmUjfAZdl7c6XrtPC3bxZQy2ionhsA"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-black uppercase">Interior</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">All-Weather Floor Liners</h4>
+<p class="text-secondary font-bold">45.000 KWD</p>
+</div>
+<!-- Related Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-lowest rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Snorkel intake for offroad driving" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuaoagG-N-pm2IlbsIowxzy-6LN2olIuwbunnLSEhYkfEdkMObQnRpXyUrNm4roRwOw36gU7tG_YSKicqZY51y981uxzsXRmnGW09yYP7frS9NlZnbEWrQ4rCkPfR745zh2mN4mNE8v8huVS7GqBLythKLrX2lMpX8ng_GX3aoSFbjJ9BD4Ci6mVyfx3uhmiO57dEUAXcrWIriM3duit54OEemi_hn6CnjTFOmNgPkH27zze_zrqwHWtS7kcE4ZXhakINnON2M2KE"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-black uppercase">Performance</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Raised Air Intake</h4>
+<p class="text-secondary font-bold">120.000 KWD</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-12 py-16 max-w-screen-2xl mx-auto">
+<div class="col-span-1 lg:col-span-1">
+<div class="font-black text-zinc-900 dark:text-white text-xl mb-6 font-headline">Sayarti By AlSayer</div>
+<p class="text-zinc-500 dark:text-zinc-500 text-sm leading-relaxed font-body">
+                    Official distributor for Toyota accessories in Kuwait. Dedicated to enhancing your journey through quality engineering.
+                </p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-zinc-900 dark:text-white mb-6 text-sm uppercase tracking-widest">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm underline decoration-red-600 underline-offset-4" href="#">Warranty</a></li>
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm" href="#">Contact Us</a></li>
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm" href="#">Installation Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-zinc-900 dark:text-white mb-6 text-sm uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-zinc-900 dark:text-white mb-6 text-sm uppercase tracking-widest">Global</h4>
+<ul class="space-y-4">
+<li><a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-opacity duration-200 text-sm" href="#">Global Toyota</a></li>
+<li><a class="text-red-600 font-bold text-sm" href="#">Find a Showroom</a></li>
+</ul>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-zinc-200 dark:border-zinc-800 text-center">
+<p class="text-zinc-500 dark:text-zinc-500 text-xs tracking-wide">© 2026 AlSayer Group. All Rights Reserved. Engineered for Adventure.</p>
+</div>
+</footer>
+</body></html>

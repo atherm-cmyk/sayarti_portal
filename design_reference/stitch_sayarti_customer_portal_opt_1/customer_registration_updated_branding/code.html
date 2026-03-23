@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#464749",
+              "on-surface-variant": "#5e3f3b",
+              "surface-container-lowest": "#ffffff",
+              "inverse-primary": "#ffb4ab",
+              "on-primary-container": "#fffeff",
+              "tertiary-fixed-dim": "#9ccaff",
+              "surface-container-high": "#eae7e7",
+              "on-tertiary-fixed": "#001d35",
+              "on-surface": "#1c1b1b",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary": "#ffffff",
+              "tertiary": "#00619e",
+              "surface-container-highest": "#e5e2e1",
+              "on-primary-fixed-variant": "#93000d",
+              "surface-container": "#f0eded",
+              "on-secondary-fixed": "#1a1c1d",
+              "primary-fixed-dim": "#ffb4ab",
+              "error": "#ba1a1a",
+              "on-background": "#1c1b1b",
+              "primary-fixed": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#dcd9d9",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#007ac6",
+              "surface-variant": "#e5e2e1",
+              "background": "#fcf9f8",
+              "secondary-fixed": "#e3e2e4",
+              "on-primary-fixed": "#410002",
+              "surface-bright": "#fcf9f8",
+              "on-tertiary-container": "#fffeff",
+              "secondary": "#5d5e60",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#f6f3f2",
+              "tertiary-fixed": "#d0e4ff",
+              "secondary-fixed-dim": "#c6c6c8",
+              "outline": "#936e6a",
+              "on-tertiary-fixed-variant": "#00497a",
+              "secondary-container": "#e0dfe1",
+              "inverse-surface": "#313030",
+              "surface-tint": "#c00014",
+              "primary": "#bd0014",
+              "surface": "#fcf9f8",
+              "outline-variant": "#e9bcb7",
+              "primary-container": "#eb0a1e",
+              "on-secondary-container": "#626365",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-header {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .glass-nav {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 1px rgba(189, 0, 20, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Replicated from {{DATA:SCREEN:SCREEN_56}} -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-10 w-auto">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope tracking-tight font-bold pr-[50px]">
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Shop</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Merchandise</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Offers</a>
+<a class="text-zinc-600 hover:text-red-500 transition-colors duration-200" href="#" style="">Locations</a>
+</div>
+<div class="hidden xl:flex items-center bg-zinc-100 rounded-lg px-3 py-1.5 ml-4">
+<span class="material-symbols-outlined text-zinc-400 text-xl" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-manrope font-semibold text-zinc-600 placeholder:text-zinc-400 w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-400 px-3 border-r border-zinc-200">
+<button class="text-primary hover:text-primary-container transition-colors" style="">EN</button>
+<span class="text-zinc-300" style="">|</span>
+<button class="hover:text-primary transition-colors" style="">AR</button>
+</div>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="" title="Contact Us">
+<span class="material-symbols-outlined" style="">phone</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600" style="">
+<span class="material-symbols-outlined" style="">person</span>
+</button>
+<button class="active:scale-95 transition-transform p-2 text-zinc-600 relative" style="">
+<span class="material-symbols-outlined" style="">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="bg-zinc-100 h-[1px]"></div>
+</nav>
+<main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+<div class="max-w-4xl mx-auto">
+<!-- Page Header -->
+<div class="mb-12 text-center">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-2">Create Your Account</h1>
+<p class="text-secondary font-body">Join the Sayarti community for premium accessories and vehicle management.</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-8">
+<!-- Section 1: Personal Information -->
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+<h2 class="font-headline text-xl font-bold tracking-tight uppercase">Personal Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+<div class="md:col-span-2">
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Salutation</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body">
+<option>Mr.</option>
+<option>Ms.</option>
+<option>Mrs.</option>
+<option>Dr.</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">First Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Enter first name" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Last Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Enter last name" type="text"/>
+</div>
+<div class="md:col-span-6">
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Kuwait Mobile Number</label>
+<div class="flex group">
+<span class="inline-flex items-center px-4 bg-surface-container-highest text-on-surface-variant font-medium rounded-l-lg border-r border-outline-variant/20">
+                                    +965
+                                </span>
+<input class="flex-1 bg-surface-container-lowest border-none rounded-r-lg px-4 py-3 text-on-surface font-body" placeholder="9XXXXXXX" type="tel"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Vehicle Details -->
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="directions_car">directions_car</span>
+<h2 class="font-headline text-xl font-bold tracking-tight uppercase">Vehicle Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Plate Number</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="e.g. 12345" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Model</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body">
+<option>Land Cruiser</option>
+<option>Prado</option>
+<option>Camry</option>
+<option>Corolla</option>
+<option>RAV4</option>
+<option>Hilux</option>
+<option>Supra</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Year</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body">
+<option>2025</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+<option>2021</option>
+<option>2020</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Vehicle Registration Copy</label>
+<label class="flex items-center justify-center w-full bg-surface-container-lowest border-2 border-dashed border-outline-variant/30 hover:border-primary/50 transition-colors rounded-lg px-4 py-2 cursor-pointer group">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors" data-icon="upload">upload</span>
+<span class="text-sm font-medium text-secondary">Upload Document</span>
+</div>
+<input class="hidden" type="file"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Section 3: Address Details -->
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h2 class="font-headline text-xl font-bold tracking-tight uppercase">Address Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Governorate</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body">
+<option>Al Asimah</option>
+<option>Hawalli</option>
+<option>Farwaniya</option>
+<option>Mubarak Al-Kabeer</option>
+<option>Ahmadi</option>
+<option>Jahra</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Area</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Area name" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Block</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Block no." type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Street</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Street name" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Building</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Building no." type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Floor</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Floor" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold font-label tracking-widest text-secondary uppercase mb-2">Flat</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-on-surface font-body" placeholder="Flat" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Communication Preferences -->
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<h2 class="font-headline text-xl font-bold tracking-tight uppercase">Communication Preferences</h2>
+</div>
+<p class="text-sm text-secondary mb-6">How would you like to receive updates about your orders and vehicle maintenance?</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<label class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="w-5 h-5 rounded border-secondary text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium font-label">SMS</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="w-5 h-5 rounded border-secondary text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium font-label">WhatsApp</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="w-5 h-5 rounded border-secondary text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium font-label">Email</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="w-5 h-5 rounded border-secondary text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium font-label">Call</span>
+</label>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-4 pt-4">
+<button class="w-full md:w-auto px-12 py-4 bg-primary hover:bg-primary-container text-on-primary font-headline font-bold tracking-tight rounded-lg transition-all transform active:scale-95 shadow-lg shadow-primary/20 uppercase" type="submit">
+                        REGISTER ACCOUNT
+                    </button>
+<button class="w-full md:w-auto px-12 py-4 bg-surface-container-highest text-on-surface font-headline font-bold tracking-tight rounded-lg transition-all hover:bg-surface-container-high uppercase" type="button">
+                        CANCEL
+                    </button>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer Replicated from {{DATA:SCREEN:SCREEN_56}} -->
+<footer class="bg-white py-12 px-8 border-t border-zinc-200 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12">
+<div class="flex flex-col gap-6">
+<div class="font-black text-zinc-900 text-2xl font-headline flex items-center gap-2">
+<img alt="Sayarti By AlSayer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiEKpLgd4oXw3sqmQ-bFhlymDxqBPoA3qfAjCN7gMnKgFbKwhN25qcpUdrscZdrH8Y9Rr5vVevJ0G23_brRQdLK54hbKotmGARsp0TJep9PIXjcXrhY0t1Jc3S21Fkd0PTT2sAfll5yffpYDn6NSRdRYoqwsYv0-V1PrEJYiFYl9WrQEMAjUah-CUcTWnZPB9JxPGMpIg9xs8_Jwvk4uRpkRMCCQmMKfREBKPzHAM5q_BqYOUv1cWkDCQeXK2yGlv3ALejSTWEQ" style=""/>
+</div>
+<p class="font-manrope text-sm text-zinc-600 max-w-md" style="">Enhance every drive with Genuine Toyota Accessories from Sayarti by AlSayer. Precision-engineered for perfect fit and uncompromising durability.</p>
+<div class="text-red-600 font-manrope text-sm" style="">© 2026 Sayarti By AlSayer. All rights reserved.</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">Navigation</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Sayarti Locations</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Help Center</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">About Sayarti</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">Legal</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Privacy Policy</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Terms of Use</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors" href="#" style="">Help</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-headline font-bold text-zinc-900 uppercase text-xs tracking-widest" style="">CONNECT</h5>
+<ul class="flex flex-col gap-2 font-manrope text-sm text-zinc-600">
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">camera</span> Instagram</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">smart_display</span> YouTube</a></li>
+<li class="" style=""><a class="hover:text-zinc-900 transition-colors flex items-center gap-2" href="#" style=""><span class="material-symbols-outlined text-sm" style="">music_note</span> TikTok</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
