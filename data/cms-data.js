@@ -142,6 +142,146 @@ const SayartiData = {
     wishlist: ['p-armor-01', 'ac-wheels-01', 'og-rack-01', 'cn-nav-01']
   },
 
+  /* ===== CMS Customers (Demo) ===== */
+  cmsCustomers: [
+    {
+      id: 'CUS-001', civilId: '284012345678', firstName: 'Ahmed', lastName: 'Al-Rashidi', salutation: 'Mr.',
+      email: 'ahmed.r@email.com', phone: '+965 9712 3456', status: 'Active',
+      registeredDate: '2025-11-15', lastLogin: '2026-03-22 14:30',
+      vehicle: { model: 'GR Supra', year: '2024', plateNumber: '22-9481' },
+      address: { governorate: 'Hawalli', area: 'Salmiya', block: '10', street: 'Salem Al-Mubarak', building: '12', floor: '3', flat: '7' },
+      commPrefs: { sms: true, whatsapp: true, email: true, call: false },
+      orders: [
+        { id: 'SAY-2026-018', items: ['GR Heritage Carbon Fiber Rear Wing'], date: 'Mar 20, 2026', total: 425.000, status: 'Processing' },
+        { id: 'SAY-2026-005', items: ['TRD Performance Air Intake', 'LED Fog Lights'], date: 'Feb 14, 2026', total: 695.000, status: 'Delivered' },
+        { id: 'SAY-2025-089', items: ['Premium All-Weather Floor Mats'], date: 'Dec 02, 2025', total: 130.000, status: 'Delivered' }
+      ],
+      inquiries: [
+        { id: 'INQ-0041', subject: 'Carbon Fiber Wing Installation', status: 'New', date: 'Mar 20, 2026', priority: 'High' },
+        { id: 'INQ-0028', subject: 'Air Intake Compatibility', status: 'Responded', date: 'Feb 10, 2026', priority: 'Medium' }
+      ],
+      totalSpent: 1250.000, lifetimeOrders: 3, avgOrderValue: 416.667
+    },
+    {
+      id: 'CUS-002', civilId: '285098765432', firstName: 'Fatimah', lastName: 'Al-Hussain', salutation: 'Mrs.',
+      email: 'fatimah.h@email.com', phone: '+965 9698 7654', status: 'Active',
+      registeredDate: '2025-08-22', lastLogin: '2026-03-21 09:15',
+      vehicle: { model: 'Land Cruiser 300', year: '2025', plateNumber: '15-7823' },
+      address: { governorate: 'Al Asimah', area: 'Kuwait City', block: '3', street: 'Fahad Al-Salem', building: '45', floor: '1', flat: '2' },
+      commPrefs: { sms: true, whatsapp: false, email: true, call: true },
+      orders: [
+        { id: 'SAY-2026-012', items: ['Land Cruiser Bull Bar Kit'], date: 'Mar 05, 2026', total: 450.000, status: 'Delivered' },
+        { id: 'SAY-2026-001', items: ['Stainless Steel Side Steps', 'Roof Rack System'], date: 'Jan 18, 2026', total: 680.000, status: 'Delivered' },
+        { id: 'SAY-2025-076', items: ['Premium Floor Mats', 'Boot Liner'], date: 'Nov 10, 2025', total: 195.000, status: 'Delivered' },
+        { id: 'SAY-2025-045', items: ['Dash Cam Pro 4K'], date: 'Sep 20, 2025', total: 250.000, status: 'Delivered' }
+      ],
+      inquiries: [
+        { id: 'INQ-0035', subject: 'Bull Bar Warranty Query', status: 'Responded', date: 'Mar 08, 2026', priority: 'Low' }
+      ],
+      totalSpent: 1575.000, lifetimeOrders: 4, avgOrderValue: 393.750
+    },
+    {
+      id: 'CUS-003', civilId: '290123456789', firstName: 'Khalid', lastName: 'Al-Mutairi', salutation: 'Mr.',
+      email: 'khalid.m@email.com', phone: '+965 9554 3210', status: 'Active',
+      registeredDate: '2026-01-10', lastLogin: '2026-03-23 08:45',
+      vehicle: { model: 'Hilux GR-S', year: '2025', plateNumber: '33-4512' },
+      address: { governorate: 'Al Ahmadi', area: 'Fahaheel', block: '8', street: 'Main St', building: '67', floor: '', flat: '' },
+      commPrefs: { sms: true, whatsapp: true, email: false, call: false },
+      orders: [
+        { id: 'SAY-2026-021', items: ['Off-Road Suspension Lift Kit'], date: 'Mar 22, 2026', total: 890.000, status: 'Processing' },
+        { id: 'SAY-2026-009', items: ['Heavy-Duty Winch 12000lb'], date: 'Feb 28, 2026', total: 720.000, status: 'Shipped' }
+      ],
+      inquiries: [
+        { id: 'INQ-0044', subject: 'Suspension Lift ETA', status: 'New', date: 'Mar 22, 2026', priority: 'High' },
+        { id: 'INQ-0039', subject: 'Winch Mounting Install', status: 'Responded', date: 'Mar 01, 2026', priority: 'Medium' },
+        { id: 'INQ-0032', subject: 'Hilux Snorkel Kit Availability', status: 'Responded', date: 'Feb 15, 2026', priority: 'Low' }
+      ],
+      totalSpent: 1610.000, lifetimeOrders: 2, avgOrderValue: 805.000
+    },
+    {
+      id: 'CUS-004', civilId: '287654321098', firstName: 'Sarah', lastName: 'Williams', salutation: 'Ms.',
+      email: 'sarah.w@email.com', phone: '+965 9432 1098', status: 'Active',
+      registeredDate: '2025-06-05', lastLogin: '2026-03-19 17:00',
+      vehicle: { model: 'Camry', year: '2024', plateNumber: '18-6789' },
+      address: { governorate: 'Hawalli', area: 'Jabriya', block: '5', street: 'University Rd', building: '23', floor: '6', flat: '12' },
+      commPrefs: { sms: false, whatsapp: true, email: true, call: false },
+      orders: [
+        { id: 'SAY-2026-014', items: ['GR Racing Jacket', 'GR Racing Cap'], date: 'Mar 12, 2026', total: 215.000, status: 'Delivered' },
+        { id: 'SAY-2025-092', items: ['Insulated Travel Mug', 'Leather Keyring'], date: 'Dec 18, 2025', total: 45.000, status: 'Delivered' }
+      ],
+      inquiries: [
+        { id: 'INQ-0036', subject: 'Jacket Size Exchange', status: 'Processing', date: 'Mar 13, 2026', priority: 'Medium' }
+      ],
+      totalSpent: 260.000, lifetimeOrders: 2, avgOrderValue: 130.000
+    },
+    {
+      id: 'CUS-005', civilId: '291987654321', firstName: 'Mohammed', lastName: 'Al-Enezi', salutation: 'Mr.',
+      email: 'mohammed.e@email.com', phone: '+965 9321 0987', status: 'Inactive',
+      registeredDate: '2025-03-20', lastLogin: '2025-12-10 11:30',
+      vehicle: { model: 'Corolla Cross', year: '2023', plateNumber: '41-2345' },
+      address: { governorate: 'Al Farwaniyah', area: 'Khaitan', block: '2', street: 'Industrial Area', building: '5', floor: '', flat: '' },
+      commPrefs: { sms: true, whatsapp: false, email: false, call: true },
+      orders: [
+        { id: 'SAY-2025-033', items: ['All-Weather Floor Mats'], date: 'Jul 08, 2025', total: 95.000, status: 'Delivered' }
+      ],
+      inquiries: [],
+      totalSpent: 95.000, lifetimeOrders: 1, avgOrderValue: 95.000
+    },
+    {
+      id: 'CUS-006', civilId: '288765432109', firstName: 'Nora', lastName: 'Al-Sabah', salutation: 'Mrs.',
+      email: 'nora.s@email.com', phone: '+965 9210 9876', status: 'Active',
+      registeredDate: '2025-12-01', lastLogin: '2026-03-23 10:20',
+      vehicle: { model: 'RAV4', year: '2025', plateNumber: '27-8901' },
+      address: { governorate: 'Mubarak Al-Kabeer', area: 'Abu Fatira', block: '4', street: 'Ring Rd', building: '90', floor: '2', flat: '5' },
+      commPrefs: { sms: true, whatsapp: true, email: true, call: true },
+      orders: [
+        { id: 'SAY-2026-019', items: ['Wireless CarPlay Adapter', 'Phone Mount Pro'], date: 'Mar 21, 2026', total: 185.000, status: 'Processing' },
+        { id: 'SAY-2026-008', items: ['Dash Cam Pro 4K', 'Parking Sensor Kit'], date: 'Feb 25, 2026', total: 410.000, status: 'Delivered' },
+        { id: 'SAY-2026-003', items: ['Tinted Window Film', 'Paint Protection Film'], date: 'Jan 22, 2026', total: 340.000, status: 'Delivered' }
+      ],
+      inquiries: [
+        { id: 'INQ-0043', subject: 'CarPlay Adapter Compatibility', status: 'New', date: 'Mar 21, 2026', priority: 'Medium' },
+        { id: 'INQ-0030', subject: 'PPF Warranty Coverage', status: 'Responded', date: 'Feb 01, 2026', priority: 'Low' }
+      ],
+      totalSpent: 935.000, lifetimeOrders: 3, avgOrderValue: 311.667
+    },
+    {
+      id: 'CUS-007', civilId: '286543210987', firstName: 'Ahmad', lastName: 'Al-Therm', salutation: 'Mr.',
+      email: 'atherm@alsayergroup.com', phone: '+965 9876 5432', status: 'Active',
+      registeredDate: '2025-09-10', lastLogin: '2026-03-23 11:45',
+      vehicle: { model: 'Land Cruiser 300', year: '2025', plateNumber: '12-3456' },
+      address: { governorate: 'Hawalli', area: 'Salmiya', block: '7', street: 'Al-Hamra', building: '18', floor: '4', flat: '9' },
+      commPrefs: { sms: true, whatsapp: true, email: true, call: false },
+      orders: [
+        { id: 'SAY-2026-028', items: [
+            { name: 'Ceramic Pro Paint Protection Film', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAniP8hJ5rkCFIXCBeAsQ02sCNQiJW7cRVUeP7VsjfS1ZfgPbV0dLa8xRD19oR4qQTXKBbYyha2726hja9Y4SICLgB7_D-NnGvQsZeSH5GpEawc2B5sWF-QlHHVA033tbJPXnkSQKunBPxQpdhxVaR_GGN7D3K-kJRWIbsyolcfxyLeN7CKSc8GNMmq6bogsO8jOIotrXGrkHoGScHkIoqpYPwLAQa90M5bw6QZha19BWCcur0s2SG9Tlx3hbvsb8IM5X8KcennAlY', price: 120.000, qty: 1 },
+            { name: 'All-Weather Heavy Duty Mats', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDcv0twFET87XSVzPECbC_ECoqXcRB-0Z8u-OkJULQP0CaRyKE7YTjglEwj1MaYYCZ0uIeXHGGKuM7Ph1QiynnjUv3ng0rV9VnzHfRmnTDJmv58fioQ_9sMRu2m8fB4m1nJA73rIFqeNTSLeVzmMeJueTd4ZjMkjoDH1YnRgnbBcMpQ6cgHmtZM1voyu_-PNsqsUsHr-jLc-uIDNEYbYUvdPnvMJGCJ4hIa4Uha3cFX42Q5cLT1PZwfm5gjgMUT82FNUjLXsIP-pbE', price: 45.000, qty: 1 }
+          ], date: 'Mar 22, 2026', total: 165.000, status: 'Processing' },
+        { id: 'SAY-2026-015', items: [
+            { name: '4K Smart Dash Camera', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBl-V90YuD-Ban63P5dYuBlWX8fyv48ZGSNGqwXTb1XCtLp30RGRqt_FeCi8xoE1Mm6-hlhvJ0sOSRu1w8kRqgHdj9hl9R818OFMpcKPe6F43mVpt5pnIFUp0esyHMGSiYv2YjzIVP3s2Zi0mWnzTY4CLP7ewvoCP3jTiyIvRyYs3bLOKhyu5iO0n5NPFyI-Mlv5SJRKVpTskh76OiVlImNke8qACNP9XMM_AylEw7EaWliYq2o7JNP50yZ10WWEJp9V7SrFAtDgCo', price: 145.000, qty: 1 },
+            { name: 'GPS Vehicle Tracker', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBl-V90YuD-Ban63P5dYuBlWX8fyv48ZGSNGqwXTb1XCtLp30RGRqt_FeCi8xoE1Mm6-hlhvJ0sOSRu1w8kRqgHdj9hl9R818OFMpcKPe6F43mVpt5pnIFUp0esyHMGSiYv2YjzIVP3s2Zi0mWnzTY4CLP7ewvoCP3jTiyIvRyYs3bLOKhyu5iO0n5NPFyI-Mlv5SJRKVpTskh76OiVlImNke8qACNP9XMM_AylEw7EaWliYq2o7JNP50yZ10WWEJp9V7SrFAtDgCo', price: 75.000, qty: 1 }
+          ], date: 'Mar 08, 2026', total: 220.000, status: 'Shipped' },
+        { id: 'SAY-2026-007', items: [
+            { name: 'Heavy-Duty Aluminum Underbody Armor', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2KIk-qfMhhsErDtKnVj6VH1IEix1cLB6EWFcpJqLQHjzn_fTD0wf9X1q4X1q9LyIBNlt9J8cUhM_IFzKD4I6wJrv8pnySSdkIv-3rrFsXPBuAoaTAmoZHnW-DBgXQAAYLjuVpX-hBBT5ZTYBowthhOJKLNwPnHrdj4AyCunXg48HN2jgEj5c4KwAgzT9BImqL5fV64viERnu0j7lRzaGzQToPqhgDYaf2wVUeftAICrSDjqhHWyZIQhmk_PSpkcOeY3Ez7w6YYd4', price: 245.000, qty: 1 }
+          ], date: 'Feb 20, 2026', total: 245.000, status: 'Delivered' },
+        { id: 'SAY-2025-095', items: [
+            { name: 'TRD Carbon Fiber Rear Spoiler', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDy4LAXG-pNPqy4Y2Z4xjHuwmBtkKALtW5XQX3GtaxvhHvBKx32Lf14QVp2YDWlgQrNh_lG8o7YBBIh3wO_LoBvyN7pES6AEL0TU_M5cnEwL1t1khTtOkZO2mnfefBzSHZO-e-523i1RhNfVHDBdvHZ0nm6xGPJBsFTXR5bvlqGXqXazLfBSqdO9HNgudXh_tfiMwj_s3C5CPjIOVYu8Q5HmHoZbcJO6N_LNZL3YfojKW4nRQjS4TV6uZHesgpCN7Iny4bSG9PO8Ps', price: 320.000, qty: 1 },
+            { name: 'Performance Exhaust Tips', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDy4LAXG-pNPqy4Y2Z4xjHuwmBtkKALtW5XQX3GtaxvhHvBKx32Lf14QVp2YDWlgQrNh_lG8o7YBBIh3wO_LoBvyN7pES6AEL0TU_M5cnEwL1t1khTtOkZO2mnfefBzSHZO-e-523i1RhNfVHDBdvHZ0nm6xGPJBsFTXR5bvlqGXqXazLfBSqdO9HNgudXh_tfiMwj_s3C5CPjIOVYu8Q5HmHoZbcJO6N_LNZL3YfojKW4nRQjS4TV6uZHesgpCN7Iny4bSG9PO8Ps', price: 95.000, qty: 1 }
+          ], date: 'Dec 28, 2025', total: 415.000, status: 'Delivered' },
+        { id: 'SAY-2025-062', items: [
+            { name: 'Qi Wireless Charging Pad', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBl-V90YuD-Ban63P5dYuBlWX8fyv48ZGSNGqwXTb1XCtLp30RGRqt_FeCi8xoE1Mm6-hlhvJ0sOSRu1w8kRqgHdj9hl9R818OFMpcKPe6F43mVpt5pnIFUp0esyHMGSiYv2YjzIVP3s2Zi0mWnzTY4CLP7ewvoCP3jTiyIvRyYs3bLOKhyu5iO0n5NPFyI-Mlv5SJRKVpTskh76OiVlImNke8qACNP9XMM_AylEw7EaWliYq2o7JNP50yZ10WWEJp9V7SrFAtDgCo', price: 42.000, qty: 1 },
+            { name: 'Tough-Guard Bumper Protector', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC7ZdDFCYKy0ONNldJomA8L0hk9rXwS-LChLFSh7i84Gmlg2gZhioRkMCa89dXXoe_reywahgQTUpnQlaghSVmtRXMGOGLmOMbCWdWvYXscjG2XcUCDeII07m4DaGbTmQFHKCtlq_mdyOQpeMRfCqAqZEfHIuFcnHax-8lc547nFqg_Z03OylwZpInaCh-I9y5WvwEhvhUdNUpp2mkZvPq4s3gb3cpvDdVQaAJp1zwV-Ca3QzsRF5JoBLD3LiW2o1UPxmQuZ20a4oc', price: 32.000, qty: 1 }
+          ], date: 'Oct 15, 2025', total: 74.000, status: 'Delivered' }
+      ],
+      inquiries: [
+        { id: 'INQ-0048', subject: 'Paint Protection Film — Custom Full-Body Installation', status: 'New', date: 'Mar 22, 2026', priority: 'High' },
+        { id: 'INQ-0042', subject: '4K Dash Camera Wiring & Installation Guide', status: 'Processing', date: 'Mar 10, 2026', priority: 'Medium' },
+        { id: 'INQ-0033', subject: 'Carbon Fiber Spoiler — Available Color Options', status: 'Responded', date: 'Jan 15, 2026', priority: 'Low' }
+      ],
+      totalSpent: 1119.000, lifetimeOrders: 5, avgOrderValue: 223.800
+    }
+  ],
+
   cmsInquiries: [
     { id: 'SAY-992841', customer: 'Ahmed Al-Rashidi', email: 'ahmed.r@email.com', type: 'Accessory', status: 'New', priority: 'High', vehicle: 'Toyota Supra GR 2024', plate: '22-9481', message: 'Looking for GR Heritage Carbon Fiber Rear Wing for my 2024 Supra.', item: { name: 'GR Heritage Carbon Fiber Rear Wing', sku: 'TOY-GR-992-CF', price: 425.000 }, date: 'Oct 26, 2023' },
     { id: 'SAY-992842', customer: 'Sarah Williams', email: 'sarah.w@email.com', type: 'Merchandise', status: 'Processing', priority: 'Medium', vehicle: null, message: 'Need to exchange my GR Racing Jacket for a larger size.', item: { name: 'GR Racing Jacket', sku: 'MER-APP-JKT', price: 185.000 }, date: 'Oct 25, 2023' },
@@ -198,7 +338,7 @@ const SayartiData = {
   adminUsers: [
     {
       email: 'admin@sayarti.kw', password: 'Sayarti@2026', name: 'Ahmad Al-Sayer', role: 'Super Admin',
-      permissions: ['analytics', 'products', 'inventory', 'banners', 'inquiries', 'campaigns', 'translations', 'users'],
+      permissions: ['analytics', 'products', 'inventory', 'banners', 'inquiries', 'campaigns', 'translations', 'customers', 'users'],
       status: 'active', lastLogin: '2026-03-23 09:15', avatar: 'AS'
     },
     {
@@ -287,7 +427,7 @@ const SayartiData = {
       officialMerchandise: 'البضائع الرسمية', offersDeals: 'العروض والخصومات',
       ourLocations: 'مواقعنا', shippingInfo: 'معلومات الشحن',
       paymentMethod: 'طريقة الدفع', offersTagline: 'إكسسوارات وبضائع تويوتا الأصلية.',
-      protected: 'محمي', offGrid: 'الطرق الوعرة', connected: 'متصل', accessorized: 'مُجهّز',
+      protected: 'مَحمِيَّة', offGrid: 'مُغَامِرَة', connected: 'مُتَّصِلَة', accessorized: 'مُتَفَرِّدَة',
       privacyPolicy: 'سياسة الخصوصية', termsOfService: 'شروط الخدمة',
       returnPolicy: 'سياسة الإرجاع', warrantyInfo: 'معلومات الضمان',
       navigation: 'التنقل', legal: 'قانوني', connect: 'تواصل',

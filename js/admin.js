@@ -657,8 +657,595 @@
     { key: 'inquiries', label: 'Inquiries', icon: 'support_agent', desc: 'View and respond to customer inquiries' },
     { key: 'campaigns', label: 'Offers & Pricing', icon: 'local_offer', desc: 'Manage pricing, offers, and discounts' },
     { key: 'translations', label: 'Arabic Translations', icon: 'translate', desc: 'Manage English/Arabic website text' },
+    { key: 'customers', label: 'Customer Management', icon: 'people', desc: 'View customer profiles, orders, and interactions' },
     { key: 'users', label: 'User Management', icon: 'group', desc: 'Create users and assign permissions' }
   ];
+
+  /* ===== Customer Management Page ===== */
+  function getCustomers() {
+    const stored = localStorage.getItem('sayarti_cms_customers');
+    const seed = (window.SayartiCMS && SayartiCMS.cmsCustomers) || [];
+    if (stored) {
+      const list = JSON.parse(stored);
+      // Merge any new seed customers not yet in stored data
+      let updated = false;
+      seed.forEach(s => {
+        if (!list.find(c => c.id === s.id)) { list.push(s); updated = true; }
+      });
+      if (updated) localStorage.setItem('sayarti_cms_customers', JSON.stringify(list));
+      return list;
+    }
+    localStorage.setItem('sayarti_cms_customers', JSON.stringify(seed));
+    return seed;
+  }
+
+  function customersPage() {
+    const customers = getCustomers();
+    const registered = (JSON.parse(localStorage.getItem('sayarti_users') || '[]'));
+    // Merge portal-registered users that aren't in CMS customers yet
+    const allCustomers = [...customers];
+    registered.forEach(u => {
+      if (!allCustomers.find(c => c.civilId === u.civilId)) {
+        allCustomers.push({
+          id: 'CUS-REG-' + u.civilId,
+          civilId: u.civilId || '',
+          firstName: u.firstName || u.name || '',
+          lastName: u.lastName || '',
+          salutation: '',
+          email: u.email || '',
+          phone: u.phone || '',
+          status: u.status || 'Active',
+          registeredDate: u.createdAt ? u.createdAt.slice(0, 10) : new Date().toISOString().slice(0, 10),
+          lastLogin: '',
+          vehicle: u.vehicle ? { model: u.vehicle.model || '', year: u.vehicle.year || '', plateNumber: u.vehicle.plateNumber || '' } : null,
+          address: u.address || {},
+          commPrefs: u.commPrefs || {},
+          orders: [],
+          inquiries: [],
+          totalSpent: 0,
+          lifetimeOrders: 0,
+          avgOrderValue: 0
+        });
+      }
+    });
+
+    const total = allCustomers.length;
+    const active = allCustomers.filter(c => c.status === 'Active').length;
+    const totalRevenue = allCustomers.reduce((s, c) => s + (c.totalSpent || 0), 0);
+    const avgOrder = total > 0 ? (totalRevenue / Math.max(allCustomers.reduce((s, c) => s + (c.lifetimeOrders || 0), 0), 1)) : 0;
+    const newThisMonth = allCustomers.filter(c => {
+      const d = new Date(c.registeredDate);
+      const now = new Date();
+      return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+    }).length;
+
+    return `
+    <div class="space-y-6">
+      <!-- Header -->
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h1 class="font-heading text-2xl font-bold">Customer Management</h1>
+          <p class="text-sm text-secondary mt-1">${total} customers · 360° view of customer interactions</p>
+        </div>
+        <button class="btn-hero text-sm py-2 px-5" id="exportCustomersBtn">
+          <span class="material-symbols-outlined text-sm">download</span>Export CSV
+        </button>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="cms-stat-card">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-blue-500">group</span>
+            </div>
+            <div>
+              <p class="text-xs text-secondary">Total Customers</p>
+              <p class="text-xl font-bold">${total}</p>
+            </div>
+          </div>
+        </div>
+        <div class="cms-stat-card">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-green-500">verified</span>
+            </div>
+            <div>
+              <p class="text-xs text-secondary">Active Customers</p>
+              <p class="text-xl font-bold">${active}</p>
+            </div>
+          </div>
+        </div>
+        <div class="cms-stat-card">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-amber-500">payments</span>
+            </div>
+            <div>
+              <p class="text-xs text-secondary">Total Revenue</p>
+              <p class="text-xl font-bold">${totalRevenue.toFixed(3)} <span class="text-xs font-normal">KD</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="cms-stat-card">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-purple-500">person_add</span>
+            </div>
+            <div>
+              <p class="text-xs text-secondary">New This Month</p>
+              <p class="text-xl font-bold">${newThisMonth}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+        <div class="flex flex-wrap gap-3 items-center">
+          <div class="relative flex-1 min-w-[200px]">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span>
+            <input type="text" id="customerSearch" placeholder="Search by name, civil ID, email, phone..."
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20">
+          </div>
+          <select id="customerStatusFilter" class="py-2.5 px-4 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-primary">
+            <option value="">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+          <select id="customerVehicleFilter" class="py-2.5 px-4 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-primary">
+            <option value="">All Vehicles</option>
+            <option value="Land Cruiser">Land Cruiser</option>
+            <option value="GR Supra">GR Supra</option>
+            <option value="Hilux">Hilux</option>
+            <option value="Camry">Camry</option>
+            <option value="Corolla">Corolla</option>
+            <option value="RAV4">RAV4</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Customers Table -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm" id="customersTable">
+            <thead class="bg-gray-50 text-xs text-secondary uppercase tracking-wider">
+              <tr>
+                <th class="text-left p-4">Customer</th>
+                <th class="text-left p-4">Civil ID</th>
+                <th class="text-left p-4">Vehicle</th>
+                <th class="text-center p-4">Orders</th>
+                <th class="text-right p-4">Total Spent</th>
+                <th class="text-center p-4">Status</th>
+                <th class="text-left p-4">Last Active</th>
+                <th class="text-center p-4">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              ${allCustomers.map(c => {
+                const initials = (c.firstName?.[0] || '') + (c.lastName?.[0] || '');
+                const statusClass = c.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500';
+                const vehicleName = c.vehicle ? c.vehicle.model + ' ' + (c.vehicle.year || '') : '—';
+                const lastActive = c.lastLogin ? c.lastLogin.split(' ')[0] : (c.registeredDate || '—');
+                return `<tr class="hover:bg-gray-50/50 transition-colors cursor-pointer customer-row" data-id="${c.id}" data-status="${c.status}" data-vehicle="${c.vehicle ? c.vehicle.model : ''}">
+                  <td class="p-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">${initials}</div>
+                      <div>
+                        <p class="font-medium">${c.salutation || ''} ${c.firstName} ${c.lastName}</p>
+                        <p class="text-xs text-secondary">${c.email || ''}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="p-4 font-mono text-xs">${c.civilId || '—'}</td>
+                  <td class="p-4">${vehicleName}</td>
+                  <td class="p-4 text-center font-medium">${c.lifetimeOrders || 0}</td>
+                  <td class="p-4 text-right font-medium">${(c.totalSpent || 0).toFixed(3)} KD</td>
+                  <td class="p-4 text-center"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${statusClass}">${c.status}</span></td>
+                  <td class="p-4 text-xs text-secondary">${lastActive}</td>
+                  <td class="p-4 text-center">
+                    <button class="view-customer-btn p-1.5 rounded-lg hover:bg-gray-100 transition-colors" data-id="${c.id}" title="View Details">
+                      <span class="material-symbols-outlined text-lg">visibility</span>
+                    </button>
+                  </td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function bindCustomerEvents() {
+    const search = $('#customerSearch');
+    const statusFilter = $('#customerStatusFilter');
+    const vehicleFilter = $('#customerVehicleFilter');
+
+    function filterRows() {
+      const q = (search ? search.value : '').toLowerCase();
+      const status = statusFilter ? statusFilter.value : '';
+      const vehicle = vehicleFilter ? vehicleFilter.value : '';
+      $$('#customersTable tbody tr').forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const rowStatus = row.dataset.status;
+        const rowVehicle = row.dataset.vehicle || '';
+        const matchText = !q || text.includes(q);
+        const matchStatus = !status || rowStatus === status;
+        const matchVehicle = !vehicle || rowVehicle.includes(vehicle);
+        row.style.display = (matchText && matchStatus && matchVehicle) ? '' : 'none';
+      });
+    }
+
+    if (search) search.addEventListener('input', filterRows);
+    if (statusFilter) statusFilter.addEventListener('change', filterRows);
+    if (vehicleFilter) vehicleFilter.addEventListener('change', filterRows);
+
+    // View customer detail
+    $$('.view-customer-btn, .customer-row').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = el.dataset.id || el.closest('tr')?.dataset.id;
+        if (id) {
+          sessionStorage.setItem('sayarti_view_customer', id);
+          location.hash = '#/customer-detail';
+        }
+      });
+    });
+
+    // Export CSV
+    const exportBtn = $('#exportCustomersBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const customers = getCustomers();
+        const headers = ['Name', 'Civil ID', 'Email', 'Phone', 'Vehicle', 'Orders', 'Total Spent', 'Status'];
+        const rows = customers.map(c => [
+          `${c.firstName} ${c.lastName}`, c.civilId, c.email, c.phone,
+          c.vehicle ? c.vehicle.model : '', c.lifetimeOrders, c.totalSpent, c.status
+        ]);
+        const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'sayarti_customers.csv'; a.click();
+        URL.revokeObjectURL(url);
+        toast('Customer data exported successfully', 'success');
+      });
+    }
+  }
+
+  /* ===== Customer 360° Detail Page ===== */
+  function customerDetailPage() {
+    const id = sessionStorage.getItem('sayarti_view_customer');
+    const customers = getCustomers();
+    // Also check portal-registered users
+    const registered = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+    let c = customers.find(x => x.id === id);
+    if (!c) {
+      const regUser = registered.find(u => ('CUS-REG-' + u.civilId) === id);
+      if (regUser) {
+        c = {
+          id: id, civilId: regUser.civilId || '', firstName: regUser.firstName || regUser.name || '', lastName: regUser.lastName || '',
+          email: regUser.email || '', phone: regUser.phone || '', status: regUser.status || 'Active',
+          registeredDate: regUser.createdAt ? regUser.createdAt.slice(0, 10) : new Date().toISOString().slice(0, 10), lastLogin: '',
+          vehicle: regUser.vehicle ? { model: regUser.vehicle.model || '', year: regUser.vehicle.year || '', plateNumber: regUser.vehicle.plateNumber || '' } : null,
+          address: regUser.address || {}, commPrefs: regUser.commPrefs || {},
+          orders: [], inquiries: [], totalSpent: 0, lifetimeOrders: 0, avgOrderValue: 0
+        };
+      }
+    }
+    if (!c) {
+      return `<div class="flex flex-col items-center justify-center h-64 text-center">
+        <span class="material-symbols-outlined text-5xl text-secondary mb-4">person_off</span>
+        <h2 class="text-xl font-bold">Customer Not Found</h2>
+        <p class="text-secondary mt-2">The customer record could not be located.</p>
+        <a href="#/customers" class="mt-4 text-primary hover:underline text-sm">← Back to Customer List</a>
+      </div>`;
+    }
+
+    const initials = (c.firstName?.[0] || '') + (c.lastName?.[0] || '');
+    const statusClass = c.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500';
+    const orders = c.orders || [];
+    const inquiries = c.inquiries || [];
+    const vehicle = c.vehicle;
+    const address = c.address || {};
+    const prefs = c.commPrefs || {};
+
+    return `
+    <div class="space-y-6">
+      <!-- Breadcrumb / Back -->
+      <div class="flex items-center gap-2 text-sm text-secondary">
+        <a href="#/customers" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-base">arrow_back</span>All Customers
+        </a>
+        <span>/</span>
+        <span class="text-gray-800 font-medium">${c.firstName} ${c.lastName}</span>
+      </div>
+
+      <!-- Customer Header Card -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">${initials}</div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 flex-wrap">
+              <h1 class="text-2xl font-bold font-heading">${c.salutation || ''} ${c.firstName} ${c.lastName}</h1>
+              <span class="px-3 py-1 rounded-full text-xs font-medium ${statusClass}">${c.status}</span>
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 mt-3 text-sm text-secondary">
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">badge</span>${c.civilId}</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">mail</span>${c.email}</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">phone</span>${c.phone}</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">calendar_today</span>Joined ${c.registeredDate}</span>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 rounded-xl border border-gray-200 text-sm hover:bg-gray-50 transition-colors" id="resetPasswordBtn" data-civilid="${c.civilId}" data-email="${c.email}" data-name="${c.firstName} ${c.lastName}">
+              <span class="material-symbols-outlined text-base align-middle mr-1">lock_reset</span>Reset Password
+            </button>
+            <button class="px-4 py-2 rounded-xl border text-sm transition-colors ${c.status === 'Active' ? 'border-red-200 text-red-600 hover:bg-red-50' : 'border-green-200 text-green-600 hover:bg-green-50'}" id="toggleStatusBtn" data-id="${c.id}" data-civilid="${c.civilId}" data-status="${c.status}">
+              <span class="material-symbols-outlined text-base align-middle mr-1">${c.status === 'Active' ? 'block' : 'check_circle'}</span>${c.status === 'Active' ? 'Deactivate' : 'Activate'}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Summary -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl border border-gray-100 p-4 text-center">
+          <p class="text-2xl font-bold text-primary">${c.lifetimeOrders || 0}</p>
+          <p class="text-xs text-secondary mt-1">Total Orders</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-100 p-4 text-center">
+          <p class="text-2xl font-bold text-green-600">${(c.totalSpent || 0).toFixed(3)} <span class="text-xs">KD</span></p>
+          <p class="text-xs text-secondary mt-1">Total Spent</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-100 p-4 text-center">
+          <p class="text-2xl font-bold text-blue-600">${(c.avgOrderValue || 0).toFixed(3)} <span class="text-xs">KD</span></p>
+          <p class="text-xs text-secondary mt-1">Avg Order Value</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-100 p-4 text-center">
+          <p class="text-2xl font-bold text-purple-600">${inquiries.length}</p>
+          <p class="text-xs text-secondary mt-1">Inquiries</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="border-b border-gray-100">
+          <nav class="flex gap-0 overflow-x-auto" id="customerTabs">
+            <button class="customer-tab active px-6 py-3.5 text-sm font-medium transition-colors relative" data-tab="orders">
+              <span class="material-symbols-outlined text-base align-middle mr-1">shopping_bag</span>Orders (${orders.length})
+            </button>
+            <button class="customer-tab px-6 py-3.5 text-sm font-medium transition-colors relative" data-tab="inquiries">
+              <span class="material-symbols-outlined text-base align-middle mr-1">support_agent</span>Inquiries (${inquiries.length})
+            </button>
+            <button class="customer-tab px-6 py-3.5 text-sm font-medium transition-colors relative" data-tab="vehicle">
+              <span class="material-symbols-outlined text-base align-middle mr-1">directions_car</span>Vehicle
+            </button>
+            <button class="customer-tab px-6 py-3.5 text-sm font-medium transition-colors relative" data-tab="profile">
+              <span class="material-symbols-outlined text-base align-middle mr-1">person</span>Profile & Address
+            </button>
+          </nav>
+        </div>
+
+        <!-- Tab: Orders -->
+        <div class="customer-tab-panel p-6" id="tab-orders">
+          ${orders.length === 0 ? `<div class="text-center py-12 text-secondary">
+            <span class="material-symbols-outlined text-4xl mb-3">shopping_cart</span>
+            <p>No orders yet</p>
+          </div>` : `
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50 text-xs text-secondary uppercase tracking-wider">
+                <tr>
+                  <th class="text-left p-3">Order ID</th>
+                  <th class="text-left p-3">Items</th>
+                  <th class="text-left p-3">Date</th>
+                  <th class="text-right p-3">Total</th>
+                  <th class="text-center p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                ${orders.map(o => {
+                  const oStatus = o.status === 'Delivered' ? 'bg-green-100 text-green-700' :
+                    o.status === 'Processing' ? 'bg-amber-100 text-amber-700' :
+                    o.status === 'Shipped' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600';
+                  const hasDetail = o.items.length > 0 && typeof o.items[0] === 'object';
+                  const itemsHtml = hasDetail
+                    ? o.items.map(it => `<div class="flex items-center gap-3 py-1.5">
+                        <img src="${it.image}" alt="${it.name}" class="w-10 h-10 rounded-lg object-cover border border-gray-100 flex-shrink-0">
+                        <div class="min-w-0">
+                          <p class="font-medium text-sm truncate">${it.name}</p>
+                          <p class="text-xs text-secondary">${it.price.toFixed(3)} KD × ${it.qty}</p>
+                        </div>
+                      </div>`).join('')
+                    : `<p class="py-1">${(o.items || []).join(', ')}</p>`;
+                  return `<tr class="hover:bg-gray-50/50 align-top">
+                    <td class="p-3 font-mono text-xs font-medium">${o.id}</td>
+                    <td class="p-3">${itemsHtml}</td>
+                    <td class="p-3 text-secondary">${o.date}</td>
+                    <td class="p-3 text-right font-medium">${o.total.toFixed(3)} KD</td>
+                    <td class="p-3 text-center"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${oStatus}">${o.status}</span></td>
+                  </tr>`;
+                }).join('')}
+                }).join('')}
+              </tbody>
+            </table>
+          </div>`}
+        </div>
+
+        <!-- Tab: Inquiries -->
+        <div class="customer-tab-panel p-6 hidden" id="tab-inquiries">
+          ${inquiries.length === 0 ? `<div class="text-center py-12 text-secondary">
+            <span class="material-symbols-outlined text-4xl mb-3">inbox</span>
+            <p>No inquiries</p>
+          </div>` : `
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50 text-xs text-secondary uppercase tracking-wider">
+                <tr>
+                  <th class="text-left p-3">Inquiry ID</th>
+                  <th class="text-left p-3">Subject</th>
+                  <th class="text-left p-3">Date</th>
+                  <th class="text-center p-3">Priority</th>
+                  <th class="text-center p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                ${inquiries.map(inq => {
+                  const iStatus = inq.status === 'Responded' ? 'bg-green-100 text-green-700' :
+                    inq.status === 'Processing' ? 'bg-amber-100 text-amber-700' :
+                    inq.status === 'New' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600';
+                  const iPriority = inq.priority === 'High' ? 'bg-red-100 text-red-700' :
+                    inq.priority === 'Medium' ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-600';
+                  return `<tr class="hover:bg-gray-50/50">
+                    <td class="p-3 font-mono text-xs font-medium">${inq.id}</td>
+                    <td class="p-3">${inq.subject}</td>
+                    <td class="p-3 text-secondary">${inq.date}</td>
+                    <td class="p-3 text-center"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${iPriority}">${inq.priority || '—'}</span></td>
+                    <td class="p-3 text-center"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${iStatus}">${inq.status}</span></td>
+                  </tr>`;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>`}
+        </div>
+
+        <!-- Tab: Vehicle -->
+        <div class="customer-tab-panel p-6 hidden" id="tab-vehicle">
+          ${!vehicle ? `<div class="text-center py-12 text-secondary">
+            <span class="material-symbols-outlined text-4xl mb-3">no_crash</span>
+            <p>No vehicle registered</p>
+          </div>` : `
+          <div class="max-w-md">
+            <div class="bg-gray-50 rounded-xl p-5 space-y-4">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-xl">directions_car</span>
+                </div>
+                <div>
+                  <p class="font-bold text-lg">${vehicle.model}</p>
+                  <p class="text-sm text-secondary">${vehicle.year}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div><p class="text-secondary text-xs uppercase tracking-wider mb-1">Model</p><p class="font-medium">${vehicle.model}</p></div>
+                <div><p class="text-secondary text-xs uppercase tracking-wider mb-1">Year</p><p class="font-medium">${vehicle.year}</p></div>
+                <div><p class="text-secondary text-xs uppercase tracking-wider mb-1">Plate Number</p><p class="font-medium">${vehicle.plateNumber || '—'}</p></div>
+              </div>
+            </div>
+          </div>`}
+        </div>
+
+        <!-- Tab: Profile & Address -->
+        <div class="customer-tab-panel p-6 hidden" id="tab-profile">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Address -->
+            <div class="bg-gray-50 rounded-xl p-5">
+              <h3 class="font-bold text-sm uppercase tracking-wider text-secondary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-base">location_on</span>Address
+              </h3>
+              <div class="grid grid-cols-2 gap-3 text-sm">
+                <div><p class="text-secondary text-xs mb-0.5">Governorate</p><p class="font-medium">${address.governorate || '—'}</p></div>
+                <div><p class="text-secondary text-xs mb-0.5">Area</p><p class="font-medium">${address.area || '—'}</p></div>
+                <div><p class="text-secondary text-xs mb-0.5">Block</p><p class="font-medium">${address.block || '—'}</p></div>
+                <div><p class="text-secondary text-xs mb-0.5">Street</p><p class="font-medium">${address.street || '—'}</p></div>
+                <div><p class="text-secondary text-xs mb-0.5">Building</p><p class="font-medium">${address.building || '—'}</p></div>
+                <div><p class="text-secondary text-xs mb-0.5">Floor / Flat</p><p class="font-medium">${address.floor || '—'} / ${address.flat || '—'}</p></div>
+              </div>
+            </div>
+            <!-- Communication Preferences -->
+            <div class="bg-gray-50 rounded-xl p-5">
+              <h3 class="font-bold text-sm uppercase tracking-wider text-secondary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-base">notifications</span>Communication Preferences
+              </h3>
+              <div class="space-y-3">
+                ${[['sms', 'SMS', 'sms'], ['whatsapp', 'WhatsApp', 'chat'], ['email', 'Email', 'email'], ['call', 'Phone Call', 'call']].map(([key, label, icon]) =>
+                  `<div class="flex items-center justify-between">
+                    <span class="flex items-center gap-2 text-sm"><span class="material-symbols-outlined text-base text-secondary">${icon}</span>${label}</span>
+                    <span class="w-5 h-5 rounded-full flex items-center justify-center ${prefs[key] ? 'bg-green-100 text-green-600' : 'bg-gray-200 text-gray-400'}">
+                      <span class="material-symbols-outlined text-sm">${prefs[key] ? 'check' : 'close'}</span>
+                    </span>
+                  </div>`
+                ).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function bindCustomerDetailEvents() {
+    // Tab switching
+    $$('.customer-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        $$('.customer-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        $$('.customer-tab-panel').forEach(p => p.classList.add('hidden'));
+        const panel = $('#tab-' + tab.dataset.tab);
+        if (panel) panel.classList.remove('hidden');
+      });
+    });
+
+    // Toggle status (Deactivate / Activate)
+    const toggleBtn = $('#toggleStatusBtn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const id = toggleBtn.dataset.id;
+        const civilId = toggleBtn.dataset.civilid;
+        const current = toggleBtn.dataset.status;
+        const newStatus = current === 'Active' ? 'Inactive' : 'Active';
+        const action = current === 'Active' ? 'deactivate' : 'activate';
+
+        if (!confirm(`Are you sure you want to ${action} this customer? ${current === 'Active' ? 'They will not be able to log in.' : 'They will regain access to their account.'}`)) return;
+
+        // Update in CMS customers
+        const customers = getCustomers();
+        const idx = customers.findIndex(c => c.id === id);
+        if (idx >= 0) {
+          customers[idx].status = newStatus;
+          localStorage.setItem('sayarti_cms_customers', JSON.stringify(customers));
+        }
+
+        // Also sync status to sayarti_users (portal-registered users)
+        if (civilId) {
+          const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+          const uIdx = users.findIndex(u => u.civilId === civilId);
+          if (uIdx >= 0) {
+            users[uIdx].status = newStatus;
+            localStorage.setItem('sayarti_users', JSON.stringify(users));
+          }
+        }
+
+        toast(`Customer ${newStatus === 'Active' ? 'activated' : 'deactivated'} successfully`, 'success');
+        route();
+      });
+    }
+
+    // Reset Password
+    const resetBtn = $('#resetPasswordBtn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const civilId = resetBtn.dataset.civilid;
+        const email = resetBtn.dataset.email;
+        const name = resetBtn.dataset.name;
+
+        if (!confirm(`Reset password for ${name}? A temporary password will be set.`)) return;
+
+        const tempPassword = 'Sayarti@Reset2026';
+        const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+        const uIdx = users.findIndex(u => u.civilId === civilId || u.email === email);
+        if (uIdx >= 0) {
+          users[uIdx].password = tempPassword;
+          localStorage.setItem('sayarti_users', JSON.stringify(users));
+          toast(`Password reset successfully. Temporary password: ${tempPassword}`, 'success');
+        } else {
+          toast('No portal account found for this customer. They may need to register first.', 'warning');
+        }
+      });
+    }
+  }
 
   function usersPage() {
     const users = getStoredUsers();
@@ -836,7 +1423,8 @@
     }
 
     // Permission guard: check if user has access to this page
-    if (page !== 'login' && isAuthenticated() && !hasPermission(page)) {
+    const permPage = page === 'customer-detail' ? 'customers' : page;
+    if (page !== 'login' && isAuthenticated() && !hasPermission(permPage)) {
       const session = getSession();
       const perms = session ? (session.permissions || []) : [];
       const firstAllowed = perms[0] || 'analytics';
@@ -848,8 +1436,9 @@
     updateSidebarAuth();
 
     // Update sidebar active state
+    const activePage = page === 'customer-detail' ? 'customers' : page;
     $$('.admin-sidebar-link').forEach(link => {
-      link.classList.toggle('active', link.dataset.page === page);
+      link.classList.toggle('active', link.dataset.page === activePage);
     });
 
     switch (page) {
@@ -860,6 +1449,8 @@
       case 'inquiries': app.innerHTML = inquiriesPage(); break;
       case 'campaigns': app.innerHTML = campaignsPage(); break;
       case 'translations': app.innerHTML = translationsPage(); bindTranslationEvents(); break;
+      case 'customers': app.innerHTML = customersPage(); bindCustomerEvents(); break;
+      case 'customer-detail': app.innerHTML = customerDetailPage(); bindCustomerDetailEvents(); break;
       case 'users': app.innerHTML = usersPage(); bindUserEvents(); break;
       case 'login': updateSidebarAuth(); app.innerHTML = loginPage(); bindLoginEvents(); break;
       default: app.innerHTML = analyticsPage();

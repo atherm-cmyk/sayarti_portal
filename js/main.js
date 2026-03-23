@@ -22,6 +22,18 @@
   function saveOrders() { localStorage.setItem('sayarti_orders', JSON.stringify(state.orders)); }
   function saveInquiries() { localStorage.setItem('sayarti_inquiries', JSON.stringify(state.inquiries)); }
 
+  // Migrate legacy single-user to multi-user storage if needed
+  (function migrateUsers() {
+    const legacy = JSON.parse(localStorage.getItem('sayarti_user') || 'null');
+    const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+    if (legacy && legacy.phone && users.length === 0) {
+      if (!legacy.civilId) legacy.civilId = '000000000000';
+      if (!legacy.password) legacy.password = 'Migrated@2026';
+      users.push(legacy);
+      localStorage.setItem('sayarti_users', JSON.stringify(users));
+    }
+  })();
+
   function updateAuthIcon() {
     const icon = $('#authIcon');
     if (!icon) return;
@@ -676,26 +688,44 @@
             <h2 class="reg-section-title">PERSONAL INFORMATION</h2>
           </div>
           <div class="grid grid-cols-3 gap-4">
-            <div>
-              <label class="form-label">SALUTATION</label>
-              <select class="form-input no-icon" id="regSalutation">
+            <div class="float-field">
+              <select class="float-input" id="regSalutation">
                 <option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option>
               </select>
+              <label class="float-label">Salutation</label>
+              <span class="float-hint">Title or prefix</span>
             </div>
-            <div>
-              <label class="form-label">${t('firstName').toUpperCase()} <span class="required">*</span></label>
-              <input class="form-input no-icon" id="regFirstName" placeholder="Enter first name" required>
+            <div class="float-field">
+              <input class="float-input" id="regFirstName" placeholder=" " required>
+              <label class="float-label">${t('firstName')} <span class="required">*</span></label>
+              <span class="float-hint">As per your Civil ID</span>
             </div>
-            <div>
-              <label class="form-label">${t('lastName').toUpperCase()} <span class="required">*</span></label>
-              <input class="form-input no-icon" id="regLastName" placeholder="Enter last name" required>
+            <div class="float-field">
+              <input class="float-input" id="regLastName" placeholder=" " required>
+              <label class="float-label">${t('lastName')} <span class="required">*</span></label>
+              <span class="float-hint">Family / surname</span>
             </div>
           </div>
-          <div class="mt-4">
-            <label class="form-label">KUWAIT MOBILE NUMBER <span class="required">*</span></label>
-            <div class="flex">
-              <span class="phone-prefix">+965</span>
-              <input class="form-input no-icon phone-input" id="regPhone" placeholder="9XXXXXXX" maxlength="8" required>
+          <div class="grid grid-cols-2 gap-4 mt-5">
+            <div class="float-field">
+              <input class="float-input" id="regCivilId" placeholder=" " maxlength="12" required>
+              <label class="float-label">Civil ID <span class="required">*</span></label>
+              <span class="float-hint">12-digit Kuwait Civil ID number</span>
+            </div>
+            <div class="float-field">
+              <input class="float-input" type="email" id="regEmail" placeholder=" " required>
+              <label class="float-label">Email Address <span class="required">*</span></label>
+              <span class="float-hint">For order updates & password recovery</span>
+            </div>
+          </div>
+          <div class="mt-5">
+            <div class="float-field">
+              <div class="flex">
+                <span class="phone-prefix">+965</span>
+                <input class="float-input phone-input" id="regPhone" placeholder=" " maxlength="8" required>
+              </div>
+              <label class="float-label" style="left:72px">Mobile Number <span class="required">*</span></label>
+              <span class="float-hint">8-digit Kuwait mobile (e.g. 9XXXXXXX)</span>
             </div>
           </div>
         </div>
@@ -707,24 +737,27 @@
             <h2 class="reg-section-title">VEHICLE DETAILS</h2>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="form-label">PLATE NUMBER <span class="required">*</span></label>
-              <input class="form-input no-icon" id="regPlateNumber" placeholder="e.g. 12345" required>
+            <div class="float-field">
+              <input class="float-input" id="regPlateNumber" placeholder=" " required>
+              <label class="float-label">Plate Number <span class="required">*</span></label>
+              <span class="float-hint">Vehicle license plate number</span>
             </div>
-            <div>
-              <label class="form-label">MODEL <span class="required">*</span></label>
-              <select class="form-input no-icon" id="regModel" required>
+            <div class="float-field">
+              <select class="float-input" id="regModel" required>
                 <option value="">Select model...</option>
                 ${vehicleModels.map(m => `<option>${m}</option>`).join('')}
               </select>
+              <label class="float-label">Model <span class="required">*</span></label>
+              <span class="float-hint">Toyota vehicle model</span>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-4 mt-4">
-            <div>
-              <label class="form-label">YEAR <span class="required">*</span></label>
-              <select class="form-input no-icon" id="regYear" required>
+          <div class="grid grid-cols-2 gap-4 mt-5">
+            <div class="float-field">
+              <select class="float-input" id="regYear" required>
                 ${years.map(y => `<option>${y}</option>`).join('')}
               </select>
+              <label class="float-label">Year <span class="required">*</span></label>
+              <span class="float-hint">Model manufacturing year</span>
             </div>
             <div>
               <label class="form-label">VEHICLE REGISTRATION COPY</label>
@@ -733,6 +766,7 @@
                 <span id="regFileName">Upload Document</span>
                 <input type="file" class="hidden" id="regVehicleDoc" accept=".pdf,.jpg,.jpeg,.png">
               </label>
+              <span class="float-hint" style="margin-top:6px">PDF, JPG or PNG (optional)</span>
             </div>
           </div>
         </div>
@@ -744,38 +778,45 @@
             <h2 class="reg-section-title">ADDRESS DETAILS</h2>
           </div>
           <div class="grid grid-cols-3 gap-4">
-            <div>
-              <label class="form-label">GOVERNORATE <span class="required">*</span></label>
-              <select class="form-input no-icon" id="regGovernorate" required>
+            <div class="float-field">
+              <select class="float-input" id="regGovernorate" required>
                 <option value="">Select...</option>
                 ${D.governorates.map(g => `<option>${g}</option>`).join('')}
               </select>
+              <label class="float-label">Governorate <span class="required">*</span></label>
+              <span class="float-hint">Kuwait governorate</span>
             </div>
-            <div>
-              <label class="form-label">AREA <span class="required">*</span></label>
-              <input class="form-input no-icon" id="regArea" placeholder="Area name" required>
+            <div class="float-field">
+              <input class="float-input" id="regArea" placeholder=" " required>
+              <label class="float-label">Area <span class="required">*</span></label>
+              <span class="float-hint">Neighbourhood name</span>
             </div>
-            <div>
-              <label class="form-label">BLOCK <span class="required">*</span></label>
-              <input class="form-input no-icon" id="regBlock" placeholder="Block no." required>
+            <div class="float-field">
+              <input class="float-input" id="regBlock" placeholder=" " required>
+              <label class="float-label">Block <span class="required">*</span></label>
+              <span class="float-hint">Block number</span>
             </div>
           </div>
-          <div class="grid grid-cols-4 gap-4 mt-4">
-            <div>
-              <label class="form-label">STREET</label>
-              <input class="form-input no-icon" id="regStreet" placeholder="Street name">
+          <div class="grid grid-cols-4 gap-4 mt-5">
+            <div class="float-field">
+              <input class="float-input" id="regStreet" placeholder=" ">
+              <label class="float-label">Street</label>
+              <span class="float-hint">Street name or no.</span>
             </div>
-            <div>
-              <label class="form-label">BUILDING</label>
-              <input class="form-input no-icon" id="regBuilding" placeholder="Building no.">
+            <div class="float-field">
+              <input class="float-input" id="regBuilding" placeholder=" ">
+              <label class="float-label">Building</label>
+              <span class="float-hint">Building number</span>
             </div>
-            <div>
-              <label class="form-label">FLOOR</label>
-              <input class="form-input no-icon" id="regFloor" placeholder="Floor">
+            <div class="float-field">
+              <input class="float-input" id="regFloor" placeholder=" ">
+              <label class="float-label">Floor</label>
+              <span class="float-hint">Floor level</span>
             </div>
-            <div>
-              <label class="form-label">FLAT</label>
-              <input class="form-input no-icon" id="regFlat" placeholder="Flat">
+            <div class="float-field">
+              <input class="float-input" id="regFlat" placeholder=" ">
+              <label class="float-label">Flat</label>
+              <span class="float-hint">Apartment / unit</span>
             </div>
           </div>
         </div>
@@ -788,12 +829,15 @@
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="form-label">PASSWORD <span class="required">*</span></label>
-              <div class="relative">
-                <input class="form-input no-icon pr-10" type="password" id="regPassword" placeholder="Min 10 characters" required>
-                <button type="button" class="pwd-toggle" id="toggleRegPwd">
-                  <span class="material-symbols-outlined text-lg">visibility_off</span>
-                </button>
+              <div class="float-field">
+                <div class="relative">
+                  <input class="float-input pr-10" type="password" id="regPassword" placeholder=" " required>
+                  <label class="float-label">Password <span class="required">*</span></label>
+                  <button type="button" class="pwd-toggle" id="toggleRegPwd">
+                    <span class="material-symbols-outlined text-lg">visibility_off</span>
+                  </button>
+                </div>
+                <span class="float-hint">Minimum 10 characters with mixed case, number & symbol</span>
               </div>
               <!-- Strength Meter -->
               <div class="mt-3">
@@ -814,12 +858,15 @@
               </ul>
             </div>
             <div>
-              <label class="form-label">CONFIRM PASSWORD <span class="required">*</span></label>
-              <div class="relative">
-                <input class="form-input no-icon pr-10" type="password" id="regConfirmPassword" placeholder="Re-enter password">
-                <button type="button" class="pwd-toggle" id="toggleRegConfirmPwd">
-                  <span class="material-symbols-outlined text-lg">visibility_off</span>
-                </button>
+              <div class="float-field">
+                <div class="relative">
+                  <input class="float-input pr-10" type="password" id="regConfirmPassword" placeholder=" ">
+                  <label class="float-label">Confirm Password <span class="required">*</span></label>
+                  <button type="button" class="pwd-toggle" id="toggleRegConfirmPwd">
+                    <span class="material-symbols-outlined text-lg">visibility_off</span>
+                  </button>
+                </div>
+                <span class="float-hint">Re-enter your password to confirm</span>
               </div>
               <p class="text-xs mt-2" id="pwdMatchMsg" style="color:#9ca3af">&nbsp;</p>
             </div>
@@ -860,24 +907,171 @@
             <span class="material-symbols-outlined reg-section-icon">login</span>
             <h2 class="reg-section-title">ACCOUNT LOGIN</h2>
           </div>
-          <p class="text-sm text-secondary mb-5">Enter your Civil ID and Mobile Number to sign in.</p>
-          <div class="space-y-4">
-            <div>
-              <label class="form-label">CIVIL ID <span class="required">*</span></label>
-              <input class="form-input no-icon" id="loginCivilId" placeholder="e.g. 281234567890" maxlength="12">
+          <p class="text-sm text-secondary mb-5">Enter your Civil ID and password to sign in.</p>
+          <div class="space-y-5">
+            <div class="float-field">
+              <input class="float-input" id="loginCivilId" placeholder=" " maxlength="12">
+              <label class="float-label">Civil ID <span class="required">*</span></label>
+              <span class="float-hint">12-digit Kuwait Civil ID number</span>
             </div>
-            <div>
-              <label class="form-label">KUWAIT MOBILE NUMBER <span class="required">*</span></label>
-              <div class="flex">
-                <span class="phone-prefix">+965</span>
-                <input class="form-input no-icon phone-input" id="loginPhone" placeholder="9XXXXXXX" maxlength="8">
+            <div class="float-field">
+              <div class="relative">
+                <input class="float-input pr-10" type="password" id="loginPassword" placeholder=" ">
+                <label class="float-label">Password <span class="required">*</span></label>
+                <button type="button" class="pwd-toggle" id="toggleLoginPwd">
+                  <span class="material-symbols-outlined text-lg">visibility_off</span>
+                </button>
               </div>
+              <span class="float-hint">Enter your account password</span>
             </div>
           </div>
-          <button class="btn-hero w-full justify-center shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all mt-6" id="loginBtn">${t('signIn')}</button>
+          <div class="flex justify-end mt-2">
+            <button type="button" class="text-sm text-primary font-semibold hover:underline cursor-pointer" id="forgotPwdLink">Forgot Password?</button>
+          </div>
+          <button class="btn-hero w-full justify-center shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all mt-4" id="loginBtn">${t('signIn')}</button>
           <p class="text-center text-sm text-secondary mt-4">Don't have an account? <a href="#/register" class="text-primary font-semibold hover:underline">${t('createAccount')}</a></p>
         </div>
       </div>
+
+      <!-- ===================== FORGOT PASSWORD ===================== -->
+      <div id="authForgot" class="hidden">
+        <div class="text-center mb-10">
+          <h1 class="font-heading text-3xl font-bold">Forgot Password</h1>
+          <p class="text-secondary mt-2">Verify your identity to reset your password.</p>
+        </div>
+        <div class="reg-section max-w-md mx-auto">
+          <div class="reg-section-header">
+            <span class="material-symbols-outlined reg-section-icon">help</span>
+            <h2 class="reg-section-title">IDENTITY VERIFICATION</h2>
+          </div>
+          <p class="text-sm text-secondary mb-5">Please enter the following mandatory details to verify your account.</p>
+          <div class="space-y-5">
+            <div class="float-field">
+              <input class="float-input" id="forgotCivilId" placeholder=" " maxlength="12">
+              <label class="float-label">Civil ID <span class="required">*</span></label>
+              <span class="float-hint">12-digit Kuwait Civil ID number</span>
+            </div>
+            <div class="float-field">
+              <div class="flex">
+                <span class="phone-prefix">+965</span>
+                <input class="float-input phone-input" id="forgotPhone" placeholder=" " maxlength="8">
+              </div>
+              <label class="float-label" style="left:72px">Mobile Number <span class="required">*</span></label>
+              <span class="float-hint">8-digit registered mobile number</span>
+            </div>
+            <div class="float-field">
+              <input class="float-input" type="email" id="forgotEmail" placeholder=" ">
+              <label class="float-label">Email Address <span class="required">*</span></label>
+              <span class="float-hint">Email used during registration</span>
+            </div>
+          </div>
+          <button class="btn-hero w-full justify-center shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all mt-6" id="forgotSubmitBtn">VERIFY &amp; SEND RESET LINK</button>
+          <p class="text-center text-sm text-secondary mt-4"><button type="button" class="text-primary font-semibold hover:underline cursor-pointer" id="backToLoginFromForgot">← Back to Sign In</button></p>
+        </div>
+      </div>
+
+      <!-- ===================== RESET PASSWORD ===================== -->
+      <div id="authReset" class="hidden">
+        <div class="text-center mb-10">
+          <h1 class="font-heading text-3xl font-bold">Reset Password</h1>
+          <p class="text-secondary mt-2">Create a new password for your account.</p>
+        </div>
+        <div class="reg-section max-w-md mx-auto">
+          <div class="reg-section-header">
+            <span class="material-symbols-outlined reg-section-icon">lock_reset</span>
+            <h2 class="reg-section-title">NEW PASSWORD</h2>
+          </div>
+          <p class="text-sm text-secondary mb-3" id="resetUserInfo"></p>
+          <div class="space-y-5">
+            <div>
+              <div class="float-field">
+                <div class="relative">
+                  <input class="float-input pr-10" type="password" id="resetPassword" placeholder=" ">
+                  <label class="float-label">New Password <span class="required">*</span></label>
+                  <button type="button" class="pwd-toggle" id="toggleResetPwd">
+                    <span class="material-symbols-outlined text-lg">visibility_off</span>
+                  </button>
+                </div>
+                <span class="float-hint">Minimum 10 characters with mixed case, number & symbol</span>
+              </div>
+                  <span class="material-symbols-outlined text-lg">visibility_off</span>
+                </button>
+              </div>
+              <div class="mt-3">
+                <div class="pwd-strength-bar"><div class="pwd-strength-fill" id="resetPwdStrengthFill"></div></div>
+                <span class="text-xs font-semibold mt-1 block" id="resetPwdStrengthLabel" style="color:#9ca3af">Enter a password</span>
+              </div>
+              <ul class="pwd-rules mt-3" id="resetPwdRules">
+                <li id="resetRuleLength"><span class="material-symbols-outlined">close</span> At least 10 characters</li>
+                <li id="resetRuleUpper"><span class="material-symbols-outlined">close</span> One uppercase letter (A-Z)</li>
+                <li id="resetRuleLower"><span class="material-symbols-outlined">close</span> One lowercase letter (a-z)</li>
+                <li id="resetRuleNumber"><span class="material-symbols-outlined">close</span> One number (0-9)</li>
+                <li id="resetRuleSpecial"><span class="material-symbols-outlined">close</span> One special character (!@#$...)</li>
+              </ul>
+            </div>
+            <div>
+              <div class="float-field">
+                <div class="relative">
+                  <input class="float-input pr-10" type="password" id="resetConfirmPassword" placeholder=" ">
+                  <label class="float-label">Confirm New Password <span class="required">*</span></label>
+                  <button type="button" class="pwd-toggle" id="toggleResetConfirmPwd">
+                    <span class="material-symbols-outlined text-lg">visibility_off</span>
+                  </button>
+                </div>
+                <span class="float-hint">Re-enter your new password to confirm</span>
+              </div>
+              <p class="text-xs mt-2" id="resetPwdMatchMsg" style="color:#9ca3af">&nbsp;</p>
+            </div>
+          </div>
+          <button class="btn-hero w-full justify-center shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all mt-6" id="resetSubmitBtn">RESET PASSWORD</button>
+          <p class="text-center text-sm text-secondary mt-4"><button type="button" class="text-primary font-semibold hover:underline cursor-pointer" id="backToLoginFromReset">← Back to Sign In</button></p>
+        </div>
+      </div>
+
+      <!-- ===================== ACCOUNT EXISTS MODAL ===================== -->
+      <div id="accountExistsModal" class="auth-modal-overlay hidden">
+        <div class="auth-modal">
+          <div class="auth-modal-header">
+            <span class="material-symbols-outlined" style="font-size:40px;color:#bd0014">account_circle</span>
+            <h2 class="font-heading text-xl font-bold mt-3">Account Already Exists</h2>
+            <p class="text-sm text-secondary mt-2" id="existsModalMsg">An account with this information already exists.</p>
+          </div>
+          <div class="auth-modal-body">
+            <button class="auth-modal-option" id="existsForgotBtn">
+              <span class="material-symbols-outlined">help</span>
+              <div>
+                <strong>Forgot Password</strong>
+                <p class="text-xs text-secondary mt-0.5">I don't remember my login credentials</p>
+              </div>
+            </button>
+            <button class="auth-modal-option" id="existsResetBtn">
+              <span class="material-symbols-outlined">lock_reset</span>
+              <div>
+                <strong>Reset Password</strong>
+                <p class="text-xs text-secondary mt-0.5">I want to set a new password</p>
+              </div>
+            </button>
+          </div>
+          <button class="text-sm text-secondary hover:text-on-surface mt-4 cursor-pointer" id="existsCloseBtn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- ===================== EMAIL SENT CONFIRMATION ===================== -->
+      <div id="emailSentModal" class="auth-modal-overlay hidden">
+        <div class="auth-modal">
+          <div class="auth-modal-header">
+            <span class="material-symbols-outlined" style="font-size:48px;color:#16a34a">mark_email_read</span>
+            <h2 class="font-heading text-xl font-bold mt-3">Reset Link Sent!</h2>
+            <p class="text-sm text-secondary mt-2" id="emailSentMsg">A password reset link has been sent to your email address.</p>
+          </div>
+          <div class="auth-modal-body">
+            <p class="text-sm text-secondary">Please check your inbox and follow the link to reset your password. The link will expire in 30 minutes.</p>
+            <p class="text-xs text-secondary mt-3">Didn't receive the email? Check your spam folder or try again.</p>
+          </div>
+          <button class="btn-hero px-8 justify-center mt-4" id="emailSentOkBtn">CONTINUE TO RESET</button>
+        </div>
+      </div>
+
     </div>`;
   }
 
@@ -901,8 +1095,8 @@
         </div>
         <div class="flex-1 min-w-0">
           <h1 class="font-heading text-xl font-bold">${u.firstName} ${u.lastName}</h1>
-          <p class="text-sm text-secondary">${u.email} · ${u.phone}</p>
-          <p class="text-xs text-secondary mt-1">${t('governorate')}: ${u.governorate || '—'}</p>
+          <p class="text-sm text-secondary">${u.email || ''} · ${u.phone}</p>
+          <p class="text-xs text-secondary mt-1">Civil ID: ${u.civilId || '—'} · ${t('governorate')}: ${u.address?.governorate || u.governorate || '—'}</p>
         </div>
         <button class="btn-outline text-sm" id="logoutBtn">${t('logout')}</button>
       </div>
@@ -1179,6 +1373,8 @@
         const salutation = ($('#regSalutation') || {}).value;
         const firstName = ($('#regFirstName') || {}).value?.trim();
         const lastName = ($('#regLastName') || {}).value?.trim();
+        const civilId = ($('#regCivilId') || {}).value?.trim();
+        const email = ($('#regEmail') || {}).value?.trim();
         const phone = ($('#regPhone') || {}).value?.trim();
         const password = ($('#regPassword') || {}).value;
         const confirmPassword = ($('#regConfirmPassword') || {}).value;
@@ -1199,14 +1395,25 @@
           call: ($('#prefCall') || {}).checked
         };
 
-        if (!firstName || !lastName || !phone || !password) {
-          toast('Please fill in all required fields', 'error');
-          // Highlight empty required fields
-          [['#regFirstName',firstName],['#regLastName',lastName],['#regPhone',phone],['#regPassword',password]].forEach(([s,v]) => {
-            const el = $(s); if (el) el.classList.toggle('input-error', !v);
-          });
-          return;
+        // Validate required fields
+        const reqFields = [
+          ['#regFirstName', firstName, 'First Name is required'],
+          ['#regLastName', lastName, 'Last Name is required'],
+          ['#regCivilId', civilId, 'Civil ID is required'],
+          ['#regEmail', email, 'Email Address is required'],
+          ['#regPhone', phone, 'Mobile Number is required'],
+          ['#regPassword', password, 'Password is required']
+        ];
+        for (const [sel, val, msg] of reqFields) {
+          if (!val) {
+            toast(msg, 'error');
+            $(sel)?.classList.add('input-error');
+            $(sel)?.focus();
+            return;
+          }
         }
+        if (civilId.length < 12) { toast('Civil ID must be 12 digits', 'error'); $('#regCivilId')?.classList.add('input-error'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { toast('Please enter a valid email address', 'error'); $('#regEmail')?.classList.add('input-error'); return; }
         if (phone.length < 8) { toast('Please enter a valid 8-digit Kuwait mobile number', 'error'); $('#regPhone')?.classList.add('input-error'); return; }
         if (!plateNumber) { toast('Plate Number is required', 'error'); $('#regPlateNumber')?.classList.add('input-error'); return; }
         if (!model) { toast('Please select a vehicle model', 'error'); $('#regModel')?.classList.add('input-error'); return; }
@@ -1220,12 +1427,45 @@
         if (!/[^A-Za-z0-9]/.test(password)) { toast('Password must contain a special character', 'error'); return; }
         if (password !== confirmPassword) { toast('Passwords do not match', 'error'); return; }
 
-        state.user = {
-          salutation, firstName, lastName, phone: '+965' + phone,
+        // Check for duplicate user (Civil ID or Phone)
+        const existingUsers = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+        const duplicateByCivil = existingUsers.find(u => u.civilId === civilId);
+        const duplicateByPhone = existingUsers.find(u => u.phone === '+965' + phone);
+        const duplicateByEmail = existingUsers.find(u => u.email?.toLowerCase() === email.toLowerCase());
+
+        if (duplicateByCivil || duplicateByPhone || duplicateByEmail) {
+          const dup = duplicateByCivil || duplicateByPhone || duplicateByEmail;
+          let reason = '';
+          if (duplicateByCivil) reason = 'Civil ID <strong>' + civilId + '</strong>';
+          else if (duplicateByPhone) reason = 'Mobile Number <strong>+965 ' + phone + '</strong>';
+          else reason = 'Email <strong>' + email + '</strong>';
+
+          const modal = $('#accountExistsModal');
+          const msg = $('#existsModalMsg');
+          if (msg) msg.innerHTML = 'An account registered with ' + reason + ' already exists. Would you like to recover your account?';
+          if (modal) modal.classList.remove('hidden');
+          // Store the found user's civil ID for forgot/reset flow
+          modal.dataset.civilId = dup.civilId;
+          return;
+        }
+
+        // Create new user
+        const newUser = {
+          civilId, salutation, firstName, lastName,
+          email, phone: '+965' + phone, password,
           vehicle: { plateNumber, model, year },
           address: { governorate, area, block, street, building, floor, flat },
-          commPrefs
+          commPrefs,
+          createdAt: new Date().toISOString()
         };
+
+        existingUsers.push(newUser);
+        localStorage.setItem('sayarti_users', JSON.stringify(existingUsers));
+
+        // Also set as current logged-in user
+        const sessionUser = { ...newUser };
+        delete sessionUser.password;
+        state.user = sessionUser;
         saveUser();
         updateAuthIcon();
         toast(t('accountCreated'), 'success');
@@ -1315,7 +1555,7 @@
     });
 
     // Clear error state on input focus
-    $$('.form-input').forEach(inp => {
+    $$('.form-input, .float-input').forEach(inp => {
       inp.addEventListener('focus', () => inp.classList.remove('input-error'));
     });
 
@@ -1324,22 +1564,290 @@
     if (loginBtn) {
       loginBtn.addEventListener('click', () => {
         const civilId = ($('#loginCivilId') || {}).value?.trim();
-        const phone = ($('#loginPhone') || {}).value?.trim();
+        const password = ($('#loginPassword') || {}).value;
 
-        if (!civilId || !phone) { toast(t('fillAllFields'), 'error'); return; }
+        if (!civilId || !password) {
+          toast(t('fillAllFields'), 'error');
+          if (!civilId) $('#loginCivilId')?.classList.add('input-error');
+          if (!password) $('#loginPassword')?.classList.add('input-error');
+          return;
+        }
 
-        // Check against stored user
-        const stored = JSON.parse(localStorage.getItem('sayarti_user') || 'null');
-        if (stored && stored.civilId === civilId && stored.phone === phone) {
-          state.user = stored;
-          updateAuthIcon();
-          toast(t('welcomeBack') + ' ' + stored.firstName + '!', 'success');
-          setTimeout(() => { location.hash = state.cart.length ? '#/checkout' : '#/profile'; }, 800);
-        } else {
-          toast(t('invalidCredentials'), 'error');
+        // Check against stored users
+        const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+        const found = users.find(u => u.civilId === civilId);
+
+        if (!found) {
+          toast('No account found with this Civil ID. Please register first.', 'error');
+          $('#loginCivilId')?.classList.add('input-error');
+          return;
+        }
+
+        if (found.password !== password) {
+          toast('Incorrect password. Please try again or use Forgot Password.', 'error');
+          $('#loginPassword')?.classList.add('input-error');
+          return;
+        }
+
+        // Check if account is inactive (deactivated by admin)
+        const cmsCustomers = JSON.parse(localStorage.getItem('sayarti_cms_customers') || '[]');
+        const cmsMatch = cmsCustomers.find(c => c.civilId === civilId);
+        const isInactive = found.status === 'Inactive' || (cmsMatch && cmsMatch.status === 'Inactive');
+        if (isInactive) {
+          toast('Your account has been deactivated. Please contact our support team for assistance.', 'error');
+          return;
+        }
+
+        // Successful login
+        const sessionUser = { ...found };
+        delete sessionUser.password;
+        state.user = sessionUser;
+        saveUser();
+        updateAuthIcon();
+        toast(t('welcomeBack') + ' ' + found.firstName + '!', 'success');
+        setTimeout(() => { location.hash = state.cart.length ? '#/checkout' : '#/profile'; }, 800);
+      });
+    }
+
+    // Login password toggle
+    const toggleLoginPwd = $('#toggleLoginPwd');
+    if (toggleLoginPwd) {
+      toggleLoginPwd.addEventListener('click', () => {
+        const inp = $('#loginPassword');
+        if (!inp) return;
+        const show = inp.type === 'password';
+        inp.type = show ? 'text' : 'password';
+        toggleLoginPwd.querySelector('.material-symbols-outlined').textContent = show ? 'visibility' : 'visibility_off';
+      });
+    }
+
+    // Forgot password link
+    const forgotPwdLink = $('#forgotPwdLink');
+    if (forgotPwdLink) {
+      forgotPwdLink.addEventListener('click', () => {
+        showAuthPanel('forgot');
+      });
+    }
+
+    // Back to login buttons
+    const backToLoginFromForgot = $('#backToLoginFromForgot');
+    if (backToLoginFromForgot) {
+      backToLoginFromForgot.addEventListener('click', () => {
+        showAuthPanel('login');
+      });
+    }
+    const backToLoginFromReset = $('#backToLoginFromReset');
+    if (backToLoginFromReset) {
+      backToLoginFromReset.addEventListener('click', () => {
+        showAuthPanel('login');
+      });
+    }
+
+    // Helper to show/hide auth panels
+    function showAuthPanel(panel) {
+      ['authRegister', 'authLogin', 'authForgot', 'authReset'].forEach(id => {
+        const el = $('#' + id);
+        if (el) el.classList.toggle('hidden', id !== 'auth' + panel.charAt(0).toUpperCase() + panel.slice(1));
+      });
+      const bcLabel = $('#authBreadcrumbLabel');
+      if (bcLabel) {
+        const labels = { register: t('createAccount'), login: t('signIn'), forgot: 'Forgot Password', reset: 'Reset Password' };
+        bcLabel.textContent = labels[panel] || t('signIn');
+      }
+    }
+
+    // Forgot password submit
+    const forgotSubmitBtn = $('#forgotSubmitBtn');
+    if (forgotSubmitBtn) {
+      forgotSubmitBtn.addEventListener('click', () => {
+        const civilId = ($('#forgotCivilId') || {}).value?.trim();
+        const phone = ($('#forgotPhone') || {}).value?.trim();
+        const email = ($('#forgotEmail') || {}).value?.trim();
+
+        if (!civilId || !phone || !email) {
+          toast('All fields are required for verification', 'error');
+          if (!civilId) $('#forgotCivilId')?.classList.add('input-error');
+          if (!phone) $('#forgotPhone')?.classList.add('input-error');
+          if (!email) $('#forgotEmail')?.classList.add('input-error');
+          return;
+        }
+
+        const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+        const found = users.find(u =>
+          u.civilId === civilId &&
+          u.phone === '+965' + phone &&
+          u.email?.toLowerCase() === email.toLowerCase()
+        );
+
+        if (!found) {
+          toast('No matching account found. Please check your details.', 'error');
+          return;
+        }
+
+        // Show email sent confirmation
+        const emailModal = $('#emailSentModal');
+        const emailMsg = $('#emailSentMsg');
+        if (emailMsg) {
+          const maskedEmail = email.replace(/(.{2})(.*)(@.*)/, '$1***$3');
+          emailMsg.innerHTML = 'A password reset link has been sent to <strong>' + maskedEmail + '</strong>.';
+        }
+        if (emailModal) emailModal.classList.remove('hidden');
+        // Store civil ID for reset flow
+        emailModal.dataset.civilId = civilId;
+      });
+    }
+
+    // Email sent OK → go to reset panel
+    const emailSentOkBtn = $('#emailSentOkBtn');
+    if (emailSentOkBtn) {
+      emailSentOkBtn.addEventListener('click', () => {
+        const emailModal = $('#emailSentModal');
+        const civilId = emailModal?.dataset.civilId;
+        if (emailModal) emailModal.classList.add('hidden');
+        if (civilId) {
+          const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+          const user = users.find(u => u.civilId === civilId);
+          const info = $('#resetUserInfo');
+          if (info && user) info.textContent = 'Resetting password for ' + user.firstName + ' ' + user.lastName + ' (' + user.civilId + ')';
+          const resetPanel = $('#authReset');
+          if (resetPanel) resetPanel.dataset.civilId = civilId;
+        }
+        showAuthPanel('reset');
+      });
+    }
+
+    // Account exists modal buttons
+    const existsForgotBtn = $('#existsForgotBtn');
+    if (existsForgotBtn) {
+      existsForgotBtn.addEventListener('click', () => {
+        const modal = $('#accountExistsModal');
+        const civilId = modal?.dataset.civilId;
+        if (modal) modal.classList.add('hidden');
+        showAuthPanel('forgot');
+        if (civilId) $('#forgotCivilId').value = civilId;
+      });
+    }
+
+    const existsResetBtn = $('#existsResetBtn');
+    if (existsResetBtn) {
+      existsResetBtn.addEventListener('click', () => {
+        const modal = $('#accountExistsModal');
+        const civilId = modal?.dataset.civilId;
+        if (modal) modal.classList.add('hidden');
+        showAuthPanel('forgot');
+        if (civilId) $('#forgotCivilId').value = civilId;
+      });
+    }
+
+    const existsCloseBtn = $('#existsCloseBtn');
+    if (existsCloseBtn) {
+      existsCloseBtn.addEventListener('click', () => {
+        $('#accountExistsModal')?.classList.add('hidden');
+      });
+    }
+
+    // Reset password submit
+    const resetSubmitBtn = $('#resetSubmitBtn');
+    if (resetSubmitBtn) {
+      resetSubmitBtn.addEventListener('click', () => {
+        const newPwd = ($('#resetPassword') || {}).value;
+        const confirmPwd = ($('#resetConfirmPassword') || {}).value;
+
+        if (!newPwd) { toast('Please enter a new password', 'error'); return; }
+        if (newPwd.length < 10) { toast('Password must be at least 10 characters', 'error'); return; }
+        if (!/[A-Z]/.test(newPwd)) { toast('Password must contain an uppercase letter', 'error'); return; }
+        if (!/[a-z]/.test(newPwd)) { toast('Password must contain a lowercase letter', 'error'); return; }
+        if (!/[0-9]/.test(newPwd)) { toast('Password must contain a number', 'error'); return; }
+        if (!/[^A-Za-z0-9]/.test(newPwd)) { toast('Password must contain a special character', 'error'); return; }
+        if (newPwd !== confirmPwd) { toast('Passwords do not match', 'error'); return; }
+
+        const resetPanel = $('#authReset');
+        const civilId = resetPanel?.dataset.civilId;
+        if (!civilId) { toast('Session expired. Please try again.', 'error'); showAuthPanel('forgot'); return; }
+
+        const users = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
+        const idx = users.findIndex(u => u.civilId === civilId);
+        if (idx === -1) { toast('Account not found. Please try again.', 'error'); return; }
+
+        users[idx].password = newPwd;
+        localStorage.setItem('sayarti_users', JSON.stringify(users));
+
+        toast('Password reset successful! You can now sign in with your new password.', 'success');
+        setTimeout(() => showAuthPanel('login'), 1000);
+      });
+    }
+
+    // Reset password strength meter
+    const resetPwd = $('#resetPassword');
+    const resetConfirmPwd = $('#resetConfirmPassword');
+    if (resetPwd) {
+      resetPwd.addEventListener('input', () => {
+        const val = resetPwd.value;
+        const checks = {
+          length: val.length >= 10,
+          upper: /[A-Z]/.test(val),
+          lower: /[a-z]/.test(val),
+          number: /[0-9]/.test(val),
+          special: /[^A-Za-z0-9]/.test(val)
+        };
+        const ruleMap = { length: '#resetRuleLength', upper: '#resetRuleUpper', lower: '#resetRuleLower', number: '#resetRuleNumber', special: '#resetRuleSpecial' };
+        Object.entries(ruleMap).forEach(([key, sel]) => {
+          const el = $(sel);
+          if (!el) return;
+          const icon = el.querySelector('.material-symbols-outlined');
+          if (checks[key]) {
+            el.classList.add('pass'); el.classList.remove('fail');
+            if (icon) icon.textContent = 'check';
+          } else {
+            el.classList.remove('pass'); el.classList.add('fail');
+            if (icon) icon.textContent = 'close';
+          }
+        });
+        const score = Object.values(checks).filter(Boolean).length;
+        const fill = $('#resetPwdStrengthFill');
+        const label = $('#resetPwdStrengthLabel');
+        const levels = [
+          { w: '0%', color: '#9ca3af', text: 'Enter a password' },
+          { w: '20%', color: '#ef4444', text: 'Very Weak' },
+          { w: '40%', color: '#f97316', text: 'Weak' },
+          { w: '60%', color: '#eab308', text: 'Fair' },
+          { w: '80%', color: '#22c55e', text: 'Strong' },
+          { w: '100%', color: '#16a34a', text: 'Very Strong' }
+        ];
+        const lvl = val.length === 0 ? levels[0] : levels[score];
+        if (fill) { fill.style.width = lvl.w; fill.style.background = lvl.color; }
+        if (label) { label.textContent = lvl.text; label.style.color = lvl.color; }
+        if (resetConfirmPwd && resetConfirmPwd.value) {
+          const msg = $('#resetPwdMatchMsg');
+          if (msg) {
+            if (val === resetConfirmPwd.value) { msg.textContent = '\u2713 Passwords match'; msg.style.color = '#16a34a'; }
+            else { msg.textContent = '\u2717 Passwords do not match'; msg.style.color = '#ef4444'; }
+          }
         }
       });
     }
+    if (resetConfirmPwd) {
+      resetConfirmPwd.addEventListener('input', () => {
+        const msg = $('#resetPwdMatchMsg');
+        if (msg && resetPwd) {
+          if (resetPwd.value === resetConfirmPwd.value) { msg.textContent = '\u2713 Passwords match'; msg.style.color = '#16a34a'; }
+          else { msg.textContent = '\u2717 Passwords do not match'; msg.style.color = '#ef4444'; }
+        }
+      });
+    }
+    // Reset password toggles
+    ['toggleResetPwd', 'toggleResetConfirmPwd'].forEach(id => {
+      const btn = $('#' + id);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const inp = id === 'toggleResetPwd' ? $('#resetPassword') : $('#resetConfirmPassword');
+          if (!inp) return;
+          const show = inp.type === 'password';
+          inp.type = show ? 'text' : 'password';
+          btn.querySelector('.material-symbols-outlined').textContent = show ? 'visibility' : 'visibility_off';
+        });
+      }
+    });
 
     // Logout button
     const logoutBtn = $('#logoutBtn');
