@@ -664,7 +664,7 @@
   /* ===== Customer Management Page ===== */
   function getCustomers() {
     const stored = localStorage.getItem('sayarti_cms_customers');
-    const seed = (window.SayartiCMS && SayartiCMS.cmsCustomers) || [];
+    const seed = (window.SayartiData && SayartiData.cmsCustomers) || [];
     if (stored) {
       const list = JSON.parse(stored);
       // Merge any new seed customers not yet in stored data
@@ -888,7 +888,7 @@
         const id = el.dataset.id || el.closest('tr')?.dataset.id;
         if (id) {
           sessionStorage.setItem('sayarti_view_customer', id);
-          location.hash = '#/customer-detail';
+          location.hash = '#/customer-detail?id=' + encodeURIComponent(id);
         }
       });
     });
@@ -915,8 +915,8 @@
   }
 
   /* ===== Customer 360° Detail Page ===== */
-  function customerDetailPage() {
-    const id = sessionStorage.getItem('sayarti_view_customer');
+  function customerDetailPage(urlId) {
+    const id = urlId || sessionStorage.getItem('sayarti_view_customer');
     const customers = getCustomers();
     // Also check portal-registered users
     const registered = JSON.parse(localStorage.getItem('sayarti_users') || '[]');
@@ -1413,7 +1413,9 @@
 
   function route() {
     const hash = location.hash || '#/analytics';
-    const page = hash.replace('#/', '') || 'analytics';
+    const [rawPage, qs] = hash.replace('#/', '').split('?');
+    const page = rawPage || 'analytics';
+    const hashParams = new URLSearchParams(qs || '');
     const app = $('#adminApp');
 
     // Auth guard: allow login page always, protect everything else
@@ -1450,7 +1452,7 @@
       case 'campaigns': app.innerHTML = campaignsPage(); break;
       case 'translations': app.innerHTML = translationsPage(); bindTranslationEvents(); break;
       case 'customers': app.innerHTML = customersPage(); bindCustomerEvents(); break;
-      case 'customer-detail': app.innerHTML = customerDetailPage(); bindCustomerDetailEvents(); break;
+      case 'customer-detail': app.innerHTML = customerDetailPage(hashParams.get('id')); bindCustomerDetailEvents(); break;
       case 'users': app.innerHTML = usersPage(); bindUserEvents(); break;
       case 'login': updateSidebarAuth(); app.innerHTML = loginPage(); bindLoginEvents(); break;
       default: app.innerHTML = analyticsPage();
